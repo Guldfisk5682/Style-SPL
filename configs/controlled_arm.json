@@ -1,0 +1,8 @@
+{
+  "name": "r3_split",
+  "comparison": "r3-r2 isolates separate target generator (stages + Expansion)",
+  "flags": [
+    "--independent_pooled",
+    "--split_projector"
+  ]
+}
