@@ -44,8 +44,8 @@ def main():
             scores, weights, individual = teacher_scores(images["normalized"], images["raw"],
                 texts[:3], texts[3], base_text, saved["running_means"], config["w_scale"])
             scores["adapted_without_base"] = (scores["pooled"] + scores["weighted_source"]) / 2
-            student = (scale * (images["normalized"] @ texts[4].T)).softmax(-1)
-            log_student = student.clamp_min(1e-38).log()
+            log_student = (scale * (images["normalized"] @ texts[4].T)).log_softmax(-1)
+            student = log_student.exp()
             probabilities = {k: (scale*v).softmax(-1) for k, v in scores.items()}
             stats = {}
             for name, probability in probabilities.items():

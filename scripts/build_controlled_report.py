@@ -103,6 +103,23 @@ def main():
               "## 解释与下一步边界", "",
               "r2−r1 检验独立 Pooled 参数的价值；r3−r2 检验生成器耦合影响；r4−r3 检验 r=32 非线性 Stage 映射的组合效果。最后一项同时改变了映射非线性、容量及优化参数化；若有收益，还需未来独立控制容量后才能声称收益来自 SiLU。", "",
               "这轮只有一个种子，不声称统计显著，也不使用目标标签选 checkpoint。域间 Text Feature 差异更大只是分支多样性证据；是否有用还要同时看 Teacher Quality、Student Accuracy、替换敏感性，不能只凭余弦数值给方法判优。Stage4-only、r=64、学习率调整未混入本轮。", ""]
+    redundancy_path = args.root / "teacher_redundancy.json"
+    if redundancy_path.exists():
+        redundancy = json.loads(redundancy_path.read_text())
+        lines += ["## 多路 Teacher 是否退化成相近分布", "",
+            "以下额外诊断只在 CPU 上重算保存状态，没有关闭 Base 重新训练。Without Base = Pooled 与 Weighted Source 的 Logits 平均。比较该分布与 Student 的 KL，以及 Soft CE 对 scaled Student Logits 的梯度 q_student−p_teacher。它说明分类分布层面的指导强弱，不是网络参数梯度的因果归因。", ""]
+        rows = []
+        for name, record in redundancy["tasks"].items():
+            arm, target = name.split("/")
+            branches, gradient = record["branches"], record["logit_gradient"]
+            rows.append([NAMES[arm], target, f"{branches['adapted_without_base']['kl_to_student']:.6f}",
+                f"{branches['combined']['kl_to_student']:.6f}",
+                f"{gradient['adapted_without_base_to_combined_norm_ratio']:.3f}",
+                f"{gradient['combined_vs_base_flattened_cosine']:.3f}"])
+        lines += [table(["模型", "目标", "KL(Without Base || Student)", "KL(Combined || Student)", "Without Base/Combined 梯度范数", "Combined/Base 梯度方向 Cos"], rows), ""]
+    pairing_path = args.root / "pairing_verification.json"
+    if pairing_path.exists():
+        lines += ["所有正式组的初始 Class Prompt、固定 Bank、实际源域 Centroids/Count、RNG、Source/Target 数据流和 Scheduler 均逐位一致；采样和固定图像特征差异未混入架构比较。", ""]
     if summary["all_complete"]:
         means = [summary["arms"][a]["mean_formal_accuracy"] for a in ARMS]
         lines += ["所有正式实验已完成。", "",
