@@ -12,7 +12,7 @@ while true; do
     STYLE_READY=1
     for STYLE_ARM in r4_shuffled r4_random; do
         if [[ -f "$STYLE_ROOT/queues/$STYLE_ARM/exit.txt" ]]; then
-            if ! rg -q 'exit_code=0$' "$STYLE_ROOT/queues/$STYLE_ARM/exit.txt"; then
+            if [[ "$(< "$STYLE_ROOT/queues/$STYLE_ARM/exit.txt")" != *exit_code=0 ]]; then
                 cat "$STYLE_ROOT/queues/$STYLE_ARM/exit.txt"
                 exit 1
             fi
