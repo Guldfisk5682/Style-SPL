@@ -30,6 +30,8 @@ def main():
     p = argparse.ArgumentParser(); p.add_argument("analysis_root", type=Path); p.add_argument("--publish", type=Path, required=True)
     args = p.parse_args(); root = args.analysis_root
     raw = json.loads((root / "analysis.json").read_text())
+    feature_path = root / "text_feature_exports.pt"
+    exports = torch.load(feature_path, map_location="cpu", weights_only=True) if feature_path.exists() else None
     output = args.publish; output.mkdir(parents=True, exist_ok=True)
     summary = {"training_updates": 0, "protocol": raw["protocol"], "limits": raw["limits"],
                "checkpoints_unchanged": raw["checkpoints_unchanged_after_analysis"], "targets": {}, "cross_target_models": raw["cross_target_models"]}
@@ -66,6 +68,16 @@ def main():
         if bank_path.exists():
             bank = torch.load(bank_path, map_location="cpu", weights_only=True)
             entries = [*bank["sources"], bank["pooled"], bank["target"]]
+            if exports is not None:
+                counts = torch.tensor(bank["metadata"]["counts"][:3], dtype=torch.double)
+                domain_tokens = exports[target]["prompt_tokens"].double()
+                reconstructed = (domain_tokens[:3] * (counts / counts.sum())[:, None, None]).sum(0)
+                delta = reconstructed - domain_tokens[3]
+                relative = delta.norm().item() / domain_tokens[3].norm().item()
+                if relative >= 1e-5:
+                    raise RuntimeError("Unexpected pooled-prompt linearity error")
+                s["pooled_prompt_source_weighted_average"] = {"source_image_weights": (counts/counts.sum()).tolist(),
+                   "difference_rms": delta.square().mean().sqrt().item(), "relative_l2_error": relative}
             inputs = []
             for stage in range(4):
                 descriptor = torch.stack([torch.cat(entry[stage]) for entry in entries]).double()
@@ -86,9 +98,9 @@ def main():
     for target in DOMAINS:
         destination = output / "per_class"; destination.mkdir(exist_ok=True)
         for name in ("same_class_cross_domain_cosine.csv", "teacher_per_class_accuracy.csv"):
-            shutil.copy2(root / target / name, destination / f"{target}_{name}")
+            (destination / f"{target}_{name}").write_text((root / target / name).read_text())
     for source in root.glob("cross_target_*_cosine.csv"):
-        shutil.copy2(source, output / "per_class" / source.name)
+        (output / "per_class" / source.name).write_text(source.read_text())
     s = summary["targets"]
     lines = ["# Style-SPL：2026-10-09 首轮训练诊断", "",
              "本报告只读取已完成的 seed=1、RN50、1000-step、OT-off 实验。没有新训练、消融、参数更新或标签调参。原检查点 SHA256 在分析前后完全一致。", "",
@@ -141,6 +153,7 @@ def main():
                          f"{100*s[t]['pooled_weighted_prediction_disagreement']['fraction']:.3f}%", f"{s[t]['routing']['mean_max_source_weight']:.3f}",
                          f"{s[t]['teacher_vs_base']['combined']['rescued_base_errors']} / {s[t]['teacher_vs_base']['combined']['spoiled_base_correct']}"] for t in DOMAINS]))
     lines += ["", "路由最大权重均值0.82–0.89，说明路由计算并非均匀无效；但候选源域文本特征几乎相同，切换权重难以改变输出。Weighted 相对 Pooled 的准确率变化仅约−0.21至+0.02个百分点。Base 与训练后的类别表示仍有互补，Combined 相对 Base 提高约1.53–3.23个百分点。", "",
+              "还有一项结构约束：Bank 的 Pooled 是按源图像数量加权的统计均值，而 Projector 和 Expansion 都是线性/仿射映射。因此 Pooled Domain Prompt 必然等于三个 Source Domain Prompt 按这些图像数量权重的加权平均；本轮数值重建的相对 L2 误差小于10⁻⁶。相比 SPL 独立学习的 ctx_source_combined，新的 Pooled 不再是独立可调的域提示。这不强制所有源教师相同，但在本轮源域文本已趋同的情况下，会进一步限制 Pooled/Weighted 两条路径的互补性。该恒等式只适用于原始提示，不能直接套到非线性 Text Feature。", "",
               "官方 SPL 检查点只保存 Prompt，没有质心历史，因此其 Weighted/Combined 教师不能精确恢复。可恢复的 Pooled 教师同口径结果为：" +
               "，".join(f"{DISPLAY[t]} {100*s[t]['b0_diagnostic_accuracy']['pooled']:.2f}%" for t in DOMAINS) + "。不能用 Style 的质心补入 SPL 来冒充原教师。", "",
               "## 当前可支持的机制线索与边界", "",

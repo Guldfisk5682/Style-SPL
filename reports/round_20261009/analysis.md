@@ -110,6 +110,8 @@ Weighted Source 按原 SPL 的逐图像×逐类别负平方距离 softmax 加权
 
 路由最大权重均值0.82–0.89，说明路由计算并非均匀无效；但候选源域文本特征几乎相同，切换权重难以改变输出。Weighted 相对 Pooled 的准确率变化仅约−0.21至+0.02个百分点。Base 与训练后的类别表示仍有互补，Combined 相对 Base 提高约1.53–3.23个百分点。
 
+还有一项结构约束：Bank 的 Pooled 是按源图像数量加权的统计均值，而 Projector 和 Expansion 都是线性/仿射映射。因此 Pooled Domain Prompt 必然等于三个 Source Domain Prompt 按这些图像数量权重的加权平均；本轮数值重建的相对 L2 误差小于10⁻⁶。相比 SPL 独立学习的 ctx_source_combined，新的 Pooled 不再是独立可调的域提示。这不强制所有源教师相同，但在本轮源域文本已趋同的情况下，会进一步限制 Pooled/Weighted 两条路径的互补性。该恒等式只适用于原始提示，不能直接套到非线性 Text Feature。
+
 官方 SPL 检查点只保存 Prompt，没有质心历史，因此其 Weighted/Combined 教师不能精确恢复。可恢复的 Pooled 教师同口径结果为：Art 71.90%，Clipart 53.84%，Product 81.59%，Real World 83.02%。不能用 Style 的质心补入 SPL 来冒充原教师。
 
 ## 当前可支持的机制线索与边界

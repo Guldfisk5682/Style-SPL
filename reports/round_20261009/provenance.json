@@ -1,13 +1,19 @@
 {
-  "analysis_code_sha256": {
-    "scripts/analyze_saved_round.py": "d13dddcd1464fb53e3e90829ccb522c0b0272ab37e7f4595cfa81e3a15aa33cf",
+  "extraction_runtime_sha256": {
+    "analyze_saved_round.py": "d13dddcd1464fb53e3e90829ccb522c0b0272ab37e7f4595cfa81e3a15aa33cf",
+    "round_analysis_metrics.py": "4f7038e25c1dff61011ec75fa794c26834ec338ea25fb09e11a663de4f4c45be"
+  },
+  "current_reproducibility_scripts_sha256": {
+    "scripts/analyze_saved_round.py": "d638addd4e07ab8526ad740ecdeeca3d16fb5cd6ac0e81c9a613a4127749cacc",
     "scripts/round_analysis_metrics.py": "4f7038e25c1dff61011ec75fa794c26834ec338ea25fb09e11a663de4f4c45be",
     "scripts/plot_round_analysis.py": "fa1784e884023d0e0f667daf5fdfc167fc3b272df3a430ca773aeac187943fb4",
-    "scripts/build_round_report.py": "7d8e48f78bd5d18181c80ee76ffc8519f590d517fcc47a763e81cd92c61aa7e5",
+    "scripts/build_round_report.py": "4dbfa0f15bc00239338f2507b31d5e5d9c8b8887870fbb03b6ec58342a204201",
     "scripts/run_saved_round_analysis_lab.sh": "e73ee1fb40d5c67972c2232d5ba667dd2c13bcd629e342d948ac954c7fa8f8c0"
   },
   "analysis_protocol": "Final-state read-only feature extraction and full-target evaluation; no optimizer updates.",
   "scientific_plot_exports": "PNG and PDF",
   "raw_report": "raw_analysis.json",
-  "scope": "2026-10-09 seed1 SPL/Style-SPL round"
+  "scope": "2026-10-09 seed1 SPL/Style-SPL round",
+  "extraction_runtime": "lab-server: Style-SPL/runs/analysis_runtime_20261009; frozen original extraction scripts.",
+  "later_changes": "CSV line-ending normalization, report formatting, and CPU-only pooled-prompt identity calculation. Model/teacher metric formulas unchanged."
 }
