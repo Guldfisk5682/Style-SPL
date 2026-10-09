@@ -102,7 +102,7 @@ def main():
               "保持模型参数、Class Prompt、图像特征不变，仅将某角色的 Bank 输入改为其他域或 Pooled Descriptor，仍使用该角色自己的 Projector。汇报同类别 Text Cosine、原始及逐图像去均值后的 scaled-logit RMS 差、预测翻转率和分布 KL。去均值可以排除不会改变分类的公共 Logit 偏移。独立 Pooled Tokens 不读取 Descriptor，因此对该角色的描述符替换应严格无影响，这是预期行为。全部配对与每个时点位于 descriptor_swaps.csv。", "",
               "![Descriptor swap response](figures/descriptor_swap_response.png)", "",
               "## 解释与下一步边界", "",
-              "r2−r1 检验独立 Pooled 参数的价值；r3−r2 检验生成器耦合影响；r4−r3 检验 r=32 非线性 Stage 映射的组合效果。最后一项同时改变了映射非线性、容量及优化参数化；若有收益，还需未来独立控制容量后才能声称收益来自 SiLU。", "",
+              "r2−r1 检验独立 Pooled 模块的整体价值。它不仅释放 Pooled 等于源 Prompt 线性平均的约束，也切断 Pooled 对共享 Projector 的依赖，并将其从 Expansion×四个 Stage Tokens 的秩约束中释放；因此不能把收益唯一归因于线性平均恒等式。r3−r2 检验剩余 Source/Target 生成器耦合的影响；r4−r3 检验 r=32 非线性 Stage 映射的组合效果。最后一项同时改变了映射非线性、容量及优化参数化；若有收益，还需未来独立控制容量后才能声称收益来自 SiLU。", "",
               "这轮只有一个种子，不声称统计显著，也不使用目标标签选 checkpoint。域间 Text Feature 差异更大只是分支多样性证据；是否有用还要同时看 Teacher Quality、Student Accuracy、替换敏感性，不能只凭余弦数值给方法判优。Stage4-only、r=64、学习率调整未混入本轮。", ""]
     redundancy_path = args.root / "teacher_redundancy.json"
     if redundancy_path.exists():
