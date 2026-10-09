@@ -1,0 +1,121 @@
+--- a/main.py
++++ b/main.py
+@@ -21,6 +21,8 @@
+ from samplers import RandomDomainSampler
+ import ot
+ from numerical_guard import NumericalGuard
++from task_data_audit import TaskDataAudit
++from official_metrics import OfficialMetrics
+ 
+ 
+ def arg_parse():
+@@ -172,6 +174,9 @@
+ 	print('feature_dim', feature_dim)
+ 
+ 	for target_name in domain_list:
++		# New held-out target task: never reuse earlier task iterators.
++		target_iter = None
++		source_iter = None
+ 		print("*" * 50)
+ 		print("Start training on {}".format(target_name))
+ 		tgt_save_path = os.path.join(args.output_dir, target_name)
+@@ -224,6 +229,11 @@
+ 			num_workers=4,
+ 			pin_memory=True,
+ 		)
++
++		data_audit = TaskDataAudit(tgt_save_path, args.data_root, source_name_list, target_name,
++		    source_train_loader, target_train_loader, target_test_loader)
++
++		metrics_logger = OfficialMetrics(tgt_save_path, target_name)
+ 
+ 		scale = custom_clip_model.logit_scale.exp()
+ 		prompt_learner = PromptGenerator(
+@@ -277,6 +287,7 @@
+ 				source_iter = iter(source_train_loader)
+ 				source_data, source_label, source_domain = next(source_iter)
+ 
++			data_audit.check(source_iter, target_iter, step)
+ 			target_data = target_data.to(args.device)
+ 			target_label = target_label.to(args.device)
+ 			source_data = source_data.to(args.device)
+@@ -410,6 +421,9 @@
+ 			optimizer.step()
+ 			numerical_guard.after_update(step)
+ 
++			metrics_logger.update(step, total_loss, source_loss, source_loss_idx, n_domains,
++			    target_loss, probs, (running_count > 0).float().mean().item(), optimizer.param_groups[0]["lr"])
++
+ 			if step % (args.prompt_iteration / 20) == 0:
+ 				scheduler.step()
+ 
+@@ -430,6 +444,8 @@
+ 				args,
+ 			)
+ 
++			metrics_logger.evaluation(step, acc)
++
+ 			pbar.set_description(
+ 				f"step: {step}, accuracy: {acc}, target total loss: {target_loss.item()}, classification: {target_cls_loss.item()}"
+ 			)
+@@ -438,6 +454,7 @@
+ 			print(f"Best accuracy so far: {best_acc}, step {step}, target accuracy {acc}")
+ 		
+ 		
++		data_audit.finish(args.prompt_iteration)
+ 		numerical_guard.finish(prompt_learner, args.prompt_iteration)
+ 		torch.save({
+ 			'prompt': prompt_learner.state_dict()}, 
+@@ -449,6 +466,7 @@
+ 			[prompt_learner.target_features],
+ 			args,
+ 		)
++		metrics_logger.finish(acc, best_acc, args.prompt_iteration)
+ 		print('final_accuracy: ', acc)
+ 
+ 		last_accs.append(acc)
+--- a/dataloader.py
++++ b/dataloader.py
+@@ -46,7 +46,6 @@
+         print("Generating pseudo labels for {} data".format(target_name))
+         for image, label in tqdm.tqdm(data_loader):
+             image = image.to(args.device)
+-            label = label.cpu().numpy()
+ 
+             image_features, text_features = clip_model(image, text)
+             logits_per_image = logit_scale * image_features @ text_features.t()
+@@ -54,14 +53,6 @@
+ 
+             pseudo_label = np.argmax(probs, axis=1)
+ 
+-            for i in range(pseudo_label.shape[0]):
+-                per_class_correct[class_list[pseudo_label[i]]] += (
+-                    pseudo_label[i] == label[i]
+-                )
+-                per_class_tot[class_list[label[i]]] += 1
+-            tot += image.shape[0]
+-
+-            correct += np.count_nonzero(pseudo_label == label)
+             for i in range(pseudo_label.shape[0]):
+                 data_image = image[i].cpu()
+                 data_label = pseudo_label[i]
+@@ -73,18 +64,12 @@
+                     item = data_image, -1
+                     instances.append(item)
+ 
+-    print(f"pseudo label correct rate is {correct/tot}")
+-    per_class_acc = [per_class_correct[class_name]/per_class_tot[class_name] for class_name in class_list]
+-    print("Mean per class correct rate is {}".format(np.mean(per_class_acc)))
+-    
+-    for class_name in class_list:
+-        print(f"pseudo label accuracy for {class_name} is {per_class_correct[class_name]/per_class_tot[class_name]}")
+-        
+     return instances
+ 
+ 
+ class Pseudolabeldata(Dataset):
+     def __init__(self, target_name, path, clip_model, transform, args):
++        self.root = os.path.realpath(path)
+         self.instances = make_dataset(target_name, path, clip_model, transform, args)
+ 
+     def __getitem__(self, index):

@@ -1,0 +1,15 @@
+{
+  "upstream_commit": "2c032a62fc706b643bfc30f49c9a064dd24aa7ac",
+  "engineering_commit": "3f8b91f",
+  "purpose": "Archive the exact official SPL corrections and runner deployed in Domain_Adaptation for this paired experiment. Paths in runner assume that repository layout.",
+  "runtime_files": {
+    "patches/crpl_init_checked.patch": "2af41a4cc2494dfb3aa703a2b67113bf9f6b9a574182b81816341f315ca79e21",
+    "patches/crpl_protocol_checked.patch": "fcd18f355a971530b99ea9cf7262ec3d3c0da2dbe180eeea689b385d50ca0acc",
+    "scripts/crpl_metrics.py": "657882047697fba30cea08b64c1022e38019229c0605419a079a482733bd0344",
+    "scripts/crpl_numerical_guard.py": "54bf7e19f6412957b26ea53b922c4ec8e30bb89569612585a73dcc40dd1d7fdc",
+    "scripts/crpl_task_data_audit.py": "f5a1f472ff6dd20ebc9a2d637ce1a844cfbd01e7d108bf7c1aedc5da2c410a10",
+    "scripts/run_crpl_official.sh": "254ca1f05696e7708811e71bac97a2c1b701e3b77d93530acf19f02a3a3a90a1",
+    "scripts/run_crpl_protocol_checked.sh": "7b37683132f5653602c7593f5ff93581f8bdb7ec2c9f8603c01a42d43ac22299",
+    "scripts/summarize_crpl_official.py": "aee38bdf54a2fa680ce9a226a588a84a92c66c2e0e77b01fd681d625c27fec3e"
+  }
+}

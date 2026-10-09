@@ -1,0 +1,49 @@
+--- a/model.py
++++ b/model.py
+@@ -58,6 +58,7 @@
+             
+         nn.init.normal_(ctx_cls_vector, std=0.02)
+         nn.init.normal_(ctx_target_vector, std=0.02)
++        nn.init.normal_(ctx_source_combined_vector, std=0.02)
+ 
+         prompt_prefix = " ".join(["X"] * (args.M1 + args.M2))
+ 
+--- a/main.py
++++ b/main.py
+@@ -20,6 +20,7 @@
+ from dataset import SingleSourceDataset, MultiSourceDataset
+ from samplers import RandomDomainSampler
+ import ot
++from numerical_guard import NumericalGuard
+ 
+ 
+ def arg_parse():
+@@ -230,6 +231,7 @@
+ 		)
+ 		print("PromptGenerator", summary(prompt_learner))
+ 		tokenized_prompts = prompt_learner.tokenized_prompts
++		numerical_guard = NumericalGuard(os.environ["CRPL_CHECKS_ROOT"], target_name, prompt_learner)
+ 
+ 		optimizer = torch.optim.AdamW(
+ 			list(prompt_learner.parameters()), 
+@@ -401,8 +403,12 @@
+ 			total_loss += args.t_weight * target_loss
+ 			
+ 			
++			numerical_guard.before_backward(step, {"total": total_loss, "source": source_loss,
++			    "target": target_loss, "target_classification": target_cls_loss})
+ 			total_loss.backward()
++			numerical_guard.before_update(step)
+ 			optimizer.step()
++			numerical_guard.after_update(step)
+ 
+ 			if step % (args.prompt_iteration / 20) == 0:
+ 				scheduler.step()
+@@ -432,6 +438,7 @@
+ 			print(f"Best accuracy so far: {best_acc}, step {step}, target accuracy {acc}")
+ 		
+ 		
++		numerical_guard.finish(prompt_learner, args.prompt_iteration)
+ 		torch.save({
+ 			'prompt': prompt_learner.state_dict()}, 
+ 			os.path.join(tgt_save_path, 'last.pth'))
