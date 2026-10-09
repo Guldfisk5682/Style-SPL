@@ -4,6 +4,7 @@
   "protocol": "3 labelled source domains + one unlabelled target; four held-target tasks in original order",
   "seed": 1,
   "steps_per_task": 1000,
+  "independent_pooled_initialization": "Exact initial calibrated linear S1 pooled prompt, identical in r2/r3/r4; releases the constraint without changing the initial pooled teacher",
   "unchanged": ["fixed audited style bank", "CLIP RN50 frozen", "M1=M2=16", "source sampler and target batches", "AdamW lr=.005 weight_decay=.01", "SPL losses and t_weight=.5", "teacher routing w_scale=10", "scheduler", "temporal target text averaging", "one-hot Expansion initialization"],
   "arms": [
     {"name": "r1_shared", "comparison": "Replay S1 with observational probes; verify final state vs original", "flags": []},
