@@ -43,7 +43,7 @@ def main():
     target_images = torch.stack([unlabelled[i] for i in range(30)]).cuda()
     base_tokens = clip.tokenize([f"A photo of a {name}" for name in classes]).cuda()
     report = {"bank_sha256": bank_hash, "variants": {}}
-    ref_class = ref_rng = ref_source = ref_pooled = None
+    ref_class = ref_rng = ref_source = ref_pooled = ref_initial_loss = None
     for name, independent, split, arch in [("r1_shared", False, False, "linear"),
         ("r2_pooled", True, False, "linear"), ("r3_split", True, True, "linear"),
         ("r4_silu32", True, True, "silu")]:
@@ -56,6 +56,7 @@ def main():
         if ref_class is None:
             ref_class, ref_rng = prompt.ctx_cls.detach().clone(), state_rng["torch"]
             ref_source = {k: v.clone() for k, v in prompt.style_projector.state_dict().items()}
+            ref_pooled = prompt.domain_tokens("pooled").detach().clone()
         else:
             torch.testing.assert_close(prompt.ctx_cls, ref_class, rtol=0, atol=0)
             torch.testing.assert_close(state_rng["torch"], ref_rng, rtol=0, atol=0)
@@ -63,10 +64,7 @@ def main():
                 for k, v in prompt.style_projector.state_dict().items():
                     torch.testing.assert_close(v, ref_source[k], rtol=0, atol=0)
         if independent:
-            if ref_pooled is None:
-                ref_pooled = prompt.ctx_source_combined.detach().clone()
-            else:
-                torch.testing.assert_close(prompt.ctx_source_combined, ref_pooled, rtol=0, atol=0)
+            torch.testing.assert_close(prompt.ctx_source_combined, ref_pooled, rtol=0, atol=0)
             torch.testing.assert_close(prompt.domain_tokens("pooled", descriptor_index=0),
                                        prompt.domain_tokens("pooled", descriptor_index=4), rtol=0, atol=0)
         if split:
@@ -78,6 +76,10 @@ def main():
         counts = torch.zeros(3, 65, device="cuda")
         result = spl_step(prompt, encoder, clip_model, source_images, labels, domains, target_images,
                           base_tokens, means, counts, LossValley(), 1, config, return_objectives=True)
+        if ref_initial_loss is None:
+            ref_initial_loss = result[0].detach().clone()
+        elif arch == "linear":
+            torch.testing.assert_close(result[0], ref_initial_loss, rtol=0, atol=0)
         summary = objective_gradient_probe(prompt, result[3], args.output / f"{name}_gradients.pt", 1)
         expansion_before = {n: p.clone() for n, p in prompt.named_parameters() if n.endswith("expansion")}
         optimizer = torch.optim.AdamW(prompt.parameters(), lr=.005)

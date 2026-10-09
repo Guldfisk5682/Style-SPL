@@ -126,6 +126,7 @@ def run_target(args, target, clip_model, preprocess, classnames):
     config["frozen_bank_input_sha256"] = bank_sha
     config["projector_isolation"] = "Separate stage + Expansion parameters, identical initial state; ctx_cls remains shared as in SPL" if args.split_projector else "Shared stage + Expansion parameters"
     config["calibration"] = "Once to global bank-output RMS=.02; linear: affine weights/biases; SiLU: second affine only"
+    config["independent_pooled_initialization"] = "Same calibrated initial LINEAR pooled prompt as S1, also in SiLU arm" if args.independent_pooled else None
     config["runtime_sha256"] = {name: hashlib.sha256(Path(name).read_bytes()).hexdigest()
                                for name in ("train.py", "model.py", "style.py", "spl.py", "runtime.py", "dataloader.py", "dataset.py", "samplers.py", "logging_utils.py", "task_data_audit.py", "clip_custom/model.py", "controlled_diagnostics.py", "scripts/round_analysis_metrics.py")}
     config["dependencies"] = {name: importlib.metadata.version(name) for name in ("torch", "torchvision", "numpy", "Pillow")}
