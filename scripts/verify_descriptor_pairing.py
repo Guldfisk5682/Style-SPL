@@ -11,13 +11,16 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("--root", type=Path, required=True)
     p.add_argument("--output", type=Path, required=True)
+    p.add_argument("--targets", nargs="+", choices=("art", "clipart", "product", "real_world"),
+                   default=["art", "clipart", "product", "real_world"])
     args = p.parse_args()
     report = {"matched": True, "reference": "r4_real", "tasks": {},
+              "complete_four_targets": len(args.targets) == 4,
               "checked": ["parameter count", "original bank SHA", "initial class and Pooled tokens",
                           "training RNG", "source and target stream states", "centroids and counts",
                           "scheduler", "unchanged effective descriptors"]}
     mappings = []
-    for target in ("art", "clipart", "product", "real_world"):
+    for target in args.targets:
         reference = args.root / "r4_real" / target
         a = torch.load(reference / "checkpoints/last.pth", map_location="cpu", weights_only=True)
         a0 = torch.load(reference / "mechanism/step0000.pt", map_location="cpu", weights_only=True)["prompt_state"]
