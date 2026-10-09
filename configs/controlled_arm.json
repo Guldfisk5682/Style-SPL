@@ -1,0 +1,7 @@
+{
+  "name": "r2_pooled",
+  "comparison": "r2-r1 isolates independent pooled tokens",
+  "flags": [
+    "--independent_pooled"
+  ]
+}
