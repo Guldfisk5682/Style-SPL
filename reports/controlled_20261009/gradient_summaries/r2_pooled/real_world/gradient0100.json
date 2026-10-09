@@ -1,0 +1,66 @@
+{
+  "step": 100,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 2.2285254712439637,
+      "target_norm": 0.21324462687942813,
+      "cosine": 0.09539856138090264
+    },
+    "ctx_source_combined": {
+      "source_norm": 0.8430913504086337,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.16609881728880346,
+      "target_norm": 0.018829617887449565,
+      "cosine": 0.6639864668909552
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.08196688831219158,
+      "target_norm": 0.015902362732818285,
+      "cosine": 0.28674186967816556
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.0047125254701546,
+      "target_norm": 0.0009164017444385346,
+      "cosine": 0.2864934124926286
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.09663491548670784,
+      "target_norm": 0.01788237971916803,
+      "cosine": 0.28615450651207175
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.003108525516088651,
+      "target_norm": 0.0005766558162976827,
+      "cosine": 0.2865399487117166
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.06805826822475643,
+      "target_norm": 0.011435964492533876,
+      "cosine": 0.2148217005030511
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.00138836242452682,
+      "target_norm": 0.0002331943244318702,
+      "cosine": 0.21485605240226752
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.05220347484367904,
+      "target_norm": 0.007965282033509855,
+      "cosine": 0.15549343483282896
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0019524333332063808,
+      "target_norm": 0.0003079263412337185,
+      "cosine": 0.15335800398153068
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.22592130445864486,
+    "target_norm": 0.03350772565773843,
+    "cosine": 0.41989987939236173
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "step": 900,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 1.1349094217005893,
+      "target_norm": 0.057502474866990734,
+      "cosine": -0.003397565764594889
+    },
+    "ctx_source_combined": {
+      "source_norm": 0.5506774353787509,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.14876669423529754,
+      "target_norm": 0.044727291377197276,
+      "cosine": 0.4207141412980039
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.15170249639938224,
+      "target_norm": 0.017167137517828206,
+      "cosine": 0.1095782120491977
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.008712949181746301,
+      "target_norm": 0.000988758306611199,
+      "cosine": 0.1100118282261508
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.04667027654843489,
+      "target_norm": 0.008895021039162418,
+      "cosine": 0.45887790619851637
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.0015039614235619662,
+      "target_norm": 0.00028560746268982087,
+      "cosine": 0.45976824649384673
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.06058197995220972,
+      "target_norm": 0.009049691546043993,
+      "cosine": 0.3100667072818932
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.001235215877302085,
+      "target_norm": 0.00018464429516013315,
+      "cosine": 0.31041096103252663
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.028208826053242864,
+      "target_norm": 0.003682241567794927,
+      "cosine": 0.1140904931229708
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.001089409420383936,
+      "target_norm": 0.00013431409768542202,
+      "cosine": 0.11642412566358047
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.22775007257387359,
+    "target_norm": 0.04970844769483648,
+    "cosine": 0.30547820033885115
+  }
+}

@@ -138,6 +138,11 @@ def main():
         lines += ["所有正式实验已完成。", "",
                   f"逐步平均准确率变化：独立 Pooled {100*(means[1]-means[0]):+.3f} pp；分离生成器 {100*(means[2]-means[1]):+.3f} pp；SiLU r=32 {100*(means[3]-means[2]):+.3f} pp。", "",
                   "![Final accuracy](figures/final_accuracy.png)", ""]
+        lines += ["## 本轮实际结论", "",
+            "独立 Pooled 使四个目标域全部改善，是当前最一致的结构收益。Source/Target 分离直接消除了 Target 对 Source 生成参数的梯度路径，并显著降低角色之间的 Text Cosine，但均值只增加约 .034 pp；它证实功能性耦合，不足以证明耦合是性能损失的主要原因。", "",
+            "SiLU r=32 相比分离 Linear 平均增加约 .105 pp，Art 和 Real World 下降、Clipart 和 Product 上升，不能称为稳定增益。当前最好的 76.263% 仍略低于 SPL B0 的 76.376%。SiLU 版可训练参数 1,167,744，相比分离 Full Linear 的 8,409,216 减少约 86.1%；这只能支持相对该 Linear 版本的效率优势。", "",
+            "MLP 内三个 Source 的同类别 Text Cosine 仍在 .99924–.99995；固定 Target Projector 的描述符替换平均仅翻转约 .06–.11% 的预测。Source–Target 的表示差异主要不能归功于 Style Descriptor，因为两侧 Projector 权重已经不同。现有证据尚未证明真实 Style Bank 比常量条件或普通可学习 Tokens 更必要。", "",
+            "Style 方法有继续做机制验证的价值，但现在不宜把它写成已经成立的域条件适配方法。更有判别力的后续控制是验证 Bank 的必要性，并单独考察输入的公共分量与域残差；应先于扩大 r 或混入 Stage4-only/学习率改动。本轮没有启动这些额外训练。", ""]
     else:
         lines += ["当前报告为中间汇总，未完成组不得据此作最终结论。", ""]
     (args.root / "analysis.md").write_text("\n".join(lines))

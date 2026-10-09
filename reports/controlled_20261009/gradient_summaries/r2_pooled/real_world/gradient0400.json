@@ -1,0 +1,66 @@
+{
+  "step": 400,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 1.4898261063146494,
+      "target_norm": 0.08500857963205902,
+      "cosine": -0.16812262230730715
+    },
+    "ctx_source_combined": {
+      "source_norm": 0.6492100882712141,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.14583319302129263,
+      "target_norm": 0.011611204877986022,
+      "cosine": 0.5082692479609252
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.08683504920430855,
+      "target_norm": 0.01035159406713879,
+      "cosine": 0.2819372154170796
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.00499064318021831,
+      "target_norm": 0.0005965288943204875,
+      "cosine": 0.2825351584110514
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.08922301054095556,
+      "target_norm": 0.01017541289084243,
+      "cosine": 0.06266809801332976
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.002871541506230767,
+      "target_norm": 0.0003281280857031862,
+      "cosine": 0.06341648476419257
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.053755586875055744,
+      "target_norm": 0.006610349082896409,
+      "cosine": 0.01472190509089569
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0010966669930124306,
+      "target_norm": 0.00013479369308414611,
+      "cosine": 0.014901515004513761
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.041758147757399985,
+      "target_norm": 0.003990049313335404,
+      "cosine": 0.0791510581574164
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0015949093496480026,
+      "target_norm": 0.00015424956474408518,
+      "cosine": 0.08404936213811344
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.20356496819396167,
+    "target_norm": 0.020140439208206802,
+    "cosine": 0.2903294247651904
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "step": 900,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 0.8893648727024758,
+      "target_norm": 0.047440493052077544,
+      "cosine": 0.011642577706703435
+    },
+    "ctx_source_combined": {
+      "source_norm": 0.5108608781519242,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.09708347053445415,
+      "target_norm": 0.00509345720244408,
+      "cosine": -0.2491359643679947
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.08099465448946153,
+      "target_norm": 0.011664615301336624,
+      "cosine": -0.05506731085349901
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.004652969644085087,
+      "target_norm": 0.0006709605555563112,
+      "cosine": -0.05486703458707212
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.04745258166294209,
+      "target_norm": 0.007679814141148594,
+      "cosine": -0.09375856543429463
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.0015259137587436506,
+      "target_norm": 0.0002472920591682638,
+      "cosine": -0.09421024789970629
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.029391907895811174,
+      "target_norm": 0.003809748570111246,
+      "cosine": -0.15564670007896955
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0005992748474193999,
+      "target_norm": 7.777564140787384e-05,
+      "cosine": -0.1558692200292226
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.024828236929211035,
+      "target_norm": 0.0037058974892331346,
+      "cosine": -0.06001061125823595
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0009365202021548347,
+      "target_norm": 0.0001390968716750953,
+      "cosine": -0.07336771704962967
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.14050844156801137,
+    "target_norm": 0.015804135548388006,
+    "cosine": -0.1047293472253833
+  }
+}

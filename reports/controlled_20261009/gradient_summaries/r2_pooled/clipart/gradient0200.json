@@ -1,0 +1,66 @@
+{
+  "step": 200,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 1.2675684595125563,
+      "target_norm": 0.09431188404632211,
+      "cosine": 0.058888795085088694
+    },
+    "ctx_source_combined": {
+      "source_norm": 0.8369560858072479,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.22578786440227785,
+      "target_norm": 0.010676166827344973,
+      "cosine": 0.23427688272870772
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.13480578826091813,
+      "target_norm": 0.019267818556965532,
+      "cosine": 0.021773793223478676
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.007746585199814696,
+      "target_norm": 0.0011083045530678214,
+      "cosine": 0.0218156503374126
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.08979076943511702,
+      "target_norm": 0.011467902689248306,
+      "cosine": -0.14547884792251448
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.002888190511777469,
+      "target_norm": 0.00036926951853720496,
+      "cosine": -0.14623143059539448
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.05220912054909271,
+      "target_norm": 0.006213644026398649,
+      "cosine": -0.41434026838758026
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.001064418894720792,
+      "target_norm": 0.0001268509298935053,
+      "cosine": -0.41478851654269555
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.04946377084997946,
+      "target_norm": 0.0075876763452617565,
+      "cosine": 0.0489997369643886
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.001871188581562999,
+      "target_norm": 0.0002847952610710667,
+      "cosine": 0.04540968886965516
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.2871595114077519,
+    "target_norm": 0.026728005257138986,
+    "cosine": 0.04631336061908666
+  }
+}

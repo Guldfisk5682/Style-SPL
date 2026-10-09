@@ -1,0 +1,9 @@
+{
+  "training_updates": 0,
+  "unchanged_input_checkpoints": {
+    "/home/tangxunchi/workspace/Style-SPL/runs/s1_protocol_checked_20261009_seed1/art/checkpoints/last.pth": "8a1e9b6acbc6346c4f48b917bedc427f1a0b7150e3737a8c1392eb9b56f9b9c3",
+    "/home/tangxunchi/workspace/Style-SPL/runs/s1_protocol_checked_20261009_seed1/clipart/checkpoints/last.pth": "46b8076584737d6fe59d40d68696d58289e46167aa55fb1900f7e3a80f2c690b",
+    "/home/tangxunchi/workspace/Style-SPL/runs/s1_protocol_checked_20261009_seed1/product/checkpoints/last.pth": "299bba8915044df74b57ed0dd283f7f6f9486e805a6d391dae4dc205da54b2ad",
+    "/home/tangxunchi/workspace/Style-SPL/runs/s1_protocol_checked_20261009_seed1/real_world/checkpoints/last.pth": "c3c2ad38b11ff083d73f1cad62f1ef808893af13c011fb2465f01a84f48a766a"
+  }
+}

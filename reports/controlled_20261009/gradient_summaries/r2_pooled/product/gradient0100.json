@@ -1,0 +1,66 @@
+{
+  "step": 100,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 2.2813710637334936,
+      "target_norm": 0.16267958508800331,
+      "cosine": 0.015282100987221265
+    },
+    "ctx_source_combined": {
+      "source_norm": 1.2694449155681216,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.24355540297952039,
+      "target_norm": 0.05626076335904534,
+      "cosine": 0.5330089656316628
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.29757786150838667,
+      "target_norm": 0.03432500295523211,
+      "cosine": 0.15101193668505292
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.017097496760099983,
+      "target_norm": 0.001976982577681464,
+      "cosine": 0.15112153469783202
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.07327011318540552,
+      "target_norm": 0.0077907955205384505,
+      "cosine": 0.06262150598178515
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.002359600268366935,
+      "target_norm": 0.00025015222887808067,
+      "cosine": 0.06300275072315739
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.1367100932584842,
+      "target_norm": 0.013823622043171621,
+      "cosine": -0.07111357770018775
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0027891092674971825,
+      "target_norm": 0.0002820486123893741,
+      "cosine": -0.07113254569950839
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.06868783098147349,
+      "target_norm": 0.010159518438794002,
+      "cosine": -0.03718343048282595
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0026145573972944708,
+      "target_norm": 0.00037058039969357665,
+      "cosine": -0.038586225624960765
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.42066673548084005,
+    "target_norm": 0.06857603134671399,
+    "cosine": 0.30250513805054846
+  }
+}

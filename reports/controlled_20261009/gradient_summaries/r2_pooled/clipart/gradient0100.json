@@ -1,0 +1,66 @@
+{
+  "step": 100,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 2.8402126796618967,
+      "target_norm": 0.18550269916508927,
+      "cosine": -0.01453066834004461
+    },
+    "ctx_source_combined": {
+      "source_norm": 1.3380195418183434,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.43340079862372055,
+      "target_norm": 0.04042018945038805,
+      "cosine": 0.8549447140890205
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.2113557239995527,
+      "target_norm": 0.032411218851608185,
+      "cosine": 0.35964426070352035
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.012151831339224244,
+      "target_norm": 0.001864326328079582,
+      "cosine": 0.3611731545160488
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.1507109513166895,
+      "target_norm": 0.018356644120529425,
+      "cosine": 0.09678861177300808
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.004852621325657869,
+      "target_norm": 0.0005910888258569734,
+      "cosine": 0.09714737692302527
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.0757414160366782,
+      "target_norm": 0.010220068258060194,
+      "cosine": 0.28024004217881976
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.001544107364615535,
+      "target_norm": 0.0002086416854526671,
+      "cosine": 0.2805856437409441
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.08668061041730193,
+      "target_norm": 0.011884410369280826,
+      "cosine": 0.1935943201108229
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0033085190829485094,
+      "target_norm": 0.0004460685458670671,
+      "cosine": 0.213525210822458
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.5183204809691845,
+    "target_norm": 0.057192672766738666,
+    "cosine": 0.6117132587904438
+  }
+}

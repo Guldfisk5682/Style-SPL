@@ -1,0 +1,66 @@
+{
+  "step": 800,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 1.0317588273303704,
+      "target_norm": 0.09294292470729011,
+      "cosine": -0.007847353414484151
+    },
+    "ctx_source_combined": {
+      "source_norm": 0.5364286233538065,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.17175000114935976,
+      "target_norm": 0.02508076444384853,
+      "cosine": 0.6879122399286202
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.08138598347970413,
+      "target_norm": 0.015213675246246732,
+      "cosine": -0.09893680334692792
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.004680936077272256,
+      "target_norm": 0.0008767149109419288,
+      "cosine": -0.09890454872422244
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.09252648839245449,
+      "target_norm": 0.016112678717336303,
+      "cosine": 0.12747551118398942
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.002978312453463825,
+      "target_norm": 0.0005195879988323862,
+      "cosine": 0.12796684060136215
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.05332302664689899,
+      "target_norm": 0.009306829483990043,
+      "cosine": 0.02799785042883924
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0010882147291022784,
+      "target_norm": 0.00018977846730771833,
+      "cosine": 0.02817806649668644
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.02965832305140354,
+      "target_norm": 0.005079418062264789,
+      "cosine": -0.03514748746353632
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0011024437674959713,
+      "target_norm": 0.0001963629928935077,
+      "cosine": -0.031831505407451756
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.2200886972431825,
+    "target_norm": 0.035123351391130174,
+    "cosine": 0.393156791631686
+  }
+}

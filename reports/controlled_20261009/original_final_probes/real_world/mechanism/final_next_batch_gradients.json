@@ -1,0 +1,62 @@
+{
+  "step": 1000,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 0.9789653533554821,
+      "target_norm": 0.05022082545339313,
+      "cosine": -0.022062691530632023
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.31504669546149605,
+      "target_norm": 0.013278392101241843,
+      "cosine": 0.11599094611633677
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.13964278614656905,
+      "target_norm": 0.008137692757767476,
+      "cosine": -0.0103221357459162
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.008033320865637307,
+      "target_norm": 0.0004689489206866716,
+      "cosine": -0.010521999419050462
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.14067391338501373,
+      "target_norm": 0.010635522163492823,
+      "cosine": 0.19147010784533003
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.004529068839677296,
+      "target_norm": 0.0003429652992744916,
+      "cosine": 0.19189280766759065
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.11626902036548473,
+      "target_norm": 0.00618749417778261,
+      "cosine": -0.20927799208492948
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0023730125781363594,
+      "target_norm": 0.00012617112666959434,
+      "cosine": -0.20956118279683494
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.05462184691907456,
+      "target_norm": 0.00243663440069715,
+      "cosine": -0.028601640973096032
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.002095980198737396,
+      "target_norm": 9.41967795597469e-05,
+      "cosine": -0.029535385416710077
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.3938791442041961,
+    "target_norm": 0.020005915969539864,
+    "cosine": 0.07687757261066853
+  },
+  "batch_semantics": "Next replayable batch at final checkpoint; no update; NOT historical step1000 gradient"
+}

@@ -1,0 +1,710 @@
+{
+  "protocol": "Frozen saved-state CPU diagnostics; no optimizer or training updates",
+  "logit_scale": 100.00000762939453,
+  "tasks": {
+    "r1_shared/art": {
+      "branches": {
+        "base": {
+          "kl_to_student": 0.5882246494293213,
+          "prediction_disagreement_with_student": 0.2220848798751831,
+          "accuracy_offline_only": 0.7156984210014343
+        },
+        "pooled": {
+          "kl_to_student": 0.00019392800459172577,
+          "prediction_disagreement_with_student": 0.005768438335508108,
+          "accuracy_offline_only": 0.7239390015602112
+        },
+        "weighted_source": {
+          "kl_to_student": 0.0003029105137102306,
+          "prediction_disagreement_with_student": 0.009476720355451107,
+          "accuracy_offline_only": 0.7218788862228394
+        },
+        "combined": {
+          "kl_to_student": 0.03605542331933975,
+          "prediction_disagreement_with_student": 0.06633704155683517,
+          "accuracy_offline_only": 0.7433044910430908
+        },
+        "adapted_without_base": {
+          "kl_to_student": 0.0002277531020808965,
+          "prediction_disagreement_with_student": 0.0070045324973762035,
+          "accuracy_offline_only": 0.7231149673461914
+        }
+      },
+      "pooled_weighted_prediction_disagreement": 0.004120313096791506,
+      "individual_source_kl_to_student": [
+        0.00048360388609580696,
+        0.00025975596508942544,
+        4.7934441681718454e-05
+      ],
+      "logit_gradient": {
+        "semantics": "Soft CE derivative wrt scaled Student logits: q_student - p_teacher; detached Teacher; not a parameter-gradient attribution",
+        "combined_norm": 0.06737683230073534,
+        "base_only_norm": 0.24112571624678023,
+        "adapted_without_base_norm": 0.0054509019493782455,
+        "adapted_without_base_to_combined_norm_ratio": 0.08090172486958482,
+        "combined_vs_base_flattened_cosine": 0.8245266524496471
+      },
+      "snapshot_sha256": "21b3cd2d3a1498843c16269829e319f7018ad8a83a96d75c621ec42bc124c5ae"
+    },
+    "r1_shared/clipart": {
+      "branches": {
+        "base": {
+          "kl_to_student": 0.5498026013374329,
+          "prediction_disagreement_with_student": 0.3310423791408539,
+          "accuracy_offline_only": 0.5030927658081055
+        },
+        "pooled": {
+          "kl_to_student": 0.0004771540698129684,
+          "prediction_disagreement_with_student": 0.013745704665780067,
+          "accuracy_offline_only": 0.5271477699279785
+        },
+        "weighted_source": {
+          "kl_to_student": 0.0008238243171945214,
+          "prediction_disagreement_with_student": 0.01649484597146511,
+          "accuracy_offline_only": 0.5271477699279785
+        },
+        "combined": {
+          "kl_to_student": 0.03752445429563522,
+          "prediction_disagreement_with_student": 0.11454753577709198,
+          "accuracy_offline_only": 0.5353952050209045
+        },
+        "adapted_without_base": {
+          "kl_to_student": 0.0006145542720332742,
+          "prediction_disagreement_with_student": 0.013974799774587154,
+          "accuracy_offline_only": 0.5269186496734619
+        }
+      },
+      "pooled_weighted_prediction_disagreement": 0.007789232302457094,
+      "individual_source_kl_to_student": [
+        0.0009603965445421636,
+        0.00029656151309609413,
+        0.0006268185679800808
+      ],
+      "logit_gradient": {
+        "semantics": "Soft CE derivative wrt scaled Student logits: q_student - p_teacher; detached Teacher; not a parameter-gradient attribution",
+        "combined_norm": 0.07648367250086015,
+        "base_only_norm": 0.2593875074163012,
+        "adapted_without_base_norm": 0.010358006661515451,
+        "adapted_without_base_to_combined_norm_ratio": 0.13542768440413167,
+        "combined_vs_base_flattened_cosine": 0.8759044318795202
+      },
+      "snapshot_sha256": "6851ba6b940cd12a0deaa063e3f674b201084ad84a12a20c71b7519d6fa1b692"
+    },
+    "r1_shared/product": {
+      "branches": {
+        "base": {
+          "kl_to_student": 0.5332567095756531,
+          "prediction_disagreement_with_student": 0.15814372897148132,
+          "accuracy_offline_only": 0.818427562713623
+        },
+        "pooled": {
+          "kl_to_student": 3.767831367440522e-05,
+          "prediction_disagreement_with_student": 0.0015769317978993058,
+          "accuracy_offline_only": 0.8188781142234802
+        },
+        "weighted_source": {
+          "kl_to_student": 4.070835711900145e-05,
+          "prediction_disagreement_with_student": 0.002027483657002449,
+          "accuracy_offline_only": 0.818652868270874
+        },
+        "combined": {
+          "kl_to_student": 0.0277737807482481,
+          "prediction_disagreement_with_student": 0.04978598654270172,
+          "accuracy_offline_only": 0.8337463140487671
+        },
+        "adapted_without_base": {
+          "kl_to_student": 3.608079350669868e-05,
+          "prediction_disagreement_with_student": 0.0015769317978993058,
+          "accuracy_offline_only": 0.8188781142234802
+        }
+      },
+      "pooled_weighted_prediction_disagreement": 0.00045055191731080413,
+      "individual_source_kl_to_student": [
+        0.00012465725012589246,
+        3.99085292883683e-05,
+        3.584984733606689e-05
+      ],
+      "logit_gradient": {
+        "semantics": "Soft CE derivative wrt scaled Student logits: q_student - p_teacher; detached Teacher; not a parameter-gradient attribution",
+        "combined_norm": 0.05775902453691974,
+        "base_only_norm": 0.20857397980054898,
+        "adapted_without_base_norm": 0.0021768640172477385,
+        "adapted_without_base_to_combined_norm_ratio": 0.037688725436425624,
+        "combined_vs_base_flattened_cosine": 0.8102431566451165
+      },
+      "snapshot_sha256": "8e55ae5cf7e6283d4a4e7cc39a1c2bc26fd13a14c62b4c7f808e0e9c9e8ae43b"
+    },
+    "r1_shared/real_world": {
+      "branches": {
+        "base": {
+          "kl_to_student": 0.5017200708389282,
+          "prediction_disagreement_with_student": 0.15010328590869904,
+          "accuracy_offline_only": 0.8253385424613953
+        },
+        "pooled": {
+          "kl_to_student": 4.347239882918075e-05,
+          "prediction_disagreement_with_student": 0.0020656415726989508,
+          "accuracy_offline_only": 0.8400275707244873
+        },
+        "weighted_source": {
+          "kl_to_student": 4.8799513024277985e-05,
+          "prediction_disagreement_with_student": 0.0016066100215539336,
+          "accuracy_offline_only": 0.8402570486068726
+        },
+        "combined": {
+          "kl_to_student": 0.02732931450009346,
+          "prediction_disagreement_with_student": 0.044526051729917526,
+          "accuracy_offline_only": 0.853568971157074
+        },
+        "adapted_without_base": {
+          "kl_to_student": 3.548281893017702e-05,
+          "prediction_disagreement_with_student": 0.0016066100215539336,
+          "accuracy_offline_only": 0.8402570486068726
+        }
+      },
+      "pooled_weighted_prediction_disagreement": 0.0004590314347296953,
+      "individual_source_kl_to_student": [
+        1.4191791706252843e-05,
+        0.00016158419020939618,
+        3.6290166463004425e-05
+      ],
+      "logit_gradient": {
+        "semantics": "Soft CE derivative wrt scaled Student logits: q_student - p_teacher; detached Teacher; not a parameter-gradient attribution",
+        "combined_norm": 0.05414153809864777,
+        "base_only_norm": 0.20374792640428094,
+        "adapted_without_base_norm": 0.001970783830969058,
+        "adapted_without_base_to_combined_norm_ratio": 0.03640058816537907,
+        "combined_vs_base_flattened_cosine": 0.7994525042489349
+      },
+      "snapshot_sha256": "2c3482a4d58301b44f7445dc61d58a55100e581302c92b7a548f2fcc3b066c29"
+    },
+    "r2_pooled/art": {
+      "branches": {
+        "base": {
+          "kl_to_student": 0.5816152095794678,
+          "prediction_disagreement_with_student": 0.22620518505573273,
+          "accuracy_offline_only": 0.7156984210014343
+        },
+        "pooled": {
+          "kl_to_student": 0.05616992712020874,
+          "prediction_disagreement_with_student": 0.08364235609769821,
+          "accuracy_offline_only": 0.7259991765022278
+        },
+        "weighted_source": {
+          "kl_to_student": 0.000774681509938091,
+          "prediction_disagreement_with_student": 0.007828595116734505,
+          "accuracy_offline_only": 0.7346518039703369
+        },
+        "combined": {
+          "kl_to_student": 0.032781586050987244,
+          "prediction_disagreement_with_student": 0.06386485695838928,
+          "accuracy_offline_only": 0.7433044910430908
+        },
+        "adapted_without_base": {
+          "kl_to_student": 0.015744592994451523,
+          "prediction_disagreement_with_student": 0.04903172701597214,
+          "accuracy_offline_only": 0.7264112234115601
+        }
+      },
+      "pooled_weighted_prediction_disagreement": 0.0840543881058693,
+      "individual_source_kl_to_student": [
+        0.0014064025599509478,
+        0.0006463884492404759,
+        8.695189899299294e-05
+      ],
+      "logit_gradient": {
+        "semantics": "Soft CE derivative wrt scaled Student logits: q_student - p_teacher; detached Teacher; not a parameter-gradient attribution",
+        "combined_norm": 0.06304664393982204,
+        "base_only_norm": 0.23715528613530723,
+        "adapted_without_base_norm": 0.046339775706031455,
+        "adapted_without_base_to_combined_norm_ratio": 0.7350078102533535,
+        "combined_vs_base_flattened_cosine": 0.6954560048634304
+      },
+      "snapshot_sha256": "4d10208face1c8eb9ac9ef608d8ad32b8a891e182bd45ba0bf5a29ea143dc295"
+    },
+    "r2_pooled/clipart": {
+      "branches": {
+        "base": {
+          "kl_to_student": 0.5568896532058716,
+          "prediction_disagreement_with_student": 0.33218786120414734,
+          "accuracy_offline_only": 0.5030927658081055
+        },
+        "pooled": {
+          "kl_to_student": 0.09869097918272018,
+          "prediction_disagreement_with_student": 0.17205040156841278,
+          "accuracy_offline_only": 0.5296677947044373
+        },
+        "weighted_source": {
+          "kl_to_student": 0.0018280502408742905,
+          "prediction_disagreement_with_student": 0.024284077808260918,
+          "accuracy_offline_only": 0.5383734107017517
+        },
+        "combined": {
+          "kl_to_student": 0.03346914052963257,
+          "prediction_disagreement_with_student": 0.10446735471487045,
+          "accuracy_offline_only": 0.5475372076034546
+        },
+        "adapted_without_base": {
+          "kl_to_student": 0.027388717979192734,
+          "prediction_disagreement_with_student": 0.09255441278219223,
+          "accuracy_offline_only": 0.5381443500518799
+        }
+      },
+      "pooled_weighted_prediction_disagreement": 0.1704467386007309,
+      "individual_source_kl_to_student": [
+        0.0020912843756377697,
+        0.00044787899241782725,
+        0.0011943059507757425
+      ],
+      "logit_gradient": {
+        "semantics": "Soft CE derivative wrt scaled Student logits: q_student - p_teacher; detached Teacher; not a parameter-gradient attribution",
+        "combined_norm": 0.07044957382149776,
+        "base_only_norm": 0.2583025988516331,
+        "adapted_without_base_norm": 0.06829385424671673,
+        "adapted_without_base_to_combined_norm_ratio": 0.969400530651284,
+        "combined_vs_base_flattened_cosine": 0.6826411310567503
+      },
+      "snapshot_sha256": "b65e4ac1f11cf1bb9981188cdd6e21d8eef4b636f7f805f863ab91a259726653"
+    },
+    "r2_pooled/product": {
+      "branches": {
+        "base": {
+          "kl_to_student": 0.5860745310783386,
+          "prediction_disagreement_with_student": 0.15904483199119568,
+          "accuracy_offline_only": 0.818427562713623
+        },
+        "pooled": {
+          "kl_to_student": 0.04018395021557808,
+          "prediction_disagreement_with_student": 0.06104978546500206,
+          "accuracy_offline_only": 0.815949559211731
+        },
+        "weighted_source": {
+          "kl_to_student": 0.00010475076851435006,
+          "prediction_disagreement_with_student": 0.0013516558101400733,
+          "accuracy_offline_only": 0.8299166560173035
+        },
+        "combined": {
+          "kl_to_student": 0.02646021544933319,
+          "prediction_disagreement_with_student": 0.04437936469912529,
+          "accuracy_offline_only": 0.8434332013130188
+        },
+        "adapted_without_base": {
+          "kl_to_student": 0.01021216344088316,
+          "prediction_disagreement_with_student": 0.02748366817831993,
+          "accuracy_offline_only": 0.828339695930481
+        }
+      },
+      "pooled_weighted_prediction_disagreement": 0.06059923395514488,
+      "individual_source_kl_to_student": [
+        0.0002592064265627414,
+        0.00021154936985112727,
+        7.53863641875796e-05
+      ],
+      "logit_gradient": {
+        "semantics": "Soft CE derivative wrt scaled Student logits: q_student - p_teacher; detached Teacher; not a parameter-gradient attribution",
+        "combined_norm": 0.05517599587456206,
+        "base_only_norm": 0.21904227031307671,
+        "adapted_without_base_norm": 0.034999876136390565,
+        "adapted_without_base_to_combined_norm_ratio": 0.6343315708512051,
+        "combined_vs_base_flattened_cosine": 0.6984268103254162
+      },
+      "snapshot_sha256": "3e3d5f84d70a12836760c0dd24136aea47ff9f5a57de5eb686cbfa31136f206c"
+    },
+    "r2_pooled/real_world": {
+      "branches": {
+        "base": {
+          "kl_to_student": 0.49950534105300903,
+          "prediction_disagreement_with_student": 0.15216892957687378,
+          "accuracy_offline_only": 0.8253385424613953
+        },
+        "pooled": {
+          "kl_to_student": 0.04078084975481033,
+          "prediction_disagreement_with_student": 0.056919898837804794,
+          "accuracy_offline_only": 0.8388799428939819
+        },
+        "weighted_source": {
+          "kl_to_student": 0.00010965536057483405,
+          "prediction_disagreement_with_student": 0.0018361257389187813,
+          "accuracy_offline_only": 0.8459949493408203
+        },
+        "combined": {
+          "kl_to_student": 0.026460889726877213,
+          "prediction_disagreement_with_student": 0.042230892926454544,
+          "accuracy_offline_only": 0.8565526604652405
+        },
+        "adapted_without_base": {
+          "kl_to_student": 0.010909812524914742,
+          "prediction_disagreement_with_student": 0.0293780118227005,
+          "accuracy_offline_only": 0.8466835021972656
+        }
+      },
+      "pooled_weighted_prediction_disagreement": 0.05783796310424805,
+      "individual_source_kl_to_student": [
+        5.003422484151088e-05,
+        0.0004468277038540691,
+        5.547445471165702e-05
+      ],
+      "logit_gradient": {
+        "semantics": "Soft CE derivative wrt scaled Student logits: q_student - p_teacher; detached Teacher; not a parameter-gradient attribution",
+        "combined_norm": 0.0528935471498012,
+        "base_only_norm": 0.20158504676092245,
+        "adapted_without_base_norm": 0.03641054480581512,
+        "adapted_without_base_to_combined_norm_ratio": 0.6883740412170858,
+        "combined_vs_base_flattened_cosine": 0.6910865569123233
+      },
+      "snapshot_sha256": "d2fe58f9e2d75a6e29d47a0312bbd96734579d97734c7c08672c9ead3762ec57"
+    },
+    "r3_split/art": {
+      "branches": {
+        "base": {
+          "kl_to_student": 0.5011047720909119,
+          "prediction_disagreement_with_student": 0.2175525277853012,
+          "accuracy_offline_only": 0.7156984210014343
+        },
+        "pooled": {
+          "kl_to_student": 0.07171773165464401,
+          "prediction_disagreement_with_student": 0.09435517340898514,
+          "accuracy_offline_only": 0.7239390015602112
+        },
+        "weighted_source": {
+          "kl_to_student": 0.0516827329993248,
+          "prediction_disagreement_with_student": 0.07828594744205475,
+          "accuracy_offline_only": 0.715286374092102
+        },
+        "combined": {
+          "kl_to_student": 0.025070538744330406,
+          "prediction_disagreement_with_student": 0.06098063290119171,
+          "accuracy_offline_only": 0.7412443161010742
+        },
+        "adapted_without_base": {
+          "kl_to_student": 0.046817366033792496,
+          "prediction_disagreement_with_student": 0.07086938619613647,
+          "accuracy_offline_only": 0.7243510484695435
+        }
+      },
+      "pooled_weighted_prediction_disagreement": 0.08982282876968384,
+      "individual_source_kl_to_student": [
+        0.05234155058860779,
+        0.05074522644281387,
+        0.0499793104827404
+      ],
+      "logit_gradient": {
+        "semantics": "Soft CE derivative wrt scaled Student logits: q_student - p_teacher; detached Teacher; not a parameter-gradient attribution",
+        "combined_norm": 0.05538242361592993,
+        "base_only_norm": 0.2282912325126014,
+        "adapted_without_base_norm": 0.08230924079206543,
+        "adapted_without_base_to_combined_norm_ratio": 1.4861978840592018,
+        "combined_vs_base_flattened_cosine": 0.3596347852828985
+      },
+      "snapshot_sha256": "9fbab6ae5f5844e07604aa41ac3ad45c21c98b5889b26331755d84d052a6d313"
+    },
+    "r3_split/clipart": {
+      "branches": {
+        "base": {
+          "kl_to_student": 0.5872909426689148,
+          "prediction_disagreement_with_student": 0.35761740803718567,
+          "accuracy_offline_only": 0.5030927658081055
+        },
+        "pooled": {
+          "kl_to_student": 0.11291732639074326,
+          "prediction_disagreement_with_student": 0.18350514769554138,
+          "accuracy_offline_only": 0.5170676112174988
+        },
+        "weighted_source": {
+          "kl_to_student": 0.09117207676172256,
+          "prediction_disagreement_with_student": 0.17709049582481384,
+          "accuracy_offline_only": 0.5264604687690735
+        },
+        "combined": {
+          "kl_to_student": 0.03372514620423317,
+          "prediction_disagreement_with_student": 0.11134020984172821,
+          "accuracy_offline_only": 0.5424971580505371
+        },
+        "adapted_without_base": {
+          "kl_to_student": 0.08097255229949951,
+          "prediction_disagreement_with_student": 0.15601374208927155,
+          "accuracy_offline_only": 0.5232531428337097
+        }
+      },
+      "pooled_weighted_prediction_disagreement": 0.16334478557109833,
+      "individual_source_kl_to_student": [
+        0.09097519516944885,
+        0.0912681519985199,
+        0.0904947891831398
+      ],
+      "logit_gradient": {
+        "semantics": "Soft CE derivative wrt scaled Student logits: q_student - p_teacher; detached Teacher; not a parameter-gradient attribution",
+        "combined_norm": 0.07035113382644698,
+        "base_only_norm": 0.2662264265614155,
+        "adapted_without_base_norm": 0.12155836070048498,
+        "adapted_without_base_to_combined_norm_ratio": 1.72788061952724,
+        "combined_vs_base_flattened_cosine": 0.30292745757726075
+      },
+      "snapshot_sha256": "ddab49580f805226c8386f4667579f031e81e5c0ff61fe2d08d08a2ad3191b57"
+    },
+    "r3_split/product": {
+      "branches": {
+        "base": {
+          "kl_to_student": 0.5043624043464661,
+          "prediction_disagreement_with_student": 0.1588195562362671,
+          "accuracy_offline_only": 0.818427562713623
+        },
+        "pooled": {
+          "kl_to_student": 0.06177747622132301,
+          "prediction_disagreement_with_student": 0.07389051467180252,
+          "accuracy_offline_only": 0.8166253566741943
+        },
+        "weighted_source": {
+          "kl_to_student": 0.048708703368902206,
+          "prediction_disagreement_with_student": 0.06848388910293579,
+          "accuracy_offline_only": 0.8121198415756226
+        },
+        "combined": {
+          "kl_to_student": 0.022380834445357323,
+          "prediction_disagreement_with_student": 0.04257715865969658,
+          "accuracy_offline_only": 0.8409551978111267
+        },
+        "adapted_without_base": {
+          "kl_to_student": 0.04654720425605774,
+          "prediction_disagreement_with_student": 0.0662311315536499,
+          "accuracy_offline_only": 0.8166253566741943
+        }
+      },
+      "pooled_weighted_prediction_disagreement": 0.056544266641139984,
+      "individual_source_kl_to_student": [
+        0.04783749580383301,
+        0.05063299834728241,
+        0.048148542642593384
+      ],
+      "logit_gradient": {
+        "semantics": "Soft CE derivative wrt scaled Student logits: q_student - p_teacher; detached Teacher; not a parameter-gradient attribution",
+        "combined_norm": 0.050145787904687544,
+        "base_only_norm": 0.20937952643460572,
+        "adapted_without_base_norm": 0.0784340640572871,
+        "adapted_without_base_to_combined_norm_ratio": 1.5641206836029238,
+        "combined_vs_base_flattened_cosine": 0.3030667300796627
+      },
+      "snapshot_sha256": "eb65b446e1fa40be7645b86c160d375c7f6e9576afab778853ccce8dd8b6d78a"
+    },
+    "r3_split/real_world": {
+      "branches": {
+        "base": {
+          "kl_to_student": 0.38033971190452576,
+          "prediction_disagreement_with_student": 0.1439063549041748,
+          "accuracy_offline_only": 0.8253385424613953
+        },
+        "pooled": {
+          "kl_to_student": 0.06568323820829391,
+          "prediction_disagreement_with_student": 0.0695432648062706,
+          "accuracy_offline_only": 0.8313059210777283
+        },
+        "weighted_source": {
+          "kl_to_student": 0.0491529144346714,
+          "prediction_disagreement_with_student": 0.0617397278547287,
+          "accuracy_offline_only": 0.8336011171340942
+        },
+        "combined": {
+          "kl_to_student": 0.023587731644511223,
+          "prediction_disagreement_with_student": 0.04154234379529953,
+          "accuracy_offline_only": 0.8528804183006287
+        },
+        "adapted_without_base": {
+          "kl_to_student": 0.047234274446964264,
+          "prediction_disagreement_with_student": 0.0635758563876152,
+          "accuracy_offline_only": 0.8352077007293701
+        }
+      },
+      "pooled_weighted_prediction_disagreement": 0.056919898837804794,
+      "individual_source_kl_to_student": [
+        0.04965251684188843,
+        0.0500800684094429,
+        0.04851643368601799
+      ],
+      "logit_gradient": {
+        "semantics": "Soft CE derivative wrt scaled Student logits: q_student - p_teacher; detached Teacher; not a parameter-gradient attribution",
+        "combined_norm": 0.05077876426240472,
+        "base_only_norm": 0.18559654215018556,
+        "adapted_without_base_norm": 0.07637372281813276,
+        "adapted_without_base_to_combined_norm_ratio": 1.504048472378401,
+        "combined_vs_base_flattened_cosine": 0.31798834283888866
+      },
+      "snapshot_sha256": "4c12422c940c10dd92ece638c8377c5f4911a7b8d2ed84e4d6565a765c0a3caf"
+    },
+    "r4_silu32/art": {
+      "branches": {
+        "base": {
+          "kl_to_student": 0.4724315106868744,
+          "prediction_disagreement_with_student": 0.2064276933670044,
+          "accuracy_offline_only": 0.7156984210014343
+        },
+        "pooled": {
+          "kl_to_student": 0.0614488460123539,
+          "prediction_disagreement_with_student": 0.09929955005645752,
+          "accuracy_offline_only": 0.7144622802734375
+        },
+        "weighted_source": {
+          "kl_to_student": 0.062289219349622726,
+          "prediction_disagreement_with_student": 0.1042439192533493,
+          "accuracy_offline_only": 0.7103419899940491
+        },
+        "combined": {
+          "kl_to_student": 0.015057691372931004,
+          "prediction_disagreement_with_student": 0.04903172701597214,
+          "accuracy_offline_only": 0.7400082349777222
+        },
+        "adapted_without_base": {
+          "kl_to_student": 0.04927753657102585,
+          "prediction_disagreement_with_student": 0.09435517340898514,
+          "accuracy_offline_only": 0.7128141522407532
+        }
+      },
+      "pooled_weighted_prediction_disagreement": 0.08735063672065735,
+      "individual_source_kl_to_student": [
+        0.06590234488248825,
+        0.059770021587610245,
+        0.05818115174770355
+      ],
+      "logit_gradient": {
+        "semantics": "Soft CE derivative wrt scaled Student logits: q_student - p_teacher; detached Teacher; not a parameter-gradient attribution",
+        "combined_norm": 0.04252675085275145,
+        "base_only_norm": 0.2237773151295407,
+        "adapted_without_base_norm": 0.08438576662590065,
+        "adapted_without_base_to_combined_norm_ratio": 1.9842984694054273,
+        "combined_vs_base_flattened_cosine": 0.3054594215703744
+      },
+      "snapshot_sha256": "1420f8c77ab46ed5ede1ce6cfa658a07c3d2d797390bb040ba59ddd83d7b67a4"
+    },
+    "r4_silu32/clipart": {
+      "branches": {
+        "base": {
+          "kl_to_student": 0.5450605750083923,
+          "prediction_disagreement_with_student": 0.3450171947479248,
+          "accuracy_offline_only": 0.5030927658081055
+        },
+        "pooled": {
+          "kl_to_student": 0.08446647226810455,
+          "prediction_disagreement_with_student": 0.15624284744262695,
+          "accuracy_offline_only": 0.5337915420532227
+        },
+        "weighted_source": {
+          "kl_to_student": 0.07276726514101028,
+          "prediction_disagreement_with_student": 0.1553264558315277,
+          "accuracy_offline_only": 0.5255441069602966
+        },
+        "combined": {
+          "kl_to_student": 0.017232678830623627,
+          "prediction_disagreement_with_student": 0.07720503956079483,
+          "accuracy_offline_only": 0.5491408705711365
+        },
+        "adapted_without_base": {
+          "kl_to_student": 0.0660361722111702,
+          "prediction_disagreement_with_student": 0.14410080015659332,
+          "accuracy_offline_only": 0.5312714576721191
+        }
+      },
+      "pooled_weighted_prediction_disagreement": 0.13264605402946472,
+      "individual_source_kl_to_student": [
+        0.07307150214910507,
+        0.07200779020786285,
+        0.07251155376434326
+      ],
+      "logit_gradient": {
+        "semantics": "Soft CE derivative wrt scaled Student logits: q_student - p_teacher; detached Teacher; not a parameter-gradient attribution",
+        "combined_norm": 0.05013717898759006,
+        "base_only_norm": 0.25949018844377414,
+        "adapted_without_base_norm": 0.11203937366680611,
+        "adapted_without_base_to_combined_norm_ratio": 2.234656514969421,
+        "combined_vs_base_flattened_cosine": 0.2311755222877921
+      },
+      "snapshot_sha256": "31ba3d8bc2768cbdfb2877369670d221b512af7b9f3eeb010005887d28fe6a40"
+    },
+    "r4_silu32/product": {
+      "branches": {
+        "base": {
+          "kl_to_student": 0.4976142942905426,
+          "prediction_disagreement_with_student": 0.15972065925598145,
+          "accuracy_offline_only": 0.818427562713623
+        },
+        "pooled": {
+          "kl_to_student": 0.04078049212694168,
+          "prediction_disagreement_with_student": 0.06262671947479248,
+          "accuracy_offline_only": 0.8105429410934448
+        },
+        "weighted_source": {
+          "kl_to_student": 0.03945010155439377,
+          "prediction_disagreement_with_student": 0.06150033697485924,
+          "accuracy_offline_only": 0.8087407350540161
+        },
+        "combined": {
+          "kl_to_student": 0.012483015656471252,
+          "prediction_disagreement_with_student": 0.02973642759025097,
+          "accuracy_offline_only": 0.8398287892341614
+        },
+        "adapted_without_base": {
+          "kl_to_student": 0.033390216529369354,
+          "prediction_disagreement_with_student": 0.058346472680568695,
+          "accuracy_offline_only": 0.810768187046051
+        }
+      },
+      "pooled_weighted_prediction_disagreement": 0.0502365380525589,
+      "individual_source_kl_to_student": [
+        0.03924647718667984,
+        0.04411972686648369,
+        0.03876491263508797
+      ],
+      "logit_gradient": {
+        "semantics": "Soft CE derivative wrt scaled Student logits: q_student - p_teacher; detached Teacher; not a parameter-gradient attribution",
+        "combined_norm": 0.03734344372032952,
+        "base_only_norm": 0.2129149476426431,
+        "adapted_without_base_norm": 0.06801639670664522,
+        "adapted_without_base_to_combined_norm_ratio": 1.821374515324026,
+        "combined_vs_base_flattened_cosine": 0.37219371083733854
+      },
+      "snapshot_sha256": "e1efa894322816c57d683a68effb3c28745680231d7769448a507005791f8e2f"
+    },
+    "r4_silu32/real_world": {
+      "branches": {
+        "base": {
+          "kl_to_student": 0.39833712577819824,
+          "prediction_disagreement_with_student": 0.14161120355129242,
+          "accuracy_offline_only": 0.8253385424613953
+        },
+        "pooled": {
+          "kl_to_student": 0.0405220128595829,
+          "prediction_disagreement_with_student": 0.06013311818242073,
+          "accuracy_offline_only": 0.831076443195343
+        },
+        "weighted_source": {
+          "kl_to_student": 0.041633058339357376,
+          "prediction_disagreement_with_student": 0.05990360304713249,
+          "accuracy_offline_only": 0.8290107846260071
+        },
+        "combined": {
+          "kl_to_student": 0.012557332403957844,
+          "prediction_disagreement_with_student": 0.028918981552124023,
+          "accuracy_offline_only": 0.853339433670044
+        },
+        "adapted_without_base": {
+          "kl_to_student": 0.03404790908098221,
+          "prediction_disagreement_with_student": 0.05485425889492035,
+          "accuracy_offline_only": 0.8329125642776489
+        }
+      },
+      "pooled_weighted_prediction_disagreement": 0.04911636561155319,
+      "individual_source_kl_to_student": [
+        0.04142632707953453,
+        0.04215914011001587,
+        0.04157206788659096
+      ],
+      "logit_gradient": {
+        "semantics": "Soft CE derivative wrt scaled Student logits: q_student - p_teacher; detached Teacher; not a parameter-gradient attribution",
+        "combined_norm": 0.03693544785052344,
+        "base_only_norm": 0.1895252187353973,
+        "adapted_without_base_norm": 0.06512524611710836,
+        "adapted_without_base_to_combined_norm_ratio": 1.7632179899555604,
+        "combined_vs_base_flattened_cosine": 0.34210826245843956
+      },
+      "snapshot_sha256": "dc766e912013540626367e0bdc17353b9a14f0b2582aa99744eeed6c2110e619"
+    }
+  }
+}

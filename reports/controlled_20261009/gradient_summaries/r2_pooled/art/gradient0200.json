@@ -1,0 +1,66 @@
+{
+  "step": 200,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 2.1012146266557337,
+      "target_norm": 0.13377251734821377,
+      "cosine": 0.0068732145437382635
+    },
+    "ctx_source_combined": {
+      "source_norm": 1.3730451963575439,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.37311634899511614,
+      "target_norm": 0.011284604510202908,
+      "cosine": 0.2798260927147972
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.18466011936858062,
+      "target_norm": 0.020779766642881767,
+      "cosine": 0.19916670726968166
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.010631268216891655,
+      "target_norm": 0.0011908635694469463,
+      "cosine": 0.19989856460090813
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.10485227860764607,
+      "target_norm": 0.008266875699973315,
+      "cosine": 0.3469763349716396
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.0033769996173628747,
+      "target_norm": 0.00026613794027403,
+      "cosine": 0.3483736816391455
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.038762957193896455,
+      "target_norm": 0.004203632158047045,
+      "cosine": 0.2001304925492643
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0007908062563547896,
+      "target_norm": 8.565826168148406e-05,
+      "cosine": 0.20038904060766494
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.07388237571524175,
+      "target_norm": 0.006522564780711469,
+      "cosine": 0.29283870276801194
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.00280337889315108,
+      "target_norm": 0.0002529563732449935,
+      "cosine": 0.3159833017855228
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.43749657654855284,
+    "target_norm": 0.026253702955408405,
+    "cosine": 0.2106940385493617
+  }
+}

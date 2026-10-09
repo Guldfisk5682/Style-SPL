@@ -25,7 +25,7 @@ def main():
         fig.savefig(output / (name + ".png"), dpi=180, bbox_inches="tight")
         fig.savefig(output / (name + ".pdf"), bbox_inches="tight")
         plt.close(fig)
-    def trajectory_plot(key, ylabel, filename, log=False, transform=lambda x: x):
+    def trajectory_plot(key, ylabel, filename, log=False, transform=lambda x: x, title=None):
         fig, axes = plt.subplots(2, 2, figsize=(11, 7), sharex=True)
         for target, ax in zip(TARGETS, axes.flat):
             for arm, label, color in zip(ARMS, LABELS, COLORS):
@@ -40,11 +40,13 @@ def main():
                 ax.set_yscale("log")
         handles, labels = axes.flat[0].get_legend_handles_labels()
         fig.legend(handles, labels, loc="lower center", ncol=2, bbox_to_anchor=(.5, -.025))
-        fig.tight_layout(rect=(0, .06, 1, 1)); save(fig, filename)
-    trajectory_plot("source_target_text_cosine", "1 - same-class cosine (source/target)", "text_domain_separation", True, lambda x: max(1e-9, 1-x))
-    trajectory_plot("source_source_text_cosine", "1 - same-class cosine (source/source)", "source_text_diversity", True, lambda x: max(1e-9, 1-x))
-    trajectory_plot("source_target_interval_movement_cosine", "Source/target interval movement cosine", "prompt_comovement")
-    trajectory_plot("kl_teacher_to_student", "KL(Teacher || Student), full target pool", "student_teacher_kl", True)
+        if title:
+            fig.suptitle(title)
+        fig.tight_layout(rect=(0, .06, 1, .95 if title else 1)); save(fig, filename)
+    trajectory_plot("source_target_text_cosine", "1 - same-class text cosine", "text_domain_separation", True, lambda x: max(1e-9, 1-x), "Source / Target: role and descriptor effects")
+    trajectory_plot("source_source_text_cosine", "1 - same-class text cosine", "source_text_diversity", True, lambda x: max(1e-9, 1-x), "Source / Source: one shared source projector")
+    trajectory_plot("source_target_interval_movement_cosine", "Interval movement cosine", "prompt_comovement", title="Source / Target prompt co-movement")
+    trajectory_plot("kl_teacher_to_student", "KL(Teacher || Student)", "student_teacher_kl", True, title="Full target pool: teacher / student divergence")
     trajectory_plot("target_to_class_rms", "Target domain / shared class RMS", "domain_class_rms", True)
     trajectory_plot("teacher_combined_accuracy", "Combined teacher accuracy (%)", "teacher_quality", False, lambda x: 100*x)
     trajectory_plot("teacher_pooled_accuracy", "Pooled teacher accuracy (%)", "pooled_teacher_quality", False, lambda x: 100*x)
@@ -66,31 +68,33 @@ def main():
     fig, axes = plt.subplots(2, 2, figsize=(11, 7), sharex=True)
     for target, ax in zip(TARGETS, axes.flat):
         for arm, label, color in zip(ARMS, LABELS, COLORS):
-            rows = [r for r in swap_rows if r["arm"] == arm and r["target"] == target and r["recipient"] == target]
+            rows = [r for r in swap_rows if r["arm"] == arm and r["target"] == target and r["recipient"] == target and int(r["step"]) > 0]
             steps = sorted(set(int(r["step"]) for r in rows))
             mean = [np.mean([100*float(r["prediction_flip_rate"]) for r in rows if int(r["step"]) == s]) for s in steps]
             if steps:
                 ax.plot(steps, mean, color=color, label=label, marker=".")
-        ax.set_title(target.replace("_", " ").title()); ax.set_ylabel("Target descriptor swap: mean prediction flips (%)")
+        ax.set_title(target.replace("_", " ").title()); ax.set_ylabel("Mean prediction flips (%)")
         ax.set_xlabel("Optimizer update"); ax.grid(alpha=.2)
     handles, labels = axes.flat[0].get_legend_handles_labels()
     fig.legend(handles, labels, loc="lower center", ncol=2, bbox_to_anchor=(.5, -.025))
-    fig.tight_layout(rect=(0, .06, 1, 1)); save(fig, "descriptor_swap_response")
+    fig.suptitle("Target descriptor swap: fixed target projector, post-update snapshots")
+    fig.tight_layout(rect=(0, .06, 1, .95)); save(fig, "descriptor_swap_response")
     fig, axes = plt.subplots(2, 2, figsize=(11, 7), sharex=True)
     for target, ax in zip(TARGETS, axes.flat):
         source_names = [t for t in TARGETS if t != target]
         for arm, label, color in zip(ARMS, LABELS, COLORS):
             rows = [r for r in swap_rows if r["arm"] == arm and r["target"] == target
-                    and r["recipient"] in source_names and r["donor"] in source_names]
+                    and r["recipient"] in source_names and r["donor"] in source_names and int(r["step"]) > 0]
             steps = sorted(set(int(r["step"]) for r in rows))
             mean = [np.mean([100*float(r["prediction_flip_rate"]) for r in rows if int(r["step"]) == s]) for s in steps]
             if steps:
                 ax.plot(steps, mean, color=color, label=label, marker=".")
-        ax.set_title(target.replace("_", " ").title()); ax.set_ylabel("Within-source descriptor swap: prediction flips (%)")
+        ax.set_title(target.replace("_", " ").title()); ax.set_ylabel("Mean prediction flips (%)")
         ax.set_xlabel("Optimizer update"); ax.grid(alpha=.2)
     handles, labels = axes.flat[0].get_legend_handles_labels()
     fig.legend(handles, labels, loc="lower center", ncol=2, bbox_to_anchor=(.5, -.025))
-    fig.tight_layout(rect=(0, .06, 1, 1)); save(fig, "source_descriptor_swap_response")
+    fig.suptitle("Source descriptor swaps: one fixed source projector, post-update snapshots")
+    fig.tight_layout(rect=(0, .06, 1, .95)); save(fig, "source_descriptor_swap_response")
     if summary["all_complete"]:
         fig, ax = plt.subplots(figsize=(9, 4))
         means = [100*summary["arms"][a]["mean_formal_accuracy"] for a in ARMS]

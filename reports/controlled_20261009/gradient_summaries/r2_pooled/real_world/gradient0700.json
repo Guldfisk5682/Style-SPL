@@ -1,0 +1,66 @@
+{
+  "step": 700,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 1.1022602392746383,
+      "target_norm": 0.06548040215657332,
+      "cosine": -0.014732435220782856
+    },
+    "ctx_source_combined": {
+      "source_norm": 0.6200235422678277,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.22843386656306044,
+      "target_norm": 0.02405426781018489,
+      "cosine": -0.9161023211556687
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.09165772081465766,
+      "target_norm": 0.01049314734622525,
+      "cosine": -0.2222220812741326
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.005271087017273607,
+      "target_norm": 0.000604686152328231,
+      "cosine": -0.22255448268154432
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.09617809905740639,
+      "target_norm": 0.010471695424908828,
+      "cosine": -0.45836199860466864
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.003097591229319851,
+      "target_norm": 0.00033768235351986216,
+      "cosine": -0.4596480077099738
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.05584376315766629,
+      "target_norm": 0.005952968450788497,
+      "cosine": -0.1692295369833219
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0011397112501281873,
+      "target_norm": 0.0001213888393508185,
+      "cosine": -0.16921408224235024
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.03159628591862799,
+      "target_norm": 0.0035709892017228816,
+      "cosine": -0.20981330542823956
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.001185787421762377,
+      "target_norm": 0.00013804930383381125,
+      "cosine": -0.22245121008110724
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.2720116386240915,
+    "target_norm": 0.02910452904645598,
+    "cosine": -0.7314037131535092
+  }
+}

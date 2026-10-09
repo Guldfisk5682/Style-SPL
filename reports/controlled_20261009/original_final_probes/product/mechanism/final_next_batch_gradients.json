@@ -1,0 +1,62 @@
+{
+  "step": 1000,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 1.1271180949704922,
+      "target_norm": 0.0634721209793963,
+      "cosine": 0.015439970875469352
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.21755746475211216,
+      "target_norm": 0.01594047818988806,
+      "cosine": 0.4749071691978445
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.2881044218920303,
+      "target_norm": 0.02011468963158511,
+      "cosine": 0.23710728362249453
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.016584108573271188,
+      "target_norm": 0.001158525492291092,
+      "cosine": 0.23740631849273555
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.07393066853372528,
+      "target_norm": 0.007589833215653858,
+      "cosine": 0.1856752694505043
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.002383910558463391,
+      "target_norm": 0.00024369959278290523,
+      "cosine": 0.18617944849973564
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.07626473090766069,
+      "target_norm": 0.006017782694844849,
+      "cosine": 0.023331720771189078
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.001556279115975163,
+      "target_norm": 0.0001227831066501624,
+      "cosine": 0.023329463410662808
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.04865531567239816,
+      "target_norm": 0.0034081943228653298,
+      "cosine": 0.11355576517158786
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0018888585475418341,
+      "target_norm": 0.00012431790168912444,
+      "cosine": 0.1176785048932788
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.3798308920224643,
+    "target_norm": 0.02766887693209351,
+    "cosine": 0.3006289394915115
+  },
+  "batch_semantics": "Next replayable batch at final checkpoint; no update; NOT historical step1000 gradient"
+}

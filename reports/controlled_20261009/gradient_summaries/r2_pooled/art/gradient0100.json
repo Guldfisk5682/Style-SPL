@@ -1,0 +1,66 @@
+{
+  "step": 100,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 3.128241162639423,
+      "target_norm": 0.22471358990879278,
+      "cosine": 0.34861208999517157
+    },
+    "ctx_source_combined": {
+      "source_norm": 1.5076695574581258,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.06671324284171755,
+      "target_norm": 0.03860178452169476,
+      "cosine": -0.29400580887173317
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.17260429991428178,
+      "target_norm": 0.03032375263993367,
+      "cosine": 0.22458527826202512
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.00993628665729864,
+      "target_norm": 0.0017378179899352373,
+      "cosine": 0.22512586439731472
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.07739568199393054,
+      "target_norm": 0.015867952797327705,
+      "cosine": 0.19973664812122555
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.002491727332369968,
+      "target_norm": 0.0005108416320790259,
+      "cosine": 0.20052824746873033
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.03711306728197188,
+      "target_norm": 0.005039393447612903,
+      "cosine": 0.25371040708877746
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0007573347650905976,
+      "target_norm": 0.00010268873836515571,
+      "cosine": 0.2539089283058063
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.07746503255501168,
+      "target_norm": 0.010298651576292464,
+      "cosine": 0.16423059264922849
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.002936701953751767,
+      "target_norm": 0.00039939956740983184,
+      "cosine": 0.17710703848311582
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.2184613009538332,
+    "target_norm": 0.05288032161916211,
+    "cosine": 0.0732739986082044
+  }
+}

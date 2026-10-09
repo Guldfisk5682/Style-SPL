@@ -1,0 +1,66 @@
+{
+  "step": 400,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 2.314013137421387,
+      "target_norm": 0.11903599218413123,
+      "cosine": -0.00541705886967863
+    },
+    "ctx_source_combined": {
+      "source_norm": 0.9876669269711937,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.34978000119433716,
+      "target_norm": 0.028862197236655167,
+      "cosine": 0.3789366577716736
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.1412761109530976,
+      "target_norm": 0.01964467303865698,
+      "cosine": 0.04219925431025816
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.008133723097471719,
+      "target_norm": 0.0011258127131635583,
+      "cosine": 0.0424526611935193
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.07875929962511855,
+      "target_norm": 0.011377407870980395,
+      "cosine": 0.022777937689261056
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.0025316031339414754,
+      "target_norm": 0.0003662762095755913,
+      "cosine": 0.02292668874442974
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.03581342454525582,
+      "target_norm": 0.0040416554196351165,
+      "cosine": 0.14818623280956011
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0007307783644778931,
+      "target_norm": 8.235762897930851e-05,
+      "cosine": 0.14839146248209956
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.060296583698955845,
+      "target_norm": 0.006212886321500309,
+      "cosine": 0.16967162602296337
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0022253622145809314,
+      "target_norm": 0.00024094650558823227,
+      "cosine": 0.18509028299177144
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.39179630953121425,
+    "target_norm": 0.0374804802995567,
+    "cosine": 0.2757003645296757
+  }
+}

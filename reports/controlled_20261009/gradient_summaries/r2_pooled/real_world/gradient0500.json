@@ -1,0 +1,66 @@
+{
+  "step": 500,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 1.6682098534555394,
+      "target_norm": 0.11573582108784787,
+      "cosine": 0.017014322016835705
+    },
+    "ctx_source_combined": {
+      "source_norm": 0.738916190724771,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.1630290602330743,
+      "target_norm": 0.017020178029146144,
+      "cosine": 0.07016167640774532
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.09704241940753247,
+      "target_norm": 0.01753938735192435,
+      "cosine": 0.04435562529325149
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.005582413994442385,
+      "target_norm": 0.0010107381800963395,
+      "cosine": 0.044812804629460565
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.09766756813064796,
+      "target_norm": 0.017713432733679535,
+      "cosine": 0.03414465116832283
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.0031397716403036816,
+      "target_norm": 0.0005712077569290111,
+      "cosine": 0.03506984812959829
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.05930323935099148,
+      "target_norm": 0.012895178688126297,
+      "cosine": 0.03798455092752601
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0012099285064956786,
+      "target_norm": 0.00026294961706420475,
+      "cosine": 0.038254661929030626
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.03702153512664261,
+      "target_norm": 0.00681223143393498,
+      "cosine": -0.03866086325595346
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0013635466236861097,
+      "target_norm": 0.00026335106425727045,
+      "cosine": -0.03821773420024953
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.22464744037826473,
+    "target_norm": 0.03354490668936225,
+    "cosine": 0.046294165842929384
+  }
+}

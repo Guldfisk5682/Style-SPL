@@ -1,0 +1,66 @@
+{
+  "step": 1000,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 0.7636909821621191,
+      "target_norm": 0.04410846049533043,
+      "cosine": -0.007249554912937265
+    },
+    "ctx_source_combined": {
+      "source_norm": 0.39211369820778086,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.10570273654079057,
+      "target_norm": 0.008481844834669301,
+      "cosine": -0.2728933427629978
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.08914074223758484,
+      "target_norm": 0.011130571886736763,
+      "cosine": 0.022031624639804025
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.005116236923752688,
+      "target_norm": 0.0006402418344229137,
+      "cosine": 0.02216923809660765
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.04802263491001075,
+      "target_norm": 0.006180556826645973,
+      "cosine": -0.188175824511627
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.0015436930400221228,
+      "target_norm": 0.00019901557465783112,
+      "cosine": -0.18913020989662582
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.019478976548023882,
+      "target_norm": 0.0029150965317887075,
+      "cosine": -0.0033662316122366163
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0003969396586823471,
+      "target_norm": 5.95114081634963e-05,
+      "cosine": -0.0033352306025183458
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.024287137378120955,
+      "target_norm": 0.002962706997508076,
+      "cosine": -0.07850026978404903
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0009120783790104011,
+      "target_norm": 0.00011120201688535566,
+      "cosine": -0.0893368853870881
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.14974697922992333,
+    "target_norm": 0.015867307580593033,
+    "cosine": -0.11973088064202568
+  }
+}

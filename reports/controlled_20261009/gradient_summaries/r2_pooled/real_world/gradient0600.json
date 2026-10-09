@@ -1,0 +1,66 @@
+{
+  "step": 600,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 1.936885518546867,
+      "target_norm": 0.08323637309924145,
+      "cosine": -0.047241616449085
+    },
+    "ctx_source_combined": {
+      "source_norm": 1.3975827841341268,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.3329682532525925,
+      "target_norm": 0.02320689317874766,
+      "cosine": 0.12001552986080861
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.12640098564447036,
+      "target_norm": 0.011175039564794455,
+      "cosine": 0.2892227829913469
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.007269515395516226,
+      "target_norm": 0.0006439813962173586,
+      "cosine": 0.2901940858417369
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.12733803937648033,
+      "target_norm": 0.011528979871600741,
+      "cosine": 0.11600191373314797
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.004095571373123375,
+      "target_norm": 0.000371776765655013,
+      "cosine": 0.11618311957380226
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.07902730815922102,
+      "target_norm": 0.007242245594535275,
+      "cosine": 0.11534732661621454
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0016122608937886415,
+      "target_norm": 0.00014767889232950062,
+      "cosine": 0.11563885557846965
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.04584006418634927,
+      "target_norm": 0.004222862854044218,
+      "cosine": 0.13854071251558264
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0017150148883989169,
+      "target_norm": 0.00016324980114228884,
+      "cosine": 0.14321779617283034
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.3892066677974023,
+    "target_norm": 0.029448987396088852,
+    "cosine": 0.1396519847421355
+  }
+}

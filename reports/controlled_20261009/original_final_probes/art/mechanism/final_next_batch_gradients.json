@@ -1,0 +1,62 @@
+{
+  "step": 1000,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 0.967602652479067,
+      "target_norm": 0.06654331232183561,
+      "cosine": -0.03985756013243112
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.5126115270959288,
+      "target_norm": 0.03335951231212656,
+      "cosine": 0.0038237038080408048
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.2075118408651706,
+      "target_norm": 0.015097728333904537,
+      "cosine": -0.06364200685132489
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.011952725009723011,
+      "target_norm": 0.0008652327510980687,
+      "cosine": -0.06384643803444759
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.12222456163649982,
+      "target_norm": 0.007835338786736392,
+      "cosine": -0.10090902683957259
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.00393429021774884,
+      "target_norm": 0.0002522453465958615,
+      "cosine": -0.10167516351262892
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.0346863102761779,
+      "target_norm": 0.002052102410886519,
+      "cosine": 0.07430663346510442
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0007078177591146989,
+      "target_norm": 4.181610538206096e-05,
+      "cosine": 0.07426586087288384
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.04830732225100076,
+      "target_norm": 0.0028989857859144275,
+      "cosine": 0.19566697793579896
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0018316946947338128,
+      "target_norm": 0.00011242769602548021,
+      "cosine": 0.20408895271032262
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.5696222653372023,
+    "target_norm": 0.037624897120709294,
+    "cosine": -0.009269530605078034
+  },
+  "batch_semantics": "Next replayable batch at final checkpoint; no update; NOT historical step1000 gradient"
+}

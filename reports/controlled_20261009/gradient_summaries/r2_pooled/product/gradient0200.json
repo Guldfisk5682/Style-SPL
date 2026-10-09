@@ -1,0 +1,66 @@
+{
+  "step": 200,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 2.0279361718111755,
+      "target_norm": 0.11529681032747699,
+      "cosine": -0.009405256685419972
+    },
+    "ctx_source_combined": {
+      "source_norm": 1.176147582793994,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.42709447318906946,
+      "target_norm": 0.024381139926022612,
+      "cosine": -0.15810769372971833
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.3588117055325287,
+      "target_norm": 0.024985942356564452,
+      "cosine": 0.1457017019026279
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.020628555269862677,
+      "target_norm": 0.0014390901245745044,
+      "cosine": 0.14591018709857884
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.05756886744496865,
+      "target_norm": 0.004621745837363858,
+      "cosine": -0.2674588046467826
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.0018549903825100273,
+      "target_norm": 0.00014839819881119786,
+      "cosine": -0.267923326443673
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.11915790641045428,
+      "target_norm": 0.007841664644400254,
+      "cosine": -0.13555855672908743
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0024307332554588733,
+      "target_norm": 0.000159996463092367,
+      "cosine": -0.13557459102535518
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.0496954244039885,
+      "target_norm": 0.007149393577422093,
+      "cosine": -0.01938898717822347
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0019060264595155158,
+      "target_norm": 0.00026078255053736075,
+      "cosine": -0.027884617782689924
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.5758267665751825,
+    "target_norm": 0.03680883013438677,
+    "cosine": -0.025508079398101773
+  }
+}

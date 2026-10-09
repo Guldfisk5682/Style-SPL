@@ -1,0 +1,66 @@
+{
+  "step": 500,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 1.3819935344269696,
+      "target_norm": 0.06641522934017703,
+      "cosine": -0.00597952560871076
+    },
+    "ctx_source_combined": {
+      "source_norm": 0.6040237666218312,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.20262970228182517,
+      "target_norm": 0.022813699101236165,
+      "cosine": 0.937077418344678
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.1786968148518693,
+      "target_norm": 0.018581186531638632,
+      "cosine": -0.19526130931847713
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.010282564722483546,
+      "target_norm": 0.0010702018617527618,
+      "cosine": -0.19550923002816933
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.047660509444680976,
+      "target_norm": 0.004817434192069052,
+      "cosine": -0.48738040199083443
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.0015361391902693723,
+      "target_norm": 0.00015468149546748883,
+      "cosine": -0.48816583428313276
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.05922765943997884,
+      "target_norm": 0.0072637798720664795,
+      "cosine": -0.23908851487113175
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0012083974161028977,
+      "target_norm": 0.0001482056605841437,
+      "cosine": -0.23905526668521807
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.03479338273745721,
+      "target_norm": 0.0034362791299162912,
+      "cosine": -0.0027855849104880676
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0013212179056495501,
+      "target_norm": 0.0001253423280859232,
+      "cosine": -0.0013077402864378508
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.2830064731990485,
+    "target_norm": 0.030898389571234336,
+    "cosine": 0.39637815983277047
+  }
+}

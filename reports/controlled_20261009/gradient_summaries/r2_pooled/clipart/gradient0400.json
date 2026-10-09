@@ -1,0 +1,66 @@
+{
+  "step": 400,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 1.1947957512009844,
+      "target_norm": 0.08092842911658218,
+      "cosine": 0.037888373075817265
+    },
+    "ctx_source_combined": {
+      "source_norm": 0.7783464998897867,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.15158545870450676,
+      "target_norm": 0.012297981029240927,
+      "cosine": 0.5479694095378178
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.1543227865695702,
+      "target_norm": 0.019118984015981996,
+      "cosine": 0.1507647298479351
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.008871556817905026,
+      "target_norm": 0.0010997434395403098,
+      "cosine": 0.15090212106646958
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.08542312159644391,
+      "target_norm": 0.010073695409255706,
+      "cosine": -0.02361504407703069
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.0027495089727252397,
+      "target_norm": 0.0003243756731363594,
+      "cosine": -0.02348419411549301
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.03686321904044786,
+      "target_norm": 0.004315111612651814,
+      "cosine": -0.024177780909741153
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0007517354325711988,
+      "target_norm": 8.809257796946783e-05,
+      "cosine": -0.024195319456746148
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.05109881606742467,
+      "target_norm": 0.006156914364421203,
+      "cosine": 0.23647462224667232
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.001962795162997851,
+      "target_norm": 0.000231093150835883,
+      "cosine": 0.26652325853398723
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.24114612035244082,
+    "target_norm": 0.02600305421820149,
+    "cosine": 0.24210902704677933
+  }
+}

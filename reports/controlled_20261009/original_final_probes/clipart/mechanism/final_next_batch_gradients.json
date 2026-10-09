@@ -1,0 +1,62 @@
+{
+  "step": 1000,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 0.6547024638100364,
+      "target_norm": 0.07719647795806463,
+      "cosine": 0.07169492519762731
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.23835825122219942,
+      "target_norm": 0.038544441747781204,
+      "cosine": 0.6803111136504301
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.21719586465661128,
+      "target_norm": 0.02327281340826725,
+      "cosine": -0.10967228472595887
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.012498519213408634,
+      "target_norm": 0.0013386759373628454,
+      "cosine": -0.11007709298149107
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.09359428343659526,
+      "target_norm": 0.008359111294633735,
+      "cosine": -0.24363219677346634
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.0030158825364027244,
+      "target_norm": 0.000269165608221047,
+      "cosine": -0.24440498798478683
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.05352181127666772,
+      "target_norm": 0.004643029151383934,
+      "cosine": -0.03950378174864964
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0010914667475239905,
+      "target_norm": 9.478698217203329e-05,
+      "cosine": -0.0395638479925666
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.05297225607723144,
+      "target_norm": 0.005875543692652968,
+      "cosine": -0.05418098129630251
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0020485845748133666,
+      "target_norm": 0.00022053220562761778,
+      "cosine": -0.05892996855030269
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.34436888675710803,
+    "target_norm": 0.04642385627046521,
+    "cosine": 0.34256437916814947
+  },
+  "batch_semantics": "Next replayable batch at final checkpoint; no update; NOT historical step1000 gradient"
+}

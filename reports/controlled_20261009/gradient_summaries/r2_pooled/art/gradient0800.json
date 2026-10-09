@@ -1,0 +1,66 @@
+{
+  "step": 800,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 0.8926858794060808,
+      "target_norm": 0.07708144222778525,
+      "cosine": 0.010676197662144117
+    },
+    "ctx_source_combined": {
+      "source_norm": 0.47139685673432125,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.07901092776246495,
+      "target_norm": 0.037958938258390605,
+      "cosine": 0.14460943917437197
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.07199780748270683,
+      "target_norm": 0.021850056650831905,
+      "cosine": -0.1261237316204979
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.004141487603049692,
+      "target_norm": 0.0012522006095882186,
+      "cosine": -0.1266096555382595
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.03532123966628456,
+      "target_norm": 0.009319046911582187,
+      "cosine": -0.15009599187018052
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.0011371855645881132,
+      "target_norm": 0.0003000107949159564,
+      "cosine": -0.15090088330034193
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.01455433641361456,
+      "target_norm": 0.003515632730245932,
+      "cosine": -0.01993460532510854
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0002970156868561091,
+      "target_norm": 7.163875840108406e-05,
+      "cosine": -0.019951898204415473
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.023121229075107823,
+      "target_norm": 0.004406664787812275,
+      "cosine": 0.07866481466463356
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0008804680237418635,
+      "target_norm": 0.000170898102191977,
+      "cosine": 0.08350922718549174
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.1159298471274106,
+    "target_norm": 0.04515109438155553,
+    "cosine": 0.03671690457142406
+  }
+}

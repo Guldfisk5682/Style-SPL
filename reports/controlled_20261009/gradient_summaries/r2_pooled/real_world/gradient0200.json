@@ -1,0 +1,66 @@
+{
+  "step": 200,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 2.5327326319584182,
+      "target_norm": 0.3688141235197368,
+      "cosine": -0.01985805127978785
+    },
+    "ctx_source_combined": {
+      "source_norm": 1.2176841767949753,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.17184172697044234,
+      "target_norm": 0.031610567517093874,
+      "cosine": -0.12599653972943312
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.12699479870576885,
+      "target_norm": 0.0197175194104633,
+      "cosine": 0.0909996209149922
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.007294628823521821,
+      "target_norm": 0.0011362568872546152,
+      "cosine": 0.09125144710707424
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.13822957793323937,
+      "target_norm": 0.0227032550875828,
+      "cosine": -0.13221175827337386
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.00445012668372898,
+      "target_norm": 0.0007321153166578107,
+      "cosine": -0.1330729523616726
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.07841161354628923,
+      "target_norm": 0.010737896963979096,
+      "cosine": -0.030663370833670586
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.00159942009423614,
+      "target_norm": 0.00021895981130944277,
+      "cosine": -0.03076288591567619
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.05499118061924261,
+      "target_norm": 0.009304972227242855,
+      "cosine": 0.079920727844335
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0021019203656605845,
+      "target_norm": 0.00035971683632705334,
+      "cosine": 0.08042380228344917
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.2720607961062703,
+    "target_norm": 0.04590572615194681,
+    "cosine": -0.06854072103586722
+  }
+}

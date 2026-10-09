@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-10",
+  "seed": 1,
+  "formal_tasks": 16,
+  "updates_per_task": 1000,
+  "exact_original_s1_replay": true,
+  "matched_data_and_bank_all_arms": true,
+  "checkpoint_cadence": "Initial + every100 updates; pre-update per-objective gradients at step1 and every100; descriptor swaps every200",
+  "archived_pilot": "r2_pooled_random_init_pilot, excluded: different independent pooled initialization",
+  "run_root": "/home/tangxunchi/workspace/Style-SPL/runs/controlled_20261009_seed1",
+  "arms": {
+    "r1_shared": {
+      "commit": "882982c108d010e384d81bde0231d9429e1b17a3",
+      "runtime_sha256": {
+        "train.py": "292e45e95a8e473b9d946d189f08868acd500bcadc047ef231b25e5da30a874f",
+        "model.py": "35ac3f7dcc4280a3695021c5a0ada1dca0869e43a357efb242ee2c4f7e6cf78e",
+        "style.py": "3f47a98d3a403aa7f602120b0c36f1aad149ee6543898f51f5e998dec0cc74cc",
+        "spl.py": "299fcb265ae09491eab56a46ab65a8c1f52faa4f0ccfa6337ccba3ee9786726a",
+        "runtime.py": "91d17d850cdcef767036a64bb77d5b0d7d0439b028540d6e84b87078e915364f",
+        "dataloader.py": "959f6c31b7db1896b61cef1e4e90817997d45b1b35eeea73722ece912d4417c2",
+        "dataset.py": "db07ebd0a5f5ad680f514d6beb8e81efef1bcab170f638735f5f8311441301a8",
+        "samplers.py": "6ec7848e6ae16df19b0bea3a7ead224c5639af16a58bae93893ce7f95f055343",
+        "logging_utils.py": "0f42f618c7273b18a65a04bc415b3a39f24449bd040d1a6dba035d5ff0da9f7e",
+        "task_data_audit.py": "f5a1f472ff6dd20ebc9a2d637ce1a844cfbd01e7d108bf7c1aedc5da2c410a10",
+        "clip_custom/model.py": "ed83206aa07483152a1de48766bbc8358078a8cf31f7e98f6ae39c6e854d8bb8",
+        "controlled_diagnostics.py": "1eb5ce5747f1676f5a298998db346229fcac97c067d698275c0899c1399e3ad2",
+        "scripts/round_analysis_metrics.py": "4f7038e25c1dff61011ec75fa794c26834ec338ea25fb09e11a663de4f4c45be"
+      }
+    },
+    "r2_pooled": {
+      "commit": "cf5e0013cf7340ab16c4a21773c28b50af55ec4d",
+      "runtime_sha256": {
+        "train.py": "c59b469f5635089224fa123da28249b0afaf728179a3bac6f6b47a6f9ee9f418",
+        "model.py": "0175aa1c79c98418c39900799710340543cec0a28f211c02c41324e6970bef66",
+        "style.py": "3f47a98d3a403aa7f602120b0c36f1aad149ee6543898f51f5e998dec0cc74cc",
+        "spl.py": "299fcb265ae09491eab56a46ab65a8c1f52faa4f0ccfa6337ccba3ee9786726a",
+        "runtime.py": "91d17d850cdcef767036a64bb77d5b0d7d0439b028540d6e84b87078e915364f",
+        "dataloader.py": "959f6c31b7db1896b61cef1e4e90817997d45b1b35eeea73722ece912d4417c2",
+        "dataset.py": "db07ebd0a5f5ad680f514d6beb8e81efef1bcab170f638735f5f8311441301a8",
+        "samplers.py": "6ec7848e6ae16df19b0bea3a7ead224c5639af16a58bae93893ce7f95f055343",
+        "logging_utils.py": "0f42f618c7273b18a65a04bc415b3a39f24449bd040d1a6dba035d5ff0da9f7e",
+        "task_data_audit.py": "f5a1f472ff6dd20ebc9a2d637ce1a844cfbd01e7d108bf7c1aedc5da2c410a10",
+        "clip_custom/model.py": "ed83206aa07483152a1de48766bbc8358078a8cf31f7e98f6ae39c6e854d8bb8",
+        "controlled_diagnostics.py": "1eb5ce5747f1676f5a298998db346229fcac97c067d698275c0899c1399e3ad2",
+        "scripts/round_analysis_metrics.py": "4f7038e25c1dff61011ec75fa794c26834ec338ea25fb09e11a663de4f4c45be"
+      }
+    },
+    "r3_split": {
+      "commit": "4687911e2bdad61fb92be5e7f2277c6140527987",
+      "runtime_sha256": {
+        "train.py": "c59b469f5635089224fa123da28249b0afaf728179a3bac6f6b47a6f9ee9f418",
+        "model.py": "0175aa1c79c98418c39900799710340543cec0a28f211c02c41324e6970bef66",
+        "style.py": "3f47a98d3a403aa7f602120b0c36f1aad149ee6543898f51f5e998dec0cc74cc",
+        "spl.py": "299fcb265ae09491eab56a46ab65a8c1f52faa4f0ccfa6337ccba3ee9786726a",
+        "runtime.py": "91d17d850cdcef767036a64bb77d5b0d7d0439b028540d6e84b87078e915364f",
+        "dataloader.py": "959f6c31b7db1896b61cef1e4e90817997d45b1b35eeea73722ece912d4417c2",
+        "dataset.py": "db07ebd0a5f5ad680f514d6beb8e81efef1bcab170f638735f5f8311441301a8",
+        "samplers.py": "6ec7848e6ae16df19b0bea3a7ead224c5639af16a58bae93893ce7f95f055343",
+        "logging_utils.py": "0f42f618c7273b18a65a04bc415b3a39f24449bd040d1a6dba035d5ff0da9f7e",
+        "task_data_audit.py": "f5a1f472ff6dd20ebc9a2d637ce1a844cfbd01e7d108bf7c1aedc5da2c410a10",
+        "clip_custom/model.py": "ed83206aa07483152a1de48766bbc8358078a8cf31f7e98f6ae39c6e854d8bb8",
+        "controlled_diagnostics.py": "1eb5ce5747f1676f5a298998db346229fcac97c067d698275c0899c1399e3ad2",
+        "scripts/round_analysis_metrics.py": "4f7038e25c1dff61011ec75fa794c26834ec338ea25fb09e11a663de4f4c45be"
+      }
+    },
+    "r4_silu32": {
+      "commit": "9c15e4915098d02c1929f012dcaa90a6bcb2e725",
+      "runtime_sha256": {
+        "train.py": "c59b469f5635089224fa123da28249b0afaf728179a3bac6f6b47a6f9ee9f418",
+        "model.py": "0175aa1c79c98418c39900799710340543cec0a28f211c02c41324e6970bef66",
+        "style.py": "3f47a98d3a403aa7f602120b0c36f1aad149ee6543898f51f5e998dec0cc74cc",
+        "spl.py": "299fcb265ae09491eab56a46ab65a8c1f52faa4f0ccfa6337ccba3ee9786726a",
+        "runtime.py": "91d17d850cdcef767036a64bb77d5b0d7d0439b028540d6e84b87078e915364f",
+        "dataloader.py": "959f6c31b7db1896b61cef1e4e90817997d45b1b35eeea73722ece912d4417c2",
+        "dataset.py": "db07ebd0a5f5ad680f514d6beb8e81efef1bcab170f638735f5f8311441301a8",
+        "samplers.py": "6ec7848e6ae16df19b0bea3a7ead224c5639af16a58bae93893ce7f95f055343",
+        "logging_utils.py": "0f42f618c7273b18a65a04bc415b3a39f24449bd040d1a6dba035d5ff0da9f7e",
+        "task_data_audit.py": "f5a1f472ff6dd20ebc9a2d637ce1a844cfbd01e7d108bf7c1aedc5da2c410a10",
+        "clip_custom/model.py": "ed83206aa07483152a1de48766bbc8358078a8cf31f7e98f6ae39c6e854d8bb8",
+        "controlled_diagnostics.py": "1eb5ce5747f1676f5a298998db346229fcac97c067d698275c0899c1399e3ad2",
+        "scripts/round_analysis_metrics.py": "4f7038e25c1dff61011ec75fa794c26834ec338ea25fb09e11a663de4f4c45be"
+      }
+    }
+  },
+  "current_analysis_scripts_sha256": {
+    "verify_controlled_variants.py": "22027a4e217d22bf47390162320a899dcce46f3aa63030ae65ebeadd67819021",
+    "verify_controlled_pairing.py": "58da0ee9f762c8756b3ba3b018d1aa6afbd1e16cb9bf5263c8936ee35c1e041b",
+    "run_controlled_arm.py": "8f32ac34555f06df0ed9c828292ebe758e1ab957c47702a6e338050984e57c33",
+    "summarize_controlled_round.py": "adf19011a4d64a2d1a10b2f0fc3c0840060f70993e784582885f4fb094a74b5c",
+    "build_controlled_report.py": "9e56a4670382f5e4122830dd567e4a7830eddf5f68dedd1327764a7be031fafb",
+    "plot_controlled_round.py": "9e7f5ba15b934613d86aada3a43e49afb9f5b5a8ee660522c534d64f8ee1142c"
+  },
+  "large_artifacts": "Prompt/model snapshots and FP32 objective-gradient vectors retained on lab-server; not added to git",
+  "postprocessing": "Later changes shorten chart labels and plot post-update descriptor swaps without initial-state scale dominating axes; numerical data unchanged"
+}

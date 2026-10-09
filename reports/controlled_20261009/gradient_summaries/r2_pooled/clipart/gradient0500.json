@@ -1,0 +1,66 @@
+{
+  "step": 500,
+  "state": "pre-update",
+  "per_parameter": {
+    "ctx_cls": {
+      "source_norm": 0.9979996397177786,
+      "target_norm": 0.067547572440337,
+      "cosine": 0.00367361581540374
+    },
+    "ctx_source_combined": {
+      "source_norm": 0.94393663904825,
+      "target_norm": 0.0,
+      "cosine": null
+    },
+    "style_projector.expansion": {
+      "source_norm": 0.16964620134754696,
+      "target_norm": 0.011277319081433196,
+      "cosine": 0.3846151533508396
+    },
+    "style_projector.stage.0.weight": {
+      "source_norm": 0.1076451168520312,
+      "target_norm": 0.01730560126117024,
+      "cosine": 0.06581462834580361
+    },
+    "style_projector.stage.0.bias": {
+      "source_norm": 0.006186522222602407,
+      "target_norm": 0.0009954358156734188,
+      "cosine": 0.06599576056048322
+    },
+    "style_projector.stage.1.weight": {
+      "source_norm": 0.06098249694426428,
+      "target_norm": 0.007635821360852432,
+      "cosine": 0.08507300767193819
+    },
+    "style_projector.stage.1.bias": {
+      "source_norm": 0.0019610609390918344,
+      "target_norm": 0.00024587547993777783,
+      "cosine": 0.08576173204545845
+    },
+    "style_projector.stage.2.weight": {
+      "source_norm": 0.03220279977679592,
+      "target_norm": 0.003705593645708405,
+      "cosine": 0.08022698788303682
+    },
+    "style_projector.stage.2.bias": {
+      "source_norm": 0.0006566445364284439,
+      "target_norm": 7.564932879455175e-05,
+      "cosine": 0.08032915583266036
+    },
+    "style_projector.stage.3.weight": {
+      "source_norm": 0.04466808314799848,
+      "target_norm": 0.005388507547705234,
+      "cosine": 0.3071677120630946
+    },
+    "style_projector.stage.3.bias": {
+      "source_norm": 0.0017011674939961376,
+      "target_norm": 0.00020225182839861395,
+      "cosine": 0.34357650373106585
+    }
+  },
+  "style_projector": {
+    "source_norm": 0.21717244687803097,
+    "target_norm": 0.022996368022506413,
+    "cosine": 0.1966536442222209
+  }
+}

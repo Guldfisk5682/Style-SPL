@@ -1,0 +1,23 @@
+{
+  "matched": true,
+  "reference": "r1_shared",
+  "comparisons": {
+    "r2_pooled/art": "exact",
+    "r3_split/art": "exact",
+    "r2_pooled/clipart": "exact",
+    "r3_split/clipart": "exact",
+    "r2_pooled/product": "exact",
+    "r3_split/product": "exact",
+    "r2_pooled/real_world": "exact",
+    "r3_split/real_world": "exact"
+  },
+  "checked": [
+    "initial class SHA",
+    "frozen bank SHA",
+    "bank buffers",
+    "source centroids/counts",
+    "RNG",
+    "source/target stream state",
+    "scheduler"
+  ]
+}
