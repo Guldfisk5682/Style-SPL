@@ -1,0 +1,6 @@
+SPL prompt layout, text encoder, source dataset, and domain sampler are adapted from
+VuongLong/Clustering-Reinforcement-Prompt-Learning, commit
+2c032a62fc706b643bfc30f49c9a064dd24aa7ac (CRPL, CVPR 2025).
+clip_custom is the same CLIP implementation used by that baseline; the model,
+tokenizer, and checkpoint originate from OpenAI CLIP.
+Style-SPL implements the supplied 2026-10-09 experimental specification.

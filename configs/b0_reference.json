@@ -1,0 +1,64 @@
+{
+  "provenance": {
+    "upstream_commit": "2c032a62fc706b643bfc30f49c9a064dd24aa7ac",
+    "author_python_code_modified": true,
+    "control_variant": "init_checked",
+    "algorithm_changes": [
+      "initialize ctx_source_combined with Normal(0, 0.02)"
+    ],
+    "numerical_checks": "every step: finite losses, present/finite gradients, finite gradient norms, finite updated parameters; final buffers",
+    "protocol": "multi-source single-target; four targets in one process",
+    "seed": 1,
+    "seed_policy": "author default; seed once before training all four targets",
+    "settings": "author README OfficeHome multi-source command",
+    "ablation": "SPL only",
+    "enhanced_pseudo_label": 1,
+    "OT_clustering": 0,
+    "loss_semantics": "source CE + 0.5 * SPL soft CE; no OT cost or hard self-label CE",
+    "runtime_sha256": {
+      "main.py": "71cbdef43fbc3e4dd32ab3955fe21e3d2a421fba9df4fb8cde63c619210db0aa",
+      "model.py": "61f9b8f6c69ba8ea89692fd8a5c4129fc42cfe6770b00341f1acecef837eedd8",
+      "dataloader.py": "f8c57cc6088cee895547e57aff0303829d39313ea80ea1fccb778528ec462704",
+      "dataset.py": "78e2001a6084512e6dba2c458fce6f0214230ae4b3ab795d99415b77baaf4833",
+      "samplers.py": "6ec7848e6ae16df19b0bea3a7ead224c5639af16a58bae93893ce7f95f055343",
+      "numerical_guard.py": "54bf7e19f6412957b26ea53b922c4ec8e30bb89569612585a73dcc40dd1d7fdc"
+    },
+    "dependencies": {
+      "torch": "2.6.0+cu124",
+      "torchvision": "0.21.0+cu124",
+      "POT": "0.9.7.post1",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "torchinfo": "1.8.0"
+    },
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "0",
+      "CUDA_DEVICE_ORDER": "PCI_BUS_ID",
+      "OMP_NUM_THREADS": "4",
+      "MKL_NUM_THREADS": "4"
+    },
+    "evaluation": "author batch 30, shuffle=True, drop_last=True; temporal text-feature average"
+  },
+  "scores": {
+    "art": 0.76375,
+    "clipart": 0.6250574712643678,
+    "product": 0.8707482993197279,
+    "real_world": 0.8726436781609196
+  },
+  "mean_accuracy": 0.7830498621862538,
+  "repository_commit": "8249561",
+  "steps": 1000,
+  "batch_size": 30,
+  "lr": 0.005,
+  "M1": 16,
+  "M2": 16,
+  "w_scale": 10,
+  "t_weight": 0.5,
+  "weight_decay": 0.01,
+  "target_order": [
+    "art",
+    "clipart",
+    "product",
+    "real_world"
+  ]
+}
