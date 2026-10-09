@@ -85,6 +85,7 @@ class TrajectoryProbe:
         self.prompt, self.encoder, self.args = prompt, encoder, args
         self.previous_tokens = self.previous_texts = None
         self.reference_tokens = None
+        self.reference_step = None
         self.bank_initial = {k: v.clone() for k, v in prompt.style_bank.state_dict().items()}
         self.cache = None
         self.base_text = None
@@ -116,9 +117,10 @@ class TrajectoryProbe:
                   "bank_unchanged": True}
         if self.reference_tokens is None:
             self.reference_tokens = token_cpu.clone()
+            self.reference_step = step
         delta0 = token_cpu - self.reference_tokens
-        report["displacement_from_initial_cosine"] = F.normalize(delta0.flatten(1), dim=-1) @ F.normalize(delta0.flatten(1), dim=-1).T
-        report["displacement_from_initial_cosine"] = report["displacement_from_initial_cosine"].tolist()
+        report["displacement_reference_step"] = self.reference_step
+        report["displacement_from_reference_cosine"] = (F.normalize(delta0.flatten(1), dim=-1) @ F.normalize(delta0.flatten(1), dim=-1).T).tolist()
         if self.previous_tokens is not None:
             delta = token_cpu - self.previous_tokens
             report["interval_prompt_movement_cosine"] = (F.normalize(delta.flatten(1), dim=-1) @ F.normalize(delta.flatten(1), dim=-1).T).tolist()
