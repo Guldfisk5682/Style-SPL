@@ -16,6 +16,15 @@ done
 [[ "$(cat "$STYLE_ROOT/queues/gpu1/exit.txt")" == *"exit_code=0" ]]
 cd "$STYLE_CONTROL"
 if [[ "$STYLE_ARM" == r3_split ]]; then
+  "$STYLE_PYTHON" - "$STYLE_ROOT" <<'PY'
+import json,sys
+from pathlib import Path
+root=Path(sys.argv[1])
+for arm in ['r1_shared','r2_pooled']:
+    summary=json.loads((root/arm/'summary.json').read_text())
+    assert summary['complete_four_targets'], arm
+    assert all(t['training_valid'] and t['protocol_valid'] and t['steps']==1000 for t in summary['tasks']), arm
+PY
   "$STYLE_PYTHON" scripts/verify_s1_replay.py "$HOME/workspace/Style-SPL/runs/s1_protocol_checked_20261009_seed1" \
     "$STYLE_ROOT/r1_shared" --output "$STYLE_ROOT/replay_verification.json" > "$STYLE_ROOT/replay_verification.log" 2>&1
   touch "$STYLE_ROOT/wave2/replay_verified.ready"

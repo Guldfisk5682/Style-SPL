@@ -69,6 +69,12 @@ def main():
                     "kl_teacher_to_student": teacher.get("kl_teacher_to_student"),
                     "kl_student_to_teacher": teacher.get("kl_student_to_teacher"),
                     "teacher_student_agreement": teacher.get("student_teacher_prediction_agreement")}
+                row["source_target_prompt_cosine"] = pair_mean(prompts["flattened_cosine"], source_target_pairs)
+                row["source_source_prompt_cosine"] = pair_mean(prompts["flattened_cosine"], same_pairs)
+                selected = [0, 1, 2, 4]
+                rms_values = prompts["domain_prompt_rms"]
+                numerator = sum(rms_values[i]*rms_values[j]*prompts["flattened_cosine"][i][j] for i in selected for j in selected)
+                row["source_target_common_energy_fraction"] = numerator / (4*sum(rms_values[i]**2 for i in selected))
                 if "interval_prompt_movement_cosine" in record:
                     row["source_target_interval_movement_cosine"] = pair_mean(record["interval_prompt_movement_cosine"], source_target_pairs)
                     row["source_source_interval_movement_cosine"] = pair_mean(record["interval_prompt_movement_cosine"], same_pairs)
