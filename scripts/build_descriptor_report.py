@@ -81,6 +81,25 @@ def main():
     lines += ["", "![Source text diversity](figures/source_text_diversity.png)", "",
         "![Target descriptor swap](figures/descriptor_swap_response.png)", "",
         "![Teacher quality](figures/teacher_quality.png)", "",
+        "## 输入几何与表示差异", "",
+        "随机对照匹配输入尺度，但有意不匹配真实域间几何关系。下表给出四个任务中，三个 Source 的 Descriptor 两两 Cosine 的平均值；每个 Stage 拼接 mean/std 后计算。它只是输入几何，不是分类价值或唯一根因的证明。", "",
+        "| 输入 | Stage1 | Stage2 | Stage3 | Stage4 |",
+        "| --- | ---: | ---: | ---: | ---: |"]
+    input_geometry = json.loads((args.root / "descriptor_geometry.json").read_text())
+    for mode in ("real", "shuffled", "random"):
+        tasks = input_geometry["conditions"][mode]
+        values = [average([tasks[t]["stages"][s]["sources"]["pair_cosine_mean"] for t in TARGETS]) for s in range(4)]
+        lines.append("| " + mode + " | " + " | ".join(f"{v:.6f}" for v in values) + " |")
+    lines += ["", "下表进一步对比 Source Prompt 与同类别 Text 的差异，均为四任务平均。较小的余弦不自动意味着更好分类；Random 若能保留差异，说明当前网络不一定会消除所有条件差异，不能把真实输入的趋同直接归因于分类目标这一单一因素。", "",
+        "| 条件 | 初始 Source Prompt Cos | 最终 Source Prompt Cos | 初始 Source Text Cos | 最终 Source Text Cos |",
+        "| --- | ---: | ---: | ---: | ---: |"]
+    for arm in ARMS:
+        rows = [summary["arms"][arm]["tasks"][t]["trajectory"] for t in TARGETS]
+        values = [average([r[index][key] for r in rows]) for key, index in
+                  [("source_source_prompt_cosine", 0), ("source_source_prompt_cosine", -1),
+                   ("source_source_text_cosine", 0), ("source_source_text_cosine", -1)]]
+        lines.append("| " + LABELS[arm] + " | " + " | ".join(f"{v:.6f}" for v in values) + " |")
+    lines += ["",
         "## 现有 Source Teacher 的路由空间", "",
         "此项只读检查没有提取逐图像 Style，也没有拟合或训练新路由。它测量最后状态三个 Source Teacher 的预测分歧，为下一步可靠性诊断提供背景。", "",
         "| 目标 | 三者预测一致率 % | 最佳单一 Source % | 任一 Source 正确的理想选择 % | 理想选择−最佳单一 pp |",
