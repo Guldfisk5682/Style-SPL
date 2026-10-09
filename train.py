@@ -122,9 +122,13 @@ def run_target(args, target, clip_model, preprocess, classnames):
     if args.resume is not None:
         saved = torch.load(args.resume, map_location="cpu", weights_only=True)
         previous = saved["config"]
-        for key in ("target_domain", "source_domain_order", "style_spl_enabled", "seed", "prompt_iteration", "M1", "M2", "batch_size", "prompt_learning_rate", "w_scale", "t_weight", "style_bank_metadata"):
+        for key in ("target_domain", "source_domain_order", "style_spl_enabled", "seed", "prompt_iteration", "M1", "M2", "batch_size", "prompt_learning_rate", "w_scale", "t_weight"):
             if previous[key] != config[key]:
                 raise ValueError(f"Resume configuration mismatch: {key}")
+        if args.style_spl_enabled:
+            for key in ("cache_identity", "counts"):
+                if previous["style_bank_metadata"][key] != config["style_bank_metadata"][key]:
+                    raise ValueError(f"Resume Style Bank mismatch: {key}")
         prompt.load_state_dict(saved["prompt"], strict=True)
         prompt.count = saved["target_feature_count"]
         optimizer.load_state_dict(saved["optimizer"])

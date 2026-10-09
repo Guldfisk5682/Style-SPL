@@ -52,6 +52,18 @@ def spatial_statistics(feature):
     return mean, std
 
 
+def preprocess_identity(preprocess):
+    """Stable across processes: Compose repr embeds function memory addresses."""
+    entries = []
+    for transform in preprocess.transforms:
+        if hasattr(transform, "__qualname__"):
+            entries.append({"function": transform.__module__ + "." + transform.__qualname__})
+        else:
+            entries.append({"class": type(transform).__module__ + "." + type(transform).__qualname__,
+                            "configuration": repr(transform)})
+    return entries
+
+
 class RN50StyleExtractor:
     """Temporary stage hooks; the ordinary image-encoding path is untouched."""
     def __init__(self, visual):
@@ -156,7 +168,7 @@ def build_style_bank(clip_model, preprocess, data_root, source_names, target_nam
     code_hash = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
     identity = {"schema": 1, "backbone": "RN50", "checkpoint_sha256": RN50_SHA256,
                 "dataset": "OfficeHome", "target_domain": target_name, "source_domain_order": list(source_names),
-                "preprocess_id": repr(preprocess), "precision": "FP32 statistics / FP64 accumulation",
+                "preprocess_id": preprocess_identity(preprocess), "precision": "FP32 statistics / FP64 accumulation",
                 "std_definition": "sqrt((sum((F-mu)^2)+1e-8)/HW); mean of per-image std",
                 "stage_shapes": [[c] for c in CHANNELS], "extractor_code_sha256": code_hash,
                 "manifests": {name: dataset.manifest() for name, dataset in zip(names, datasets)}}

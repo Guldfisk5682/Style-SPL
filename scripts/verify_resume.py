@@ -24,7 +24,7 @@ def main():
     parser.add_argument("--output",type=Path,required=True);args=parser.parse_args()
     a=torch.load(args.uninterrupted,map_location="cpu",weights_only=True)
     b=torch.load(args.resumed,map_location="cpu",weights_only=True)
-    keys=["prompt","optimizer","scheduler","step","target_feature_count","valley","running_means","running_count","best_instant"]
+    keys=["prompt","optimizer","scheduler","step","target_feature_count","valley","running_means","running_count","best_instant","rng","source_stream","target_stream"]
     for key in keys:compare(a[key],b[key],key)
     report={"exact_resume_verified":True,"compared_fields":keys,"steps":a["step"]}
     args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(json.dumps(report,indent=2)+"\n")

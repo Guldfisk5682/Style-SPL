@@ -1,12 +1,15 @@
 import tempfile
 import unittest
+import json
+import subprocess
+import sys
 from pathlib import Path
 
 import torch
 
 from style import (CHANNELS, DomainStyleProjector, FixedStyleBank, new_accumulator,
                    update_accumulator, finalize, pool_accumulators, spatial_statistics,
-                   calibrate_initial_output, validate_bank)
+                   calibrate_initial_output, validate_bank, preprocess_identity)
 from runtime import preserve_rng, gradient_check, parameter_check, ReplayableLoader, fix_random_seed
 
 
@@ -22,6 +25,14 @@ def synthetic_bank():
 
 
 class StyleTests(unittest.TestCase):
+    def test_preprocess_identity_stable_across_processes(self):
+        from clip_custom.clip import _transform
+        identity = preprocess_identity(_transform(224))
+        code = "import json; from style import preprocess_identity; from clip_custom.clip import _transform; print(json.dumps(preprocess_identity(_transform(224))))"
+        other = json.loads(subprocess.check_output([sys.executable, "-c", code], text=True))
+        self.assertEqual(identity, other)
+        self.assertNotIn("0x", json.dumps(identity))
+        self.assertNotEqual(identity, preprocess_identity(_transform(256)))
     def test_population_statistics_and_per_image_std(self):
         x = torch.tensor([[[[1., 3.], [5., 7.]]], [[[100., 102.], [104., 106.]]]])
         mean, std = spatial_statistics(x)
