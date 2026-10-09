@@ -81,6 +81,17 @@ def main():
     lines += ["", "![Source text diversity](figures/source_text_diversity.png)", "",
         "![Target descriptor swap](figures/descriptor_swap_response.png)", "",
         "![Teacher quality](figures/teacher_quality.png)", "",
+        "## 现有 Source Teacher 的路由空间", "",
+        "此项只读检查没有提取逐图像 Style，也没有拟合或训练新路由。它测量最后状态三个 Source Teacher 的预测分歧，为下一步可靠性诊断提供背景。", "",
+        "| 目标 | 三者预测一致率 % | 最佳单一 Source % | 任一 Source 正确的理想选择 % | 理想选择−最佳单一 pp |",
+        "| --- | ---: | ---: | ---: | ---: | ---: |"]
+    headroom = json.loads((args.root / "source_routing_headroom.json").read_text())
+    for target, row in headroom["arms"]["r4_real"].items():
+        best = max(row["source_accuracy"])
+        oracle = row["hard_selection_oracle_accuracy"]
+        values = [100*row["all_source_prediction_agreement"], 100*best, 100*oracle, 100*(oracle-best)]
+        lines.append("| " + target + " | " + " | ".join(f"{v:.3f}" for v in values) + " |")
+    lines += ["", "理想选择只约束直接选取一个 Teacher 的 top-1 预测，不是类别相关 Logits 混合的上限，也不排除置信度/NLL 互补。若保留当前 Source Teacher，Style 路由还需要面对预测同质化；不能只凭风格距离较近就假设该 Teacher 更可靠。", "",
         "## 判读边界", "",
         "若 Real 对 Random/Shuffled 都有一致优势，支持真实输入在当前固定架构和协议中的额外价值，随后仍需换训练种子和控制输入种子确认。若优势接近零或方向不一致，则当前损失和参数化尚未建立真实 Style 信息的必要性。Shuffled/Random 都保留可辨识的固定域代码，网络可以重新学习其关联；结果接近不等于没有任何输入响应，也不等于所有 Style 路线无效。", "",
         "随机输入改变通道结构，也改变函数空间的优化轨迹，第二层校准系数可以不同。因此即使 Random 较差，也不能单独归因于丢失正确风格语义。应同时结合 Shuffled、同模型文本差异、替换响应和 Teacher Quality。", "",
