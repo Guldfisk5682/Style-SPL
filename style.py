@@ -6,6 +6,7 @@ pseudocode: sqrt((sum squared deviations + 1e-8) / HW).
 """
 import hashlib
 import json
+import os
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -197,7 +198,7 @@ def build_style_bank(clip_model, preprocess, data_root, source_names, target_nam
     for key, value in clip_model.visual.named_buffers():
         torch.testing.assert_close(value, bn_before[key], rtol=0, atol=0)
     try:
-        commit = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
+        commit = os.environ.get("STYLE_CODE_COMMIT") or subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
     except subprocess.CalledProcessError:
         commit = "uncommitted"
     pooled = pool_accumulators(accumulators[:-1])

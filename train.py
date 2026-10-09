@@ -100,7 +100,7 @@ def run_target(args, target, clip_model, preprocess, classnames):
     source_stream, target_stream = ReplayableLoader(source_train), ReplayableLoader(target_train)
     config = {k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()}
     config.update({"target_domain": target, "source_domain_order": sources,
-                   "git_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
+                   "git_commit": os.environ.get("STYLE_CODE_COMMIT") or subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
                    "style_bank_metadata": bank["metadata"] if bank else None,
                    "evaluation": f"batch{args.batch_size}/shuffle=True/drop_last=True; temporal target text average",
                    "optimizer": "AdamW default weight_decay=0.01, shared lr for all prompt parameters",
