@@ -53,7 +53,10 @@ def descriptor_control(bank, target_name, mode="real", seed=20261010):
             buffer_name = f"{statistic}_{stage}"
             original = getattr(bank, buffer_name)
             controlled = getattr(result, buffer_name)
-            actual = torch.stack([original[rows[n]] for n in names]).double()
+            # Codes are generated with a private CPU RNG. Match moments on
+            # CPU too, then copy to the bank device; construction is identical
+            # regardless of where the frozen bank was originally loaded.
+            actual = torch.stack([original[rows[n]] for n in names]).cpu().double()
             center, spread = actual.mean(), actual.std(correction=0)
             for i, name in enumerate(names):
                 if mode == "shuffled":

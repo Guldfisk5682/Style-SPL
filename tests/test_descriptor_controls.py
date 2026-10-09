@@ -45,6 +45,12 @@ class DescriptorControlTests(unittest.TestCase):
         same, _ = descriptor_control(self.bank, "d")
         self.assertEqual(bank_digest(same), bank_digest(self.bank))
 
+    @unittest.skipUnless(torch.cuda.is_available(), "CUDA required")
+    def test_random_cpu_cuda_construction_identical(self):
+        cpu, _ = descriptor_control(self.bank, "d", "random")
+        gpu, _ = descriptor_control(self.bank.cuda(), "d", "random")
+        self.assertEqual(bank_digest(cpu), bank_digest(gpu))
+
 
 if __name__ == "__main__":
     unittest.main()
