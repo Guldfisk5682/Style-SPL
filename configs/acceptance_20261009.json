@@ -1,0 +1,232 @@
+{
+  "spec": "spec/Style_SPL_Implementation_Spec.md",
+  "unit_tests_passed": 5,
+  "baseline_equivalence": {
+    "b0_prompt_parameters_exact": true,
+    "b0_prompt_outputs_exact": true,
+    "b0_complete_spl_loss_exact": true,
+    "distance_and_soft_ce_author_helpers_exact": true,
+    "visual_embeddings_unchanged": true,
+    "bn_buffers_unchanged": true,
+    "hooks_removed": true,
+    "stage_statistics_shapes": [
+      [
+        2,
+        256
+      ],
+      [
+        2,
+        512
+      ],
+      [
+        2,
+        1024
+      ],
+      [
+        2,
+        2048
+      ]
+    ],
+    "loss": 12.273567199707031,
+    "feature_map_shapes": [
+      [
+        2,
+        256,
+        56,
+        56
+      ],
+      [
+        2,
+        512,
+        28,
+        28
+      ],
+      [
+        2,
+        1024,
+        14,
+        14
+      ],
+      [
+        2,
+        2048,
+        7,
+        7
+      ]
+    ]
+  },
+  "separate_source_target_gradients": {
+    "class_initialization_matches_b0": true,
+    "training_rng_matches_b0": true,
+    "no_old_learnable_domain_prompts": true,
+    "fixed_bank_buffers": true,
+    "gradient_paths": {
+      "source": {
+        "ctx_cls": 188.37807142700734,
+        "style_projector.expansion": 7.311652907220671,
+        "style_projector.stage.0.weight": 3059.60020060846,
+        "style_projector.stage.0.bias": 175.99132060589733,
+        "style_projector.stage.1.weight": 1446.0811225597563,
+        "style_projector.stage.1.bias": 46.564196982693,
+        "style_projector.stage.2.weight": 1929.6084823823542,
+        "style_projector.stage.2.bias": 39.39276686114893,
+        "style_projector.stage.3.weight": 3380.398220285563,
+        "style_projector.stage.3.bias": 126.87960716515343
+      },
+      "target": {
+        "ctx_cls": 273.91233332903306,
+        "style_projector.expansion": 4.633221195652258,
+        "style_projector.stage.0.weight": 810.5798831504629,
+        "style_projector.stage.0.bias": 46.453363485061814,
+        "style_projector.stage.1.weight": 1364.7027014045036,
+        "style_projector.stage.1.bias": 43.93427205631549,
+        "style_projector.stage.2.weight": 1151.8427480152675,
+        "style_projector.stage.2.bias": 23.471332362075675,
+        "style_projector.stage.3.weight": 2199.4983270267644,
+        "style_projector.stage.3.bias": 85.30035938075935
+      }
+    }
+  },
+  "exact_resume": {
+    "exact_resume_verified": true,
+    "compared_fields": [
+      "prompt",
+      "optimizer",
+      "scheduler",
+      "step",
+      "target_feature_count",
+      "valley",
+      "running_means",
+      "running_count",
+      "best_instant",
+      "rng",
+      "source_stream",
+      "target_stream"
+    ],
+    "steps": 50
+  },
+  "smoke": {
+    "target": "art",
+    "style_spl_enabled": true,
+    "seed": 1,
+    "steps": 50,
+    "planned_steps": 1000,
+    "checked_updates_this_invocation": 50,
+    "temporal_feature_count": 8,
+    "cache_valid": true,
+    "best_instant_diagnostic_only": 0.6958333333333333,
+    "parameter_update_norms": {
+      "ctx_cls": 23.162294387817383,
+      "style_projector.expansion": 0.4204837679862976,
+      "style_projector.stage.0.weight": 15.454732894897461,
+      "style_projector.stage.0.bias": 0.6805000305175781,
+      "style_projector.stage.1.weight": 21.689922332763672,
+      "style_projector.stage.1.bias": 0.6690089106559753,
+      "style_projector.stage.2.weight": 30.538619995117188,
+      "style_projector.stage.2.bias": 0.6744097471237183,
+      "style_projector.stage.3.weight": 43.542354583740234,
+      "style_projector.stage.3.bias": 0.6802109479904175
+    },
+    "training_valid": true,
+    "final_accuracy": 0.6908333333333333
+  },
+  "rms_calibration": {
+    "before": {
+      "global_rms": 1.0168946981430054,
+      "domains": [
+        {
+          "rms": 1.01835298538208,
+          "mean": 0.006383848376572132,
+          "std": 1.018333077430725,
+          "max_abs": 4.137976169586182
+        },
+        {
+          "rms": 1.020821213722229,
+          "mean": 0.005582479294389486,
+          "std": 1.020805835723877,
+          "max_abs": 4.207968711853027
+        },
+        {
+          "rms": 1.0147202014923096,
+          "mean": 0.005431362893432379,
+          "std": 1.0147055387496948,
+          "max_abs": 4.164853096008301
+        },
+        {
+          "rms": 1.0155866146087646,
+          "mean": 0.005798236466944218,
+          "std": 1.0155701637268066,
+          "max_abs": 4.170481204986572
+        },
+        {
+          "rms": 1.0149788856506348,
+          "mean": 0.006229609716683626,
+          "std": 1.0149598121643066,
+          "max_abs": 4.149965286254883
+        }
+      ],
+      "stage_rms": [
+        0.783309817314148,
+        1.1391627788543701,
+        1.4023780822753906,
+        0.5083003640174866
+      ]
+    },
+    "after": {
+      "global_rms": 0.019999999552965164,
+      "domains": [
+        {
+          "rms": 0.02002868242561817,
+          "mean": 0.00012555575813166797,
+          "std": 0.020028289407491684,
+          "max_abs": 0.0813845619559288
+        },
+        {
+          "rms": 0.02007722482085228,
+          "mean": 0.00010979465878335759,
+          "std": 0.020076924934983253,
+          "max_abs": 0.08276115357875824
+        },
+        {
+          "rms": 0.01995723322033882,
+          "mean": 0.00010682264837669209,
+          "std": 0.01995694637298584,
+          "max_abs": 0.08191315829753876
+        },
+        {
+          "rms": 0.019974272698163986,
+          "mean": 0.00011403818643884733,
+          "std": 0.01997394859790802,
+          "max_abs": 0.08202384412288666
+        },
+        {
+          "rms": 0.01996232196688652,
+          "mean": 0.0001225222076755017,
+          "std": 0.019961945712566376,
+          "max_abs": 0.08162035048007965
+        }
+      ],
+      "stage_rms": [
+        0.015405918471515179,
+        0.022404735907912254,
+        0.027581579983234406,
+        0.00999710988253355
+      ]
+    },
+    "factor": 0.019667719810638064,
+    "target_rms": 0.02
+  },
+  "notes": [
+    "Smoke accuracy is a 50-step diagnostic, not the formal 1000-step result.",
+    "Observed post-update RMS growth is retained; no extra scale, clamp, residual, or per-module LR was introduced.",
+    "Early cache identity defect was fixed and the exact cross-process resume test was rerun successfully."
+  ],
+  "prompt_rms_trajectory": {
+    "1": 4.045374870300293,
+    "10": 17.24432373046875,
+    "20": 22.104639053344727,
+    "30": 24.007448196411133,
+    "40": 24.764820098876953,
+    "50": 25.05038833618164
+  }
+}

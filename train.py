@@ -111,6 +111,7 @@ def run_target(args, target, clip_model, preprocess, classnames):
                                for name in ("train.py", "model.py", "style.py", "spl.py", "runtime.py", "dataloader.py", "dataset.py", "samplers.py", "logging_utils.py", "clip_custom/model.py")}
     config["dependencies"] = {name: importlib.metadata.version(name) for name in ("torch", "torchvision", "numpy", "Pillow")}
     config["trainable_parameters"] = sum(p.numel() for p in prompt.parameters())
+    config["initial_class_prompt_sha256"] = hashlib.sha256(prompt.ctx_cls.detach().cpu().numpy().tobytes()).hexdigest()
     write_json(root / "config.json", config)
     if args.style_spl_enabled:
         write_json(root / "init_diagnostics.json", prompt.init_diagnostics)
