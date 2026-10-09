@@ -46,14 +46,20 @@ class MetricLogger:
 def style_metrics(prompt, norms):
     if not prompt.style_spl_enabled:
         return {}
+    prompts = torch.stack([prompt.domain_tokens("source", i)[0] for i in range(len(prompt.source_names))]
+                         + [prompt.domain_tokens("pooled")[0], prompt.domain_tokens("target")[0]])
     stats = prompt_diagnostics(prompt.style_projector, prompt.style_bank)
+    stats["global_rms"] = prompts.square().mean().sqrt().item()
+    stats["domains"] = [{"rms": p.square().mean().sqrt().item(), "mean": p.mean().item(),
+                        "std": p.std(unbiased=False).item(), "max_abs": p.abs().max().item()} for p in prompts]
     values = {"style/prompt_rms_global": stats["global_rms"]}
     for i, domain in enumerate(stats["domains"]):
         for key, value in domain.items():
             values[f"style/prompt_{key}_domain_{i}"] = value
     for i, rms in enumerate(stats["stage_rms"]):
         values[f"style/stage_token_rms_{i+1}"] = rms
-        values[f"style/grad_norm_stage_{i+1}"] = (norms.get(f"style_projector.stage.{i}.weight", 0)**2 + norms.get(f"style_projector.stage.{i}.bias", 0)**2)**0.5
+        values[f"style/grad_norm_stage_{i+1}"] = sum(v*v for k, v in norms.items()
+            if k.startswith(f"style_projector.stage.{i}."))**0.5
     values["style/grad_norm_expansion"] = norms.get("style_projector.expansion", 0)
     values["style/grad_norm_class_prompt"] = norms.get("ctx_cls", 0)
     return values

@@ -21,6 +21,7 @@ from style import build_style_bank
 from spl import LossValley, spl_step, evaluate
 from logging_utils import MetricLogger, style_metrics, write_json
 from task_data_audit import TaskDataAudit
+from controlled_diagnostics import load_frozen_bank, TrajectoryProbe, objective_gradient_probe
 
 DOMAIN_ORDER = ["art", "clipart", "product", "real_world"]
 
@@ -31,6 +32,14 @@ def parser():
     p.add_argument("--output_dir", type=Path, required=True)
     p.add_argument("--cache_dir", type=Path, default=Path("cache/style_banks"))
     p.add_argument("--style_spl_enabled", type=int, choices=(0, 1), default=1)
+    p.add_argument("--independent_pooled", action="store_true")
+    p.add_argument("--split_projector", action="store_true")
+    p.add_argument("--projector_architecture", choices=("linear", "silu"), default="linear")
+    p.add_argument("--bottleneck_dim", type=int, default=32)
+    p.add_argument("--fixed_bank_root", type=Path, help="Reuse the audited, unchanged bank from S1")
+    p.add_argument("--diagnostic_image_cache", type=Path, help="Frozen embeddings for offline diagnostics only")
+    p.add_argument("--mechanism_step", type=int, default=0, help="0 disables extra probes; otherwise snapshot cadence")
+    p.add_argument("--counterfactual_step", type=int, default=200)
     p.add_argument("--targets", nargs="+", choices=DOMAIN_ORDER, default=DOMAIN_ORDER)
     p.add_argument("--seed", type=int, default=1)
     p.add_argument("--M1", type=int, default=16)
@@ -79,9 +88,13 @@ def run_target(args, target, clip_model, preprocess, classnames):
     (root / "expansion").mkdir(exist_ok=True)
     sources = [d for d in DOMAIN_ORDER if d != target]
     bank = None
+    bank_sha = None
     if args.style_spl_enabled:
-        bank = build_style_bank(clip_model, preprocess, args.data_root, sources, target,
-                                args.cache_dir, args.style_batch_size, args.num_workers)
+        if args.fixed_bank_root:
+            bank, bank_sha = load_frozen_bank(args.fixed_bank_root, target, sources, args.data_root, preprocess)
+        else:
+            bank = build_style_bank(clip_model, preprocess, args.data_root, sources, target,
+                                    args.cache_dir, args.style_batch_size, args.num_workers)
         torch.save(bank, root / "style_bank.pt")
     # Keep B0 loader construction and sampler initialization order.
     target_train = load_pseudo_label_data(args.data_root / target, preprocess, clip_model, args, classnames)
@@ -110,8 +123,11 @@ def run_target(args, target, clip_model, preprocess, classnames):
                    "style_initialization_seed": args.seed + 1009,
                    "data_protocol": "fresh per-target iterators; held-out target excluded from labelled source; checked every update",
                    "resume_contract": "fixed deterministic CLIP transforms; replay epoch RNG + consumed batch cursor"})
+    config["frozen_bank_input_sha256"] = bank_sha
+    config["projector_isolation"] = "Separate stage + Expansion parameters, identical initial state; ctx_cls remains shared as in SPL" if args.split_projector else "Shared stage + Expansion parameters"
+    config["calibration"] = "Once to global bank-output RMS=.02; linear: affine weights/biases; SiLU: second affine only"
     config["runtime_sha256"] = {name: hashlib.sha256(Path(name).read_bytes()).hexdigest()
-                               for name in ("train.py", "model.py", "style.py", "spl.py", "runtime.py", "dataloader.py", "dataset.py", "samplers.py", "logging_utils.py", "task_data_audit.py", "clip_custom/model.py")}
+                               for name in ("train.py", "model.py", "style.py", "spl.py", "runtime.py", "dataloader.py", "dataset.py", "samplers.py", "logging_utils.py", "task_data_audit.py", "clip_custom/model.py", "controlled_diagnostics.py", "scripts/round_analysis_metrics.py")}
     config["dependencies"] = {name: importlib.metadata.version(name) for name in ("torch", "torchvision", "numpy", "Pillow")}
     config["trainable_parameters"] = sum(p.numel() for p in prompt.parameters())
     config["initial_class_prompt_sha256"] = hashlib.sha256(prompt.ctx_cls.detach().cpu().numpy().tobytes()).hexdigest()
@@ -126,7 +142,7 @@ def run_target(args, target, clip_model, preprocess, classnames):
     if args.resume is not None:
         saved = torch.load(args.resume, map_location="cpu", weights_only=True)
         previous = saved["config"]
-        for key in ("target_domain", "source_domain_order", "style_spl_enabled", "seed", "prompt_iteration", "M1", "M2", "batch_size", "prompt_learning_rate", "w_scale", "t_weight"):
+        for key in ("target_domain", "source_domain_order", "style_spl_enabled", "seed", "prompt_iteration", "M1", "M2", "batch_size", "prompt_learning_rate", "w_scale", "t_weight", "independent_pooled", "split_projector", "projector_architecture", "bottleneck_dim"):
             if previous[key] != config[key]:
                 raise ValueError(f"Resume configuration mismatch: {key}")
         if args.style_spl_enabled:
@@ -150,15 +166,25 @@ def run_target(args, target, clip_model, preprocess, classnames):
     end_step = min(args.stop_after or args.prompt_iteration, args.prompt_iteration)
     if end_step <= start_step:
         raise ValueError("Requested stop must be after the resumed update")
+    probe = TrajectoryProbe(root, prompt, encoder, clip_model, tokens, args) if args.mechanism_step else None
+    if probe:
+        probe.snapshot(start_step, running_means, running_count)
     try:
         for step in range(start_step + 1, end_step + 1):
             target_data, _pseudo = target_stream.next()  # pseudo, never GT
             source_data, source_label, source_domain = source_stream.next()
             data_audit.check(source_stream.iterator, target_stream.iterator, step)
             optimizer.zero_grad()
-            loss, target_text, metrics = spl_step(prompt, encoder, clip_model,
+            diagnostic_due = bool(probe and (step == 1 or step % args.mechanism_step == 0 or step == end_step))
+            output = spl_step(prompt, encoder, clip_model,
                 source_data.to(args.device), source_label.to(args.device), source_domain.to(args.device),
-                target_data.to(args.device), tokens, running_means, running_count, valley, step, args)
+                target_data.to(args.device), tokens, running_means, running_count, valley, step, args,
+                return_objectives=diagnostic_due)
+            loss, target_text, metrics = output[:3]
+            if diagnostic_due:
+                objective_gradient_probe(prompt, output[3], root / f"mechanism/gradient{step:04d}.pt", step)
+            # Drop the extra graph references as soon as the probe has finished.
+            del output
             if not torch.isfinite(loss):
                 raise FloatingPointError("Nonfinite total SPL loss")
             loss.backward()
@@ -189,6 +215,8 @@ def run_target(args, target, clip_model, preprocess, classnames):
             if step % args.checkpoint_step == 0:
                 checkpoint(root / "checkpoints/latest.pth", prompt, optimizer, scheduler, valley,
                            running_means, running_count, source_stream, target_stream, step, args, config, best_instant)
+            if probe and (step % args.mechanism_step == 0 or step == end_step):
+                probe.snapshot(step, running_means, running_count)
         parameter_check(prompt)
         data_audit.finish(checked_updates)
         deltas = {name: torch.linalg.vector_norm(p.detach().cpu() - initial[name]).item() for name, p in prompt.named_parameters()}
@@ -221,6 +249,8 @@ def main():
     args = parser().parse_args()
     if args.prompt_iteration <= 0 or args.batch_size % 3 != 0:
         raise ValueError("Positive training budget and batch divisible by 3 required")
+    if args.mechanism_step and not args.style_spl_enabled:
+        raise ValueError("Mechanism probes require Style-SPL")
     if args.resume is not None and len(args.targets) != 1:
         raise ValueError("Resume a single target task at a time")
     args.device = "cuda" if torch.cuda.is_available() else "cpu"

@@ -231,12 +231,23 @@ class FixedStyleBank(nn.Module):
 
 
 class DomainStyleProjector(nn.Module):
-    def __init__(self, token_width=512, n_tokens=16):
+    def __init__(self, token_width=512, n_tokens=16, architecture="linear", bottleneck_dim=32):
         super().__init__()
-        self.stage = nn.ModuleList([nn.Linear(2*c, token_width) for c in CHANNELS])
-        for layer in self.stage:
-            nn.init.xavier_normal_(layer.weight)
-            nn.init.zeros_(layer.bias)
+        self.architecture = architecture
+        if architecture == "linear":
+            self.stage = nn.ModuleList([nn.Linear(2*c, token_width) for c in CHANNELS])
+            for layer in self.stage:
+                nn.init.xavier_normal_(layer.weight)
+                nn.init.zeros_(layer.bias)
+        elif architecture == "silu":
+            if bottleneck_dim <= 0:
+                raise ValueError("Positive bottleneck dimension required")
+            # Ordinary PyTorch initialization on BOTH layers. Calibration only
+            # scales the last affine layer, preserving SiLU's input distribution.
+            self.stage = nn.ModuleList([nn.Sequential(nn.Linear(2*c, bottleneck_dim),
+                nn.SiLU(), nn.Linear(bottleneck_dim, token_width)) for c in CHANNELS])
+        else:
+            raise ValueError(f"Unknown stage architecture: {architecture}")
         expansion = torch.zeros(n_tokens, 4)
         expansion[torch.arange(n_tokens), torch.arange(n_tokens) % 4] = 1
         self.expansion = nn.Parameter(expansion)
@@ -269,7 +280,8 @@ def calibrate_initial_output(projector, bank, target_rms=0.02):
     if not torch.isfinite(torch.tensor(rms)) or rms <= 1e-10:
         raise FloatingPointError("Cannot calibrate invalid style output")
     factor = target_rms / rms
-    for layer in projector.stage:
+    for stage in projector.stage:
+        layer = stage if projector.architecture == "linear" else stage[-1]
         layer.weight.mul_(factor)
         layer.bias.mul_(factor)
     projector.calibrated = True

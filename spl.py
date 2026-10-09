@@ -42,7 +42,8 @@ class LossValley:
 
 
 def spl_step(prompt, encoder, clip_model, source_data, source_label, source_domain,
-             target_data, base_tokens, running_means, running_count, valley, step, args):
+             target_data, base_tokens, running_means, running_count, valley, step, args,
+             return_objectives=False):
     """Target input has no labels; source CE and teacher soft CE remain unchanged."""
     pooled_prompts, target_prompts = prompt()
     scale = encoder.logit_scale.exp()
@@ -104,6 +105,8 @@ def spl_step(prompt, encoder, clip_model, source_data, source_label, source_doma
         if weights is not None:
             metrics["routing/source_weight_entropy"] = -(weights * weights.clamp_min(1e-38).log()).sum(0).mean().item()
             metrics["routing/source_weight_max_mean"] = weights.max(0).values.mean().item()
+    if return_objectives:
+        return total_loss, target_text, metrics, (pooled_loss + source_avg, args.t_weight * target_loss)
     return total_loss, target_text, metrics
 
 

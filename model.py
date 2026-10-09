@@ -1,3 +1,4 @@
+import copy
 import torch
 from clip_custom import clip
 
@@ -89,28 +90,48 @@ class PromptGenerator(nn.Module):
         self.style_spl_enabled = bool(args.style_spl_enabled)
         self.source_names = list(source_names)
         self.target_name = target_name
+        self.independent_pooled = bool(getattr(args, "independent_pooled", False))
+        self.split_projector = bool(getattr(args, "split_projector", False))
         if self.style_spl_enabled:
             if style_bank is None:
                 raise ValueError("Style-SPL requires a validated fixed Style Bank")
             if embedding_dim != 512 or feature_dim != 1024:
                 raise ValueError("First experiment requires CLIP RN50 (512 token / 1024 feature)")
-            del self.ctx_source, self.ctx_target, self.ctx_source_combined
+            del self.ctx_source, self.ctx_target
+            if not self.independent_pooled:
+                del self.ctx_source_combined
             self.style_bank = FixedStyleBank(style_bank).to(args.device)
             # Separate deterministic initialization; it consumes no training RNG.
             with preserve_rng():
                 torch.manual_seed(args.seed + 1009)
-                self.style_projector = DomainStyleProjector(embedding_dim, args.M2).to(args.device)
+                self.style_projector = DomainStyleProjector(embedding_dim, args.M2,
+                    getattr(args, "projector_architecture", "linear"),
+                    getattr(args, "bottleneck_dim", 32)).to(args.device)
             self.init_diagnostics = calibrate_initial_output(self.style_projector, self.style_bank)
+            if self.split_projector:
+                # Entire generator copied AFTER calibration, including Expansion.
+                # A shared trainable Expansion would still leak target gradients.
+                self.target_style_projector = copy.deepcopy(self.style_projector)
 
-    def domain_tokens(self, kind, source_index=None):
+    def domain_tokens(self, kind, source_index=None, descriptor_index=None):
         if self.style_spl_enabled:
+            if kind == "pooled" and self.independent_pooled:
+                return self.ctx_source_combined
             index = {"pooled": len(self.source_names), "target": len(self.source_names) + 1}.get(kind, source_index)
             if index is None:
                 raise ValueError("source_index is required")
-            return self.style_projector(self.style_bank.entry(index)).unsqueeze(0)
+            index = index if descriptor_index is None else descriptor_index
+            projector = self.target_style_projector if kind == "target" and self.split_projector else self.style_projector
+            return projector(self.style_bank.entry(index)).unsqueeze(0)
         if kind == "source":
             return self.ctx_source[source_index]
         return self.ctx_source_combined if kind == "pooled" else self.ctx_target
+
+    def assemble_domain_prompt(self, kind, source_index=None, descriptor_index=None):
+        """Counterfactual changes ONLY the bank input; parameters/classes fixed."""
+        domain = self.domain_tokens(kind, source_index, descriptor_index)
+        return torch.cat([self.token_prefix, self.ctx_cls,
+                          domain.repeat(self.n_cls, 1, 1), self.token_suffix], dim=1)
 
     @torch.no_grad()
     def initialize_class_from_b0(self, checkpoint):
