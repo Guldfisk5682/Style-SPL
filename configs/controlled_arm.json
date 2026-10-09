@@ -1,0 +1,12 @@
+{
+  "name": "r4_silu32",
+  "comparison": "r4-r3 replaces only stage maps with Linear-SiLU-Linear, r=32",
+  "flags": [
+    "--independent_pooled",
+    "--split_projector",
+    "--projector_architecture",
+    "silu",
+    "--bottleneck_dim",
+    "32"
+  ]
+}
