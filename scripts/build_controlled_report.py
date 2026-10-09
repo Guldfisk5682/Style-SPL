@@ -51,7 +51,8 @@ def main():
     lines += [table(["模型", "Art", "Clipart", "Product", "Real World", "Mean %", "相对上一组 pp"], rows), "",
               "![Instant Accuracy](figures/instant_accuracy.png)", "",
               "## 同模型内域条件差异与共同移动", "",
-              "下表比较每个模型内同一类别的 Source/Target 文本，不比较独立训练模型之间的差异。平均范围为三个源域配对目标域。Prompt 移动量余弦比较相邻 100 步的差值；高共同移动和高文本余弦是观测关联，单凭这一关联不能确定唯一因果。", ""]
+              "下表比较每个模型内同一类别的 Source/Target 文本，不比较独立训练模型之间的差异。平均范围为三个源域配对目标域。Prompt 移动量余弦比较相邻 100 步的差值；高共同移动和高文本余弦是观测关联，单凭这一关联不能确定唯一因果。", "",
+              "r3/r4 的 Source–Target 对比同时包含不同 Projector 参数这一因素，较低余弦只能直接说明角色表示不同，不能直接证明 Style Descriptor 更有效。Source–Source 使用同一 Source Projector，固定角色参数的描述符替换也能隔离输入条件的实际作用；解释 Style Conditioning 时应优先使用这两项证据。", ""]
     rows = []
     for arm in ARMS:
         for target in TARGETS:

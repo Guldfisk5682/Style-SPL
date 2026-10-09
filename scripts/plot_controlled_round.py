@@ -76,6 +76,21 @@ def main():
     handles, labels = axes.flat[0].get_legend_handles_labels()
     fig.legend(handles, labels, loc="lower center", ncol=2, bbox_to_anchor=(.5, -.025))
     fig.tight_layout(rect=(0, .06, 1, 1)); save(fig, "descriptor_swap_response")
+    fig, axes = plt.subplots(2, 2, figsize=(11, 7), sharex=True)
+    for target, ax in zip(TARGETS, axes.flat):
+        source_names = [t for t in TARGETS if t != target]
+        for arm, label, color in zip(ARMS, LABELS, COLORS):
+            rows = [r for r in swap_rows if r["arm"] == arm and r["target"] == target
+                    and r["recipient"] in source_names and r["donor"] in source_names]
+            steps = sorted(set(int(r["step"]) for r in rows))
+            mean = [np.mean([100*float(r["prediction_flip_rate"]) for r in rows if int(r["step"]) == s]) for s in steps]
+            if steps:
+                ax.plot(steps, mean, color=color, label=label, marker=".")
+        ax.set_title(target.replace("_", " ").title()); ax.set_ylabel("Within-source descriptor swap: prediction flips (%)")
+        ax.set_xlabel("Optimizer update"); ax.grid(alpha=.2)
+    handles, labels = axes.flat[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", ncol=2, bbox_to_anchor=(.5, -.025))
+    fig.tight_layout(rect=(0, .06, 1, 1)); save(fig, "source_descriptor_swap_response")
     if summary["all_complete"]:
         fig, ax = plt.subplots(figsize=(9, 4))
         means = [100*summary["arms"][a]["mean_formal_accuracy"] for a in ARMS]
