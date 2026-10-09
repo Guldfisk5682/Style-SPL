@@ -1,0 +1,22 @@
+test_nonlinearity_breaks_affine_pooled_identity (test_controlled_style.ControlledStyleTests) ... ok
+test_silu_calibration_preserves_first_layer_and_expansion (test_controlled_style.ControlledStyleTests) ... ok
+test_random_codes_match_scale_are_distinct_and_repeatable (test_descriptor_controls.DescriptorControlTests) ... ok
+test_random_cpu_cuda_construction_identical (test_descriptor_controls.DescriptorControlTests) ... ok
+test_real_is_exact (test_descriptor_controls.DescriptorControlTests) ... ok
+test_shuffle_whole_domains_and_preserve_training_rng (test_descriptor_controls.DescriptorControlTests) ... ok
+test_centered_geometry_removes_large_common_offset (test_round_analysis.AnalysisTests) ... ok
+test_cosine_compares_same_class_instead_of_mean_class_prototype (test_round_analysis.AnalysisTests) ... ok
+test_stage_shares_keep_cancellation_and_sum_to_one (test_round_analysis.AnalysisTests) ... ok
+test_teacher_preserves_classwise_routing_and_source_permutation (test_round_analysis.AnalysisTests) ... ok
+test_expansion_calibration_gradients_and_no_old_domains (test_style.StyleTests) ... ok
+test_population_statistics_and_per_image_std (test_style.StyleTests) ... ok
+test_preprocess_identity_stable_across_processes (test_style.StyleTests) ... ok
+test_replayable_loader_matches_uninterrupted_shuffle (test_style.StyleTests) ... ok
+test_weighted_pool_cache_identity_and_roundtrip (test_style.StyleTests) ... ok
+test_rejects_held_out_target_in_labelled_source (test_task_data_audit.ProtocolTests) ... ok
+test_rejects_stale_iterators_at_task_boundary (test_task_data_audit.ProtocolTests) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 6.497s
+
+OK

@@ -1,0 +1,68 @@
+{
+  "r4_real": {
+    "art": {
+      "source_domain_order": [
+        "clipart",
+        "product",
+        "real_world"
+      ],
+      "source_accuracy": [
+        0.7099299430847168,
+        0.7103419899940491,
+        0.7103419899940491
+      ],
+      "all_source_prediction_agreement": 0.9806345105171204,
+      "hard_selection_oracle_accuracy": 0.7165224552154541,
+      "uniform_source_logits_accuracy": 0.7103419899940491,
+      "semantic_weighted_source_accuracy": 0.7103419899940491
+    },
+    "clipart": {
+      "source_domain_order": [
+        "art",
+        "product",
+        "real_world"
+      ],
+      "source_accuracy": [
+        0.52531498670578,
+        0.5246277451515198,
+        0.5250859260559082
+      ],
+      "all_source_prediction_agreement": 0.9928980469703674,
+      "hard_selection_oracle_accuracy": 0.5260022878646851,
+      "uniform_source_logits_accuracy": 0.5248568058013916,
+      "semantic_weighted_source_accuracy": 0.5255441069602966
+    },
+    "product": {
+      "source_domain_order": [
+        "art",
+        "clipart",
+        "real_world"
+      ],
+      "source_accuracy": [
+        0.8087407350540161,
+        0.8044604659080505,
+        0.8089659810066223
+      ],
+      "all_source_prediction_agreement": 0.9905384182929993,
+      "hard_selection_oracle_accuracy": 0.8103176355361938,
+      "uniform_source_logits_accuracy": 0.8076143264770508,
+      "semantic_weighted_source_accuracy": 0.8087407350540161
+    },
+    "real_world": {
+      "source_domain_order": [
+        "art",
+        "clipart",
+        "product"
+      ],
+      "source_accuracy": [
+        0.8294697999954224,
+        0.8290107846260071,
+        0.8294697999954224
+      ],
+      "all_source_prediction_agreement": 0.9981638789176941,
+      "hard_selection_oracle_accuracy": 0.8299288749694824,
+      "uniform_source_logits_accuracy": 0.8292403221130371,
+      "semantic_weighted_source_accuracy": 0.8290107846260071
+    }
+  }
+}

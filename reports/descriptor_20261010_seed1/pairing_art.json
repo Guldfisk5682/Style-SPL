@@ -1,0 +1,25 @@
+{
+  "matched": true,
+  "reference": "r4_real",
+  "tasks": {
+    "r4_shuffled/art": "exact matched data/RNG/centroids and frozen condition",
+    "r4_random/art": "exact matched data/RNG/centroids and frozen condition"
+  },
+  "complete_four_targets": false,
+  "checked": [
+    "parameter count",
+    "original bank SHA",
+    "initial class and Pooled tokens",
+    "training RNG",
+    "source and target stream states",
+    "centroids and counts",
+    "scheduler",
+    "unchanged effective descriptors"
+  ],
+  "global_shuffle_mapping": {
+    "art": "real_world",
+    "clipart": "art",
+    "product": "clipart",
+    "real_world": "product"
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "prediction_type": "Final saved temporal-average target text; full fixed target pool",
+  "limitations": "Image bootstrap conditional on fixed trained models, NOT seed/control variance",
+  "targets": {
+    "art": {
+      "samples": 2427,
+      "arms": {
+        "r4_real": {
+          "accuracy": 0.7569015026092529,
+          "temporal_feature_count": 958
+        },
+        "r4_shuffled": {
+          "accuracy": 0.7573135495185852,
+          "temporal_feature_count": 958
+        },
+        "r4_random": {
+          "accuracy": 0.7651421427726746,
+          "temporal_feature_count": 975
+        }
+      },
+      "paired": {
+        "r4_shuffled": {
+          "real_only_correct": 47,
+          "control_only_correct": 48,
+          "real_minus_control_pp": -0.04120313096791506,
+          "prediction_disagreement_fraction": 0.06963329017162323
+        },
+        "r4_random": {
+          "real_only_correct": 41,
+          "control_only_correct": 61,
+          "real_minus_control_pp": -0.8240626193583012,
+          "prediction_disagreement_fraction": 0.06633704155683517
+        }
+      }
+    },
+    "clipart": {
+      "samples": 4365,
+      "arms": {
+        "r4_real": {
+          "accuracy": 0.5651775598526001,
+          "temporal_feature_count": 969
+        },
+        "r4_shuffled": {
+          "accuracy": 0.5608247518539429,
+          "temporal_feature_count": 956
+        },
+        "r4_random": {
+          "accuracy": 0.5601374506950378,
+          "temporal_feature_count": 966
+        }
+      },
+      "paired": {
+        "r4_shuffled": {
+          "real_only_correct": 111,
+          "control_only_correct": 92,
+          "real_minus_control_pp": 0.43528066016733646,
+          "prediction_disagreement_fraction": 0.11042382568120956
+        },
+        "r4_random": {
+          "real_only_correct": 108,
+          "control_only_correct": 86,
+          "real_minus_control_pp": 0.5040091462433338,
+          "prediction_disagreement_fraction": 0.10698740184307098
+        }
+      }
+    },
+    "product": {
+      "samples": 4439,
+      "arms": {
+        "r4_real": {
+          "accuracy": 0.8657355308532715,
+          "temporal_feature_count": 940
+        },
+        "r4_shuffled": {
+          "accuracy": 0.8605541586875916,
+          "temporal_feature_count": 942
+        },
+        "r4_random": {
+          "accuracy": 0.8704662919044495,
+          "temporal_feature_count": 935
+        }
+      },
+      "paired": {
+        "r4_shuffled": {
+          "real_only_correct": 80,
+          "control_only_correct": 57,
+          "real_minus_control_pp": 0.5181347019970417,
+          "prediction_disagreement_fraction": 0.045055191963911057
+        },
+        "r4_random": {
+          "real_only_correct": 53,
+          "control_only_correct": 74,
+          "real_minus_control_pp": -0.4730795044451952,
+          "prediction_disagreement_fraction": 0.039873845875263214
+        }
+      }
+    },
+    "real_world": {
+      "samples": 4357,
+      "arms": {
+        "r4_real": {
+          "accuracy": 0.861831545829773,
+          "temporal_feature_count": 971
+        },
+        "r4_shuffled": {
+          "accuracy": 0.8650447726249695,
+          "temporal_feature_count": 966
+        },
+        "r4_random": {
+          "accuracy": 0.8673399090766907,
+          "temporal_feature_count": 936
+        }
+      },
+      "paired": {
+        "r4_shuffled": {
+          "real_only_correct": 43,
+          "control_only_correct": 57,
+          "real_minus_control_pp": -0.3213220043107867,
+          "prediction_disagreement_fraction": 0.03488638997077942
+        },
+        "r4_random": {
+          "real_only_correct": 50,
+          "control_only_correct": 74,
+          "real_minus_control_pp": -0.5508377216756344,
+          "prediction_disagreement_fraction": 0.04154234379529953
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "r4_shuffled": {
+      "mean_real_minus_control_pp": 0.1477225567214191,
+      "conditional_image_bootstrap_95pct_pp": [
+        -0.1598088674811579,
+        0.45759155206888236
+      ]
+    },
+    "r4_random": {
+      "mean_real_minus_control_pp": -0.33599267480894923,
+      "conditional_image_bootstrap_95pct_pp": [
+        -0.6533583915283743,
+        -0.030566968333846384
+      ]
+    }
+  }
+}

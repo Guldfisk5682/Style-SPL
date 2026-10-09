@@ -111,6 +111,20 @@ def main():
         values = [100*row["all_source_prediction_agreement"], 100*best, 100*oracle, 100*(oracle-best)]
         lines.append("| " + target + " | " + " | ".join(f"{v:.3f}" for v in values) + " |")
     lines += ["", "理想选择只约束直接选取一个 Teacher 的 top-1 预测，不是类别相关 Logits 混合的上限，也不排除置信度/NLL 互补。若保留当前 Source Teacher，Style 路由还需要面对预测同质化；不能只凭风格距离较近就假设该 Teacher 更可靠。", "",
+        "| 条件 | 三个 Source Teacher 预测一致率范围 % |",
+        "| --- | ---: |"]
+    for arm in ARMS:
+        values = [100*r["all_source_prediction_agreement"] for r in headroom["arms"][arm].values()]
+        lines.append(f"| {LABELS[arm]} | {min(values):.3f}–{max(values):.3f} |")
+    shuffled_mean = summary["arms"]["r4_shuffled"]["mean_formal_accuracy"]
+    random_mean = summary["arms"]["r4_random"]["mean_formal_accuracy"]
+    random_wins = sum(summary["arms"]["r4_random"]["tasks"][t]["result"]["final_accuracy"] >
+                      summary["arms"]["r4_real"]["tasks"][t]["result"]["final_accuracy"] for t in TARGETS)
+    lines += ["", "## 本轮实际判断", "",
+        f"Real 相对 Shuffled 仅高 {100*(real_mean-shuffled_mean):.3f} pp；Random 相对 Real 高 {100*(random_mean-real_mean):.3f} pp，在 {random_wins}/4 个任务上更高。这轮没有建立正确风格对应关系或真实 Style 信息在当前 R4 中的额外必要性。Random 略高于 B0 也不能作为真实 Style 有效性的证据，因为 Source/Target Prompt 使用的是随机代码。", "",
+        "Random 的 Source 表示和预测分歧明显更大，Weighted Source Teacher 也更强。观察更符合‘固定输入可承担域身份代码、其几何影响共享生成器的专门化’这一解释；真实输入共享分量较大、映射与分类训练进一步产生相似提示，是待验证的机制假设。随机对照同时改变了几何、通道结构和初始 Prompt，尚不能唯一归因为某一因素。", "",
+        "结构上，每个任务的 Target 生成器只见一个固定 Descriptor；Source 生成器见三个固定 Descriptor。正确的源—目标 Style 相似度没有直接参与现有路由或可靠性监督，网络可以通过稳定域代码完成条件化。这个结构事实有助于解释对照结果，不等于已证明所有 Style 统计没有分类价值。", "",
+        "当前不宜继续以零点几个百分点的性能改善证明真实 Style 信息有效。若转向 Style-guided，下一步应先检验逐图像 Style 相似度对 Source Teacher 正确率或 NLL 的预测能力，按类别及现有语义路由强弱分层；Source 专家候选可同时纳入原 SPL 与本轮 Random，避免仅在几乎同质的 Real 教师上测试路由。此项关系尚未验证，本轮未实现或训练新路由。", "",
         "## 判读边界", "",
         "若 Real 对 Random/Shuffled 都有一致优势，支持真实输入在当前固定架构和协议中的额外价值，随后仍需换训练种子和控制输入种子确认。若优势接近零或方向不一致，则当前损失和参数化尚未建立真实 Style 信息的必要性。Shuffled/Random 都保留可辨识的固定域代码，网络可以重新学习其关联；结果接近不等于没有任何输入响应，也不等于所有 Style 路线无效。", "",
         "随机输入改变通道结构，也改变函数空间的优化轨迹，第二层校准系数可以不同。因此即使 Random 较差，也不能单独归因于丢失正确风格语义。应同时结合 Shuffled、同模型文本差异、替换响应和 Teacher Quality。", "",
