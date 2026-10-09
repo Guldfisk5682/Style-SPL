@@ -16,8 +16,16 @@ TARGETS = ["art", "clipart", "product", "real_world"]
 
 
 def main():
+    global ARMS, LABELS, COLORS
     p = argparse.ArgumentParser(); p.add_argument("root", type=Path)
+    p.add_argument("--arms", nargs="+", default=ARMS)
+    p.add_argument("--labels", nargs="+", default=LABELS)
+    p.add_argument("--actual_domain_swaps", action="store_true", help="Exclude unused Pooled descriptor as a swap donor")
     args = p.parse_args()
+    ARMS, LABELS = args.arms, args.labels
+    if len(ARMS) != len(LABELS):
+        p.error("One label is required per arm")
+    COLORS = COLORS[:len(ARMS)]
     summary = json.loads((args.root / "summary.json").read_text())
     output = args.root / "figures"; output.mkdir(exist_ok=True)
     plt.rcParams.update({"font.size": 10, "axes.spines.top": False, "axes.spines.right": False})
@@ -68,7 +76,8 @@ def main():
     fig, axes = plt.subplots(2, 2, figsize=(11, 7), sharex=True)
     for target, ax in zip(TARGETS, axes.flat):
         for arm, label, color in zip(ARMS, LABELS, COLORS):
-            rows = [r for r in swap_rows if r["arm"] == arm and r["target"] == target and r["recipient"] == target and int(r["step"]) > 0]
+            rows = [r for r in swap_rows if r["arm"] == arm and r["target"] == target and r["recipient"] == target and int(r["step"]) > 0
+                    and (not args.actual_domain_swaps or r["donor"] != "pooled")]
             steps = sorted(set(int(r["step"]) for r in rows))
             mean = [np.mean([100*float(r["prediction_flip_rate"]) for r in rows if int(r["step"]) == s]) for s in steps]
             if steps:

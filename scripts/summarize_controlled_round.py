@@ -30,15 +30,27 @@ def pair_mean(matrix, pairs):
 
 
 def main():
+    global ARMS
     parser = argparse.ArgumentParser()
     parser.add_argument("--run_root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--arms", nargs="+", default=ARMS)
+    parser.add_argument("--descriptor_controls", action="store_true")
     args = parser.parse_args()
+    ARMS = args.arms
     args.output.mkdir(parents=True, exist_ok=True)
     summary = {"arms": {}, "protocol": "One-seed controlled screening; fixed bank, lr, sampling and losses",
         "limitations": ["Formal temporal accuracy retains original shuffled/drop-tail evaluation; diagnostic accuracy covers all cached target images.",
                         "Source/Target stage and Expansion are separated in r3/r4; class context is still shared.",
                         "r4-r3 changes stage architecture and parameterization capacity; it is not a pure activation-function comparison."]}
+    if args.descriptor_controls:
+        summary["protocol"] = "R4 architecture fixed; real vs fixed shuffled vs scale-matched random descriptors; seed 1"
+        summary["limitations"] = [
+            "One seed and one fixed control draw; no training-seed significance claim.",
+            "Formal temporal accuracy uses shuffled/drop-tail evaluation; offline diagnostics cover all target images.",
+            "Shuffled retains identifiable fixed domain codes and permits relearning their association.",
+            "Random preserves aggregate input moments and the R4 .02 output calibration policy, not initial prompt values.",
+            "Independent Pooled initialization remains exactly the original real-bank reference in all conditions."]
     replay = args.run_root / "replay_verification.json"
     if replay.exists():
         summary["replay_verification"] = json.loads(replay.read_text())
