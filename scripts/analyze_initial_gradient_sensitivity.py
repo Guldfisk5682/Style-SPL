@@ -15,7 +15,7 @@ from style import DomainStyleProjector
 
 
 def sensitivity(config, state, gradients, prefix, indices):
-    model = DomainStyleProjector(config["M1"] * 0 + 512, config["M2"],
+    model = DomainStyleProjector(512, config["M2"],
                                  config["projector_architecture"], config["bottleneck_dim"])
     model.load_state_dict({k[len(prefix):]: v for k, v in state.items() if k.startswith(prefix)})
     parameters = {k: p.detach() for k, p in model.named_parameters()}

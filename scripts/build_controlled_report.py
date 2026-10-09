@@ -120,6 +120,18 @@ def main():
     pairing_path = args.root / "pairing_verification.json"
     if pairing_path.exists():
         lines += ["所有正式组的初始 Class Prompt、固定 Bank、实际源域 Centroids/Count、RNG、Source/Target 数据流和 Scheduler 均逐位一致；采样和固定图像特征差异未混入架构比较。", ""]
+    sensitivity_path = args.root / "initial_gradient_sensitivity.json"
+    if sensitivity_path.exists():
+        sensitivity = json.loads(sensitivity_path.read_text())
+        lines += ["## Target 梯度是否实际推动 Source Prompt", "",
+            "在初始状态，将真实第一批 Target Objective 梯度作为方向，计算 Prompt 生成函数的 Jacobian 响应。没有运行优化器、没有有限幅度参数替换，Class Prompt 保持不变。它检验的是 Projector 这条直接耦合路径；其数值不是实际 AdamW 更新的 RMS。", ""]
+        rows = []
+        for name, record in sensitivity["tasks"].items():
+            arm, target = name.split("/")
+            rows.append([NAMES[arm], target,
+                f"{record['mean_source_to_target_response_norm_ratio']:.6f}",
+                "是" if record["source_prompt_exactly_unchanged"] else "否"])
+        lines += [table(["模型", "目标", "Source/Target 响应范数比", "Source Prompt 严格零响应"], rows), ""]
     if summary["all_complete"]:
         means = [summary["arms"][a]["mean_formal_accuracy"] for a in ARMS]
         lines += ["所有正式实验已完成。", "",
