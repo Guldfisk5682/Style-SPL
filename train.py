@@ -36,6 +36,8 @@ def parser():
     p.add_argument("--split_projector", action="store_true")
     p.add_argument("--projector_architecture", choices=("linear", "silu"), default="linear")
     p.add_argument("--bottleneck_dim", type=int, default=32)
+    p.add_argument("--descriptor_mode", choices=("real", "shuffled", "random"), default="real")
+    p.add_argument("--descriptor_seed", type=int, default=20261010)
     p.add_argument("--fixed_bank_root", type=Path, help="Reuse the audited, unchanged bank from S1")
     p.add_argument("--diagnostic_image_cache", type=Path, help="Frozen embeddings for offline diagnostics only")
     p.add_argument("--mechanism_step", type=int, default=0, help="0 disables extra probes; otherwise snapshot cadence")
@@ -132,7 +134,12 @@ def run_target(args, target, clip_model, preprocess, classnames):
     config["dependencies"] = {name: importlib.metadata.version(name) for name in ("torch", "torchvision", "numpy", "Pillow")}
     config["trainable_parameters"] = sum(p.numel() for p in prompt.parameters())
     config["initial_class_prompt_sha256"] = hashlib.sha256(prompt.ctx_cls.detach().cpu().numpy().tobytes()).hexdigest()
+    config["descriptor_control"] = getattr(prompt, "descriptor_control_report", None)
+    config["runtime_sha256"]["descriptor_controls.py"] = hashlib.sha256(Path("descriptor_controls.py").read_bytes()).hexdigest()
     write_json(root / "config.json", config)
+    if config["descriptor_control"]:
+        write_json(root / "descriptor_control.json", config["descriptor_control"])
+        torch.save(prompt.style_bank.state_dict(), root / "effective_descriptor_bank.pt")
     if args.style_spl_enabled:
         write_json(root / "init_diagnostics.json", prompt.init_diagnostics)
         torch.save(prompt.style_projector.expansion.detach().cpu(), root / "expansion/step0000.pt")
@@ -146,6 +153,9 @@ def run_target(args, target, clip_model, preprocess, classnames):
         for key in ("target_domain", "source_domain_order", "style_spl_enabled", "seed", "prompt_iteration", "M1", "M2", "batch_size", "prompt_learning_rate", "w_scale", "t_weight", "independent_pooled", "split_projector", "projector_architecture", "bottleneck_dim"):
             if previous[key] != config[key]:
                 raise ValueError(f"Resume configuration mismatch: {key}")
+        for key, default in (("descriptor_mode", "real"), ("descriptor_seed", 20261010)):
+            if previous.get(key, default) != config[key]:
+                raise ValueError(f"Resume descriptor control mismatch: {key}")
         if args.style_spl_enabled:
             for key in ("cache_identity", "counts"):
                 if previous["style_bank_metadata"][key] != config["style_bank_metadata"][key]:

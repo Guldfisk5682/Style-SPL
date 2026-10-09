@@ -101,13 +101,30 @@ class PromptGenerator(nn.Module):
             if not self.independent_pooled:
                 del self.ctx_source_combined
             self.style_bank = FixedStyleBank(style_bank).to(args.device)
+            descriptor_mode = getattr(args, "descriptor_mode", "real")
+            self.descriptor_control_report = None
+            real_style_bank = self.style_bank
+            if descriptor_mode != "real":
+                if not (self.independent_pooled and self.split_projector
+                        and getattr(args, "projector_architecture", "linear") == "silu"
+                        and getattr(args, "bottleneck_dim", 32) == 32):
+                    raise ValueError("Descriptor controls must keep the R4 architecture")
+                from descriptor_controls import descriptor_control
+                self.style_bank, self.descriptor_control_report = descriptor_control(
+                    real_style_bank, target_name, descriptor_mode,
+                    getattr(args, "descriptor_seed", 20261010))
             # Separate deterministic initialization; it consumes no training RNG.
             with preserve_rng():
                 torch.manual_seed(args.seed + 1009)
                 self.style_projector = DomainStyleProjector(embedding_dim, args.M2,
                     getattr(args, "projector_architecture", "linear"),
                     getattr(args, "bottleneck_dim", 32)).to(args.device)
-            self.init_diagnostics = calibrate_initial_output(self.style_projector, self.style_bank)
+            # Shuffling leaves the input multiset unchanged: use the identical
+            # reference reduction order, keeping R4 weights bitwise unchanged.
+            # Random codes retain the R4 policy, calibrating only the LAST
+            # affine on the actual fixed inputs; no training-time RMS control.
+            calibration_bank = real_style_bank if descriptor_mode == "shuffled" else self.style_bank
+            self.init_diagnostics = calibrate_initial_output(self.style_projector, calibration_bank)
             if self.independent_pooled:
                 # Release the affine constraint without changing the initial
                 # pooled teacher. ALL arms use the same calibrated LINEAR
@@ -118,8 +135,8 @@ class PromptGenerator(nn.Module):
                     if getattr(args, "projector_architecture", "linear") != "linear":
                         torch.manual_seed(args.seed + 1009)
                         reference = DomainStyleProjector(embedding_dim, args.M2).to(args.device)
-                        calibrate_initial_output(reference, self.style_bank)
-                    self.ctx_source_combined.copy_(reference(self.style_bank.entry(len(source_names))).unsqueeze(0))
+                        calibrate_initial_output(reference, real_style_bank)
+                    self.ctx_source_combined.copy_(reference(real_style_bank.entry(len(source_names))).unsqueeze(0))
             if self.split_projector:
                 # Entire generator copied AFTER calibration, including Expansion.
                 # A shared trainable Expansion would still leak target gradients.

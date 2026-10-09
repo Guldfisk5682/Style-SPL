@@ -1,0 +1,12 @@
+{
+  "reference": "controlled_20261009_seed1/r4_silu32",
+  "dataset": "Office-Home four 3-to-1 tasks",
+  "seed": 1,
+  "updates_per_task": 1000,
+  "descriptor_seed": 20261010,
+  "unchanged": ["R4 architecture and 1167744 trainable parameters", "losses and teacher routing", "CLIP RN50", "all training and evaluation data streams", "independent real-bank initialized Pooled Tokens", "one-hot Expansion initialization", "optimizer, scheduler and learning rate", "no training-time RMS constraints"],
+  "shuffled": "One fixed derangement of canonical four domain names, all stages/statistic blocks together; unused Pooled bank row unchanged",
+  "random": "Independent fixed Gaussian channel codes, each stage/mean-or-std block standardized to the REAL global four-domain block mean and population std; per-domain moments and geometry not preserved",
+  "initialization": "Same raw PyTorch R4 initial weights and class/Pooled tokens. Shuffle retains exactly the original calibrated weights. Random calibrates only second Linear weights/biases to .02 global bank-output RMS, following the R4 policy, then copies source generator to target generator.",
+  "limits": ["One seed is screening, not significance evidence", "Shuffling fixed domain inputs still leaves identifiable domain codes and allows relearning their association", "Random matching retains aggregate input distribution/scale and unused Pooled reference, not zero visual prior throughout the network", "No gain from real inputs would question necessity in THIS conditioning/training scheme, not style-guided adaptation in general", "Potential style routing is not implemented or trained in this round"]
+}
