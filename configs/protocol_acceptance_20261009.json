@@ -1,0 +1,200 @@
+{
+  "official_path_boundary": {
+    "protocol_valid": true,
+    "author_control_flow_executed": true,
+    "model_updates": 0,
+    "tasks": [
+      {
+        "target": "art",
+        "source_domains": [
+          "clipart",
+          "product",
+          "real_world"
+        ],
+        "checked_batches": 5,
+        "actual_source_paths_valid": true,
+        "actual_target_paths_valid": true
+      },
+      {
+        "target": "clipart",
+        "source_domains": [
+          "art",
+          "product",
+          "real_world"
+        ],
+        "checked_batches": 5,
+        "actual_source_paths_valid": true,
+        "actual_target_paths_valid": true
+      },
+      {
+        "target": "product",
+        "source_domains": [
+          "art",
+          "clipart",
+          "real_world"
+        ],
+        "checked_batches": 5,
+        "actual_source_paths_valid": true,
+        "actual_target_paths_valid": true
+      },
+      {
+        "target": "real_world",
+        "source_domains": [
+          "art",
+          "clipart",
+          "product"
+        ],
+        "checked_batches": 5,
+        "actual_source_paths_valid": true,
+        "actual_target_paths_valid": true
+      }
+    ]
+  },
+  "b0_four_tasks": [
+    {
+      "target": "art",
+      "style_spl_enabled": false,
+      "seed": 1,
+      "steps": 2,
+      "planned_steps": 1000,
+      "checked_updates_this_invocation": 2,
+      "temporal_feature_count": 0,
+      "cache_valid": false,
+      "best_instant_diagnostic_only": 0,
+      "parameter_update_norms": {
+        "ctx_cls": 5.657615661621094,
+        "ctx_target": 0.7107450366020203,
+        "ctx_source_combined": 0.7068654894828796,
+        "ctx_source.0": 0.6866700053215027,
+        "ctx_source.1": 0.7049095630645752,
+        "ctx_source.2": 0.7233869433403015
+      },
+      "training_valid": true,
+      "protocol_valid": true,
+      "final_accuracy": null
+    },
+    {
+      "target": "clipart",
+      "style_spl_enabled": false,
+      "seed": 1,
+      "steps": 2,
+      "planned_steps": 1000,
+      "checked_updates_this_invocation": 2,
+      "temporal_feature_count": 0,
+      "cache_valid": false,
+      "best_instant_diagnostic_only": 0,
+      "parameter_update_norms": {
+        "ctx_cls": 5.506276607513428,
+        "ctx_target": 0.7068272829055786,
+        "ctx_source_combined": 0.6761256456375122,
+        "ctx_source.0": 0.7003171443939209,
+        "ctx_source.1": 0.6959892511367798,
+        "ctx_source.2": 0.6650951504707336
+      },
+      "training_valid": true,
+      "protocol_valid": true,
+      "final_accuracy": null
+    },
+    {
+      "target": "product",
+      "style_spl_enabled": false,
+      "seed": 1,
+      "steps": 2,
+      "planned_steps": 1000,
+      "checked_updates_this_invocation": 2,
+      "temporal_feature_count": 0,
+      "cache_valid": false,
+      "best_instant_diagnostic_only": 0,
+      "parameter_update_norms": {
+        "ctx_cls": 5.640324592590332,
+        "ctx_target": 0.6707697510719299,
+        "ctx_source_combined": 0.7038495540618896,
+        "ctx_source.0": 0.704527735710144,
+        "ctx_source.1": 0.6882292032241821,
+        "ctx_source.2": 0.6747468113899231
+      },
+      "training_valid": true,
+      "protocol_valid": true,
+      "final_accuracy": null
+    },
+    {
+      "target": "real_world",
+      "style_spl_enabled": false,
+      "seed": 1,
+      "steps": 2,
+      "planned_steps": 1000,
+      "checked_updates_this_invocation": 2,
+      "temporal_feature_count": 0,
+      "cache_valid": false,
+      "best_instant_diagnostic_only": 0,
+      "parameter_update_norms": {
+        "ctx_cls": 5.551782131195068,
+        "ctx_target": 0.7035441994667053,
+        "ctx_source_combined": 0.6988983154296875,
+        "ctx_source.0": 0.6987343430519104,
+        "ctx_source.1": 0.6734347343444824,
+        "ctx_source.2": 0.6901924014091492
+      },
+      "training_valid": true,
+      "protocol_valid": true,
+      "final_accuracy": null
+    }
+  ],
+  "s1_boundary": [
+    {
+      "target": "art",
+      "style_spl_enabled": true,
+      "seed": 1,
+      "steps": 2,
+      "planned_steps": 1000,
+      "checked_updates_this_invocation": 2,
+      "temporal_feature_count": 0,
+      "cache_valid": false,
+      "best_instant_diagnostic_only": 0,
+      "parameter_update_norms": {
+        "ctx_cls": 5.624452590942383,
+        "style_projector.expansion": 0.058453768491744995,
+        "style_projector.stage.0.weight": 4.2615532875061035,
+        "style_projector.stage.0.bias": 0.1884906142950058,
+        "style_projector.stage.1.weight": 6.032525539398193,
+        "style_projector.stage.1.bias": 0.18828816711902618,
+        "style_projector.stage.2.weight": 8.54286003112793,
+        "style_projector.stage.2.bias": 0.1885465830564499,
+        "style_projector.stage.3.weight": 12.079057693481445,
+        "style_projector.stage.3.bias": 0.18854160606861115
+      },
+      "training_valid": true,
+      "protocol_valid": true,
+      "final_accuracy": null
+    },
+    {
+      "target": "clipart",
+      "style_spl_enabled": true,
+      "seed": 1,
+      "steps": 2,
+      "planned_steps": 1000,
+      "checked_updates_this_invocation": 2,
+      "temporal_feature_count": 0,
+      "cache_valid": false,
+      "best_instant_diagnostic_only": 0,
+      "parameter_update_norms": {
+        "ctx_cls": 5.634668350219727,
+        "style_projector.expansion": 0.062308479100465775,
+        "style_projector.stage.0.weight": 4.264133453369141,
+        "style_projector.stage.0.bias": 0.1881883591413498,
+        "style_projector.stage.1.weight": 6.046642780303955,
+        "style_projector.stage.1.bias": 0.18873682618141174,
+        "style_projector.stage.2.weight": 8.539448738098145,
+        "style_projector.stage.2.bias": 0.1886434108018875,
+        "style_projector.stage.3.weight": 12.086638450622559,
+        "style_projector.stage.3.bias": 0.1887122094631195
+      },
+      "training_valid": true,
+      "protocol_valid": true,
+      "final_accuracy": null
+    }
+  ],
+  "unit_tests_passed": 7,
+  "formal_accuracy_claim": false,
+  "style_initialization_changed": false
+}

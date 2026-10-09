@@ -1,6 +1,6 @@
 {
   "spec": "spec/Style_SPL_Implementation_Spec.md",
-  "unit_tests_passed": 5,
+  "unit_tests_passed": 7,
   "baseline_equivalence": {
     "b0_prompt_parameters_exact": true,
     "b0_prompt_outputs_exact": true,
@@ -53,7 +53,8 @@
         7,
         7
       ]
-    ]
+    ],
+    "scope": "Single-task component and numerical equivalence only; original author four-task runtime is protocol-invalid. See protocol_acceptance_20261009.json for corrected boundary validation."
   },
   "separate_source_target_gradients": {
     "class_initialization_matches_b0": true,
