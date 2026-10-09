@@ -157,7 +157,7 @@ class SingleSourceDataset(DatasetBase):
 
 
 class MultiSourceDataset(DatasetBase):
-    
+
     def __init__(self, data_root, source_name_list, transform=None):
         self.dataset_dir = data_root
         data = self._read_data(source_name_list)

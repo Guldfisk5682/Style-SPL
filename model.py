@@ -53,10 +53,10 @@ class PromptGenerator(nn.Module):
             requires_grad=True,
             dtype=dtype,
             device=args.device,
-            ) 
+            )
             nn.init.normal_(ctx_source_vector, std=0.02)
             ctx_source_vectors.append(nn.Parameter(ctx_source_vector))
-            
+
         nn.init.normal_(ctx_cls_vector, std=0.02)
         nn.init.normal_(ctx_target_vector, std=0.02)
         nn.init.normal_(ctx_source_combined_vector, std=0.02)
@@ -77,7 +77,7 @@ class PromptGenerator(nn.Module):
 
         with torch.no_grad():
             embedding = clip_model.token_embedding(tokenized_prompts).type(dtype)
-        
+
         #  print(embedding.shape)
         self.register_buffer("token_prefix", embedding[:, :1, :])  # SOT
         self.register_buffer(
@@ -140,7 +140,7 @@ class PromptGenerator(nn.Module):
             ],
             dim=1,
         )
-        
+
         return source_combined_prompts, target_prompts
 
     def forward_source(self, source_index=None):
@@ -157,12 +157,12 @@ class PromptGenerator(nn.Module):
                 suffix,  # (n_cls, *, dim)
             ],
             dim=1,
-        )      
+        )
         return source_prompts
 
     @torch.no_grad()
     def store_txt_features(self, features):
-        self.target_features = self.target_features * self.count + features 
+        self.target_features = self.target_features * self.count + features
         self.count += 1
         self.target_features /= self.count
 
@@ -214,7 +214,7 @@ class Custom_Clip(nn.Module):
         image_features = self.image_encoder(image)
         norm_image_features = image_features / image_features.norm(dim=-1, keepdim=True)
         return norm_image_features
-    
+
     def forward_img_both(self, image):
         image_features = self.image_encoder(image)
         norm_image_features = image_features / image_features.norm(dim=-1, keepdim=True)
@@ -225,4 +225,3 @@ class Custom_Clip(nn.Module):
         text_features = text_features / text_features.norm(dim=-1, keepdim=True)
 
         return text_features
-
