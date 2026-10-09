@@ -10,6 +10,7 @@ from style import UnlabelledImages
 class Pseudolabeldata(Dataset):
     def __init__(self, path, clip_model, transform, args, classnames):
         dataset = UnlabelledImages(path, transform)
+        self.root = dataset.root.resolve()
         # Same order and batch size as upstream ImageFolder scan. No labels.
         loader = DataLoader(dataset, num_workers=args.num_workers, batch_size=args.batch_size,
                             shuffle=False, pin_memory=args.pin_memory, drop_last=False)

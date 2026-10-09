@@ -20,6 +20,7 @@ from runtime import ReplayableLoader, fix_random_seed, gradient_check, parameter
 from style import build_style_bank
 from spl import LossValley, spl_step, evaluate
 from logging_utils import MetricLogger, style_metrics, write_json
+from task_data_audit import TaskDataAudit
 
 DOMAIN_ORDER = ["art", "clipart", "product", "real_world"]
 
@@ -98,6 +99,7 @@ def run_target(args, target, clip_model, preprocess, classnames):
     running_means = torch.zeros(len(sources), len(classnames), 1024, device=args.device)
     running_count = torch.zeros(len(sources), len(classnames), device=args.device)
     source_stream, target_stream = ReplayableLoader(source_train), ReplayableLoader(target_train)
+    data_audit = TaskDataAudit(root, args.data_root, sources, target, source_train, target_train, target_test)
     config = {k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()}
     config.update({"target_domain": target, "source_domain_order": sources,
                    "git_commit": os.environ.get("STYLE_CODE_COMMIT") or subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
@@ -106,9 +108,10 @@ def run_target(args, target, clip_model, preprocess, classnames):
                    "optimizer": "AdamW default weight_decay=0.01, shared lr for all prompt parameters",
                    "scheduler": "CosineAnnealingLR T_max=1000, step every prompt_iteration/20 updates",
                    "style_initialization_seed": args.seed + 1009,
+                   "data_protocol": "fresh per-target iterators; held-out target excluded from labelled source; checked every update",
                    "resume_contract": "fixed deterministic CLIP transforms; replay epoch RNG + consumed batch cursor"})
     config["runtime_sha256"] = {name: hashlib.sha256(Path(name).read_bytes()).hexdigest()
-                               for name in ("train.py", "model.py", "style.py", "spl.py", "runtime.py", "dataloader.py", "dataset.py", "samplers.py", "logging_utils.py", "clip_custom/model.py")}
+                               for name in ("train.py", "model.py", "style.py", "spl.py", "runtime.py", "dataloader.py", "dataset.py", "samplers.py", "logging_utils.py", "task_data_audit.py", "clip_custom/model.py")}
     config["dependencies"] = {name: importlib.metadata.version(name) for name in ("torch", "torchvision", "numpy", "Pillow")}
     config["trainable_parameters"] = sum(p.numel() for p in prompt.parameters())
     config["initial_class_prompt_sha256"] = hashlib.sha256(prompt.ctx_cls.detach().cpu().numpy().tobytes()).hexdigest()
@@ -151,6 +154,7 @@ def run_target(args, target, clip_model, preprocess, classnames):
         for step in range(start_step + 1, end_step + 1):
             target_data, _pseudo = target_stream.next()  # pseudo, never GT
             source_data, source_label, source_domain = source_stream.next()
+            data_audit.check(source_stream.iterator, target_stream.iterator, step)
             optimizer.zero_grad()
             loss, target_text, metrics = spl_step(prompt, encoder, clip_model,
                 source_data.to(args.device), source_label.to(args.device), source_domain.to(args.device),
@@ -186,13 +190,14 @@ def run_target(args, target, clip_model, preprocess, classnames):
                 checkpoint(root / "checkpoints/latest.pth", prompt, optimizer, scheduler, valley,
                            running_means, running_count, source_stream, target_stream, step, args, config, best_instant)
         parameter_check(prompt)
+        data_audit.finish(checked_updates)
         deltas = {name: torch.linalg.vector_norm(p.detach().cpu() - initial[name]).item() for name, p in prompt.named_parameters()}
         result = {"target": target, "style_spl_enabled": bool(args.style_spl_enabled),
                   "seed": args.seed, "steps": end_step, "planned_steps": args.prompt_iteration,
                   "checked_updates_this_invocation": checked_updates,
                   "temporal_feature_count": prompt.count, "cache_valid": prompt.count > 0,
                   "best_instant_diagnostic_only": best_instant, "parameter_update_norms": deltas,
-                  "training_valid": True, "final_accuracy": None}
+                  "training_valid": True, "protocol_valid": True, "final_accuracy": None}
         if prompt.count > 0:
             result["final_accuracy"] = evaluate(target_test, encoder, prompt.target_features, args.batch_size, args.device)
             # Separate final-only CSV avoids altering instant curve semantics.

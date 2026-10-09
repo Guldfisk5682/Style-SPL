@@ -60,5 +60,9 @@
     "clipart",
     "product",
     "real_world"
-  ]
+  ],
+  "protocol_valid": false,
+  "comparison_eligible": false,
+  "invalid_reason": "Historical author train() retained previous-task iterators, including labelled held-out target data after task boundaries.",
+  "superseded_by": "Domain_Adaptation/runs/crpl_spl_protocol_checked_20261009_seed1"
 }
