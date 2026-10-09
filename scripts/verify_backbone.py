@@ -30,6 +30,7 @@ def main():
     device="cuda" if torch.cuda.is_available() else "cpu"
     model,preprocess=clip.load("RN50",device=device);model.float().eval().requires_grad_(False)
     reference=load_module("b0_reference_model",args.baseline_root/"model.py")
+    sys.path.append(str(args.baseline_root.resolve()))
     # Import the actual author's scalar helpers as an independent algebra oracle.
     original=load_module("b0_reference_main",args.baseline_root/"main.py")
     classnames=sorted(d.name for d in (args.data_root/"art").iterdir() if d.is_dir())

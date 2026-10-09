@@ -112,6 +112,19 @@ class PromptGenerator(nn.Module):
             return self.ctx_source[source_index]
         return self.ctx_source_combined if kind == "pooled" else self.ctx_target
 
+    @torch.no_grad()
+    def initialize_class_from_b0(self, checkpoint):
+        """Explicit optional warm start; never strict-load old domain parameters.
+
+        Only the shared class context is compatible. The new projector/bank and
+        target averaging cache keep their fresh initialization. Not used in S1.
+        """
+        state = checkpoint["prompt"]
+        if state["ctx_cls"].shape != self.ctx_cls.shape:
+            raise ValueError("B0 class prompt shape mismatch")
+        self.ctx_cls.copy_(state["ctx_cls"])
+        return {"loaded": ["ctx_cls"], "ignored": [key for key in state if key != "ctx_cls"]}
+
 
 
     def forward(self):

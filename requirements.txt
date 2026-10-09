@@ -9,3 +9,5 @@ einops==0.8.2
 matplotlib==3.10.9
 tensorboard
 packaging
+POT==0.9.7.post1
+torchinfo==1.8.0
