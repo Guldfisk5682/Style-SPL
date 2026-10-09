@@ -58,6 +58,7 @@ class RN50StyleExtractor:
         self.visual = visual
         self.handles = []
         self.statistics = {}
+        self.feature_shapes = {}
 
     def __enter__(self):
         if self.visual.training:
@@ -67,6 +68,7 @@ class RN50StyleExtractor:
                 if output.shape[1] != CHANNELS[stage]:
                     raise ValueError("RN50 stage channel mismatch")
                 self.statistics[stage] = spatial_statistics(output)
+                self.feature_shapes[stage] = list(output.shape)
             self.handles.append(getattr(self.visual, f"layer{i+1}").register_forward_hook(collect))
         return self
 

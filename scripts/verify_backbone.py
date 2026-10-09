@@ -56,6 +56,7 @@ def main():
         ordinary=model.encode_image(images)
         with RN50StyleExtractor(model.visual) as extractor:
             stats,hooked=extractor(images)
+        assert [extractor.feature_shapes[i] for i in range(4)] == [[2,256,56,56],[2,512,28,28],[2,1024,14,14],[2,2048,7,7]]
         torch.testing.assert_close(ordinary,hooked,rtol=0,atol=0)
         torch.testing.assert_close(ordinary,model.encode_image(images),rtol=0,atol=0)
         for name,b in model.visual.named_buffers():torch.testing.assert_close(b,buffers[name],rtol=0,atol=0)
@@ -89,6 +90,7 @@ def main():
             "b0_complete_spl_loss_exact":True,"distance_and_soft_ce_author_helpers_exact":True,
             "visual_embeddings_unchanged":True,"bn_buffers_unchanged":True,"hooks_removed":True,
             "stage_statistics_shapes":[list(mean.shape) for mean,std in stats],"loss":losses[0].item()}
+    report["feature_map_shapes"] = [extractor.feature_shapes[i] for i in range(4)]
     args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(json.dumps(report,indent=2)+"\n")
     print(json.dumps(report,indent=2))
 

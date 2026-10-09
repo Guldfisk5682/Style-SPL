@@ -1,5 +1,7 @@
 """Office-Home B0/S1 runner. Default configuration comes from verified B0."""
 import argparse
+import hashlib
+import importlib.metadata
 import json
 import os
 import subprocess
@@ -105,6 +107,10 @@ def run_target(args, target, clip_model, preprocess, classnames):
                    "scheduler": "CosineAnnealingLR T_max=1000, step every prompt_iteration/20 updates",
                    "style_initialization_seed": args.seed + 1009,
                    "resume_contract": "fixed deterministic CLIP transforms; replay epoch RNG + consumed batch cursor"})
+    config["runtime_sha256"] = {name: hashlib.sha256(Path(name).read_bytes()).hexdigest()
+                               for name in ("train.py", "model.py", "style.py", "spl.py", "runtime.py", "dataloader.py", "dataset.py", "samplers.py", "logging_utils.py", "clip_custom/model.py")}
+    config["dependencies"] = {name: importlib.metadata.version(name) for name in ("torch", "torchvision", "numpy", "Pillow")}
+    config["trainable_parameters"] = sum(p.numel() for p in prompt.parameters())
     write_json(root / "config.json", config)
     if args.style_spl_enabled:
         write_json(root / "init_diagnostics.json", prompt.init_diagnostics)
@@ -218,7 +224,7 @@ def main():
     if len(classnames) != 65:
         raise ValueError("Office-Home requires 65 source-known classes")
     results = [run_target(args, target, clip_model, preprocess, classnames) for target in args.targets]
-    complete = len(results) == 4 and all(r["cache_valid"] for r in results)
+    complete = len(results) == 4 and all(r["cache_valid"] and r["steps"] == r["planned_steps"] for r in results)
     scores = [r["final_accuracy"] for r in results if r["final_accuracy"] is not None]
     write_json(args.output_dir / "summary.json", {"complete_four_targets": complete, "tasks": results,
                "mean_accuracy": sum(scores) / len(scores) if scores else None})
