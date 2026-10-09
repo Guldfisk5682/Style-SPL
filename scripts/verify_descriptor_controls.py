@@ -1,6 +1,7 @@
 """Actual-run acceptance: two updates per input condition before full queues."""
 import argparse
 import csv
+import hashlib
 import json
 import subprocess
 import sys
@@ -17,6 +18,7 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("--workspace", type=Path, required=True)
     p.add_argument("--output", type=Path, required=True)
+    p.add_argument("--reuse_existing", action="store_true", help="Validate existing two-step runs only if core code hashes match")
     args = p.parse_args()
     base = args.workspace / "Style-SPL"
     fixed = base / "runs/s1_protocol_checked_20261009_seed1"
@@ -31,12 +33,17 @@ def main():
                "--independent_pooled", "--split_projector", "--projector_architecture", "silu",
                "--bottleneck_dim", "32", "--descriptor_mode", mode, "--descriptor_seed", "20261010",
                "--mechanism_step", "100", "--counterfactual_step", "200", "--stop_after", "2", "--smoke"]
-        subprocess.run(cmd, check=True)
+        if not args.reuse_existing:
+            subprocess.run(cmd, check=True)
         root = output / "art"
         initial = torch.load(root / "mechanism/step0000.pt", map_location="cpu", weights_only=True)["prompt_state"]
         last = torch.load(root / "checkpoints/last.pth", map_location="cpu", weights_only=True)
         gradient = torch.load(root / "mechanism/gradient0001.pt", map_location="cpu", weights_only=True)["summary"]
         config = json.loads((root / "config.json").read_text())
+        if args.reuse_existing:
+            assert last["step"] == 2
+            for filename, digest in config["runtime_sha256"].items():
+                assert hashlib.sha256(Path(filename).read_bytes()).hexdigest() == digest, filename
         assert config["trainable_parameters"] == 1167744
         if mode == "real":
             old = torch.load(previous / "art/mechanism/step0000.pt", map_location="cpu", weights_only=True)["prompt_state"]
@@ -50,7 +57,7 @@ def main():
                 compare(last[key], ref_last[key], key)
             for key, value in initial.items():
                 if "projector" in key:
-                    if mode == "shuffled" or ".0." in key or key.endswith("expansion"):
+                    if mode == "shuffled" or key.endswith((".0.weight", ".0.bias", "expansion")):
                         compare(value, reference[key], key)
                     else:
                         a = json.loads((root / "init_diagnostics.json").read_text())["factor"]
