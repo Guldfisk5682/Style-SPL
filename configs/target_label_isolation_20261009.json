@@ -1,0 +1,9 @@
+{
+  "target_imagefolder_gt_constructor_forbidden": true,
+  "target_inventory_has_no_label_mapping": true,
+  "target_pseudo_label_builder_passed": true,
+  "target_style_bank_builder_passed": true,
+  "target_folder_rename_leaves_pseudo_labels_and_style_statistics_exactly_unchanged": true,
+  "class_vocabulary_provided_externally": true,
+  "scope": "Actual target data builders with tiny feature-only encoder; evaluation loader excluded."
+}
