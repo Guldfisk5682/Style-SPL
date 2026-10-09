@@ -26,13 +26,17 @@ def synthetic_bank():
 
 class StyleTests(unittest.TestCase):
     def test_preprocess_identity_stable_across_processes(self):
-        from clip_custom.clip import _transform
-        identity = preprocess_identity(_transform(224))
-        code = "import json; from style import preprocess_identity; from clip_custom.clip import _transform; print(json.dumps(preprocess_identity(_transform(224))))"
+        from torchvision.transforms import Compose, Resize, CenterCrop
+        from torchvision.transforms.functional import to_tensor
+        # A real function transform reproduces Compose's process-specific repr
+        # without loading CLIP's unrelated tokenizer dependencies.
+        transform = Compose([Resize(224), CenterCrop(224), to_tensor])
+        identity = preprocess_identity(transform)
+        code = "import json; from style import preprocess_identity; from torchvision.transforms import Compose, Resize, CenterCrop; from torchvision.transforms.functional import to_tensor; print(json.dumps(preprocess_identity(Compose([Resize(224),CenterCrop(224),to_tensor]))))"
         other = json.loads(subprocess.check_output([sys.executable, "-c", code], text=True))
         self.assertEqual(identity, other)
         self.assertNotIn("0x", json.dumps(identity))
-        self.assertNotEqual(identity, preprocess_identity(_transform(256)))
+        self.assertNotEqual(identity, preprocess_identity(Compose([Resize(256), CenterCrop(256), to_tensor])))
     def test_population_statistics_and_per_image_std(self):
         x = torch.tensor([[[[1., 3.], [5., 7.]]], [[[100., 102.], [104., 106.]]]])
         mean, std = spatial_statistics(x)
