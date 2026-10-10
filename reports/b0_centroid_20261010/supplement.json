@@ -1,0 +1,2758 @@
+{
+  "parameters_used_for_routing": false,
+  "conditional_auc_protocol": "20 predetermined equal-count confidence rank bins; pair-count-weighted within-bin AUROC. Bins depend on confidence only. Descriptive conditional association, not a fitted router or proof of improvement.",
+  "tasks": {
+    "full_art": {
+      "conditional_pair_support": 36238,
+      "conditional_auroc": {
+        "centroid_class_margin": 0.5121971411225785,
+        "centroid_negative_candidate_distance": 0.4747778574976544,
+        "teacher_confidence": 0.5167503725371158
+      },
+      "confidence_bins": [
+        {
+          "bin": 0,
+          "n": 122,
+          "correct": 20,
+          "errors": 102,
+          "confidence_min": 0.09173104166984558,
+          "confidence_max": 0.28065982460975647,
+          "scores": {
+            "centroid_class_margin": 0.4931372549019608,
+            "centroid_negative_candidate_distance": 0.4612745098039216,
+            "teacher_confidence": 0.43529411764705883
+          }
+        },
+        {
+          "bin": 1,
+          "n": 122,
+          "correct": 44,
+          "errors": 78,
+          "confidence_min": 0.28089937567710876,
+          "confidence_max": 0.3471235930919647,
+          "scores": {
+            "centroid_class_margin": 0.5402097902097902,
+            "centroid_negative_candidate_distance": 0.4729020979020979,
+            "teacher_confidence": 0.5343822843822844
+          }
+        },
+        {
+          "bin": 2,
+          "n": 122,
+          "correct": 45,
+          "errors": 77,
+          "confidence_min": 0.34713104367256165,
+          "confidence_max": 0.42411062121391296,
+          "scores": {
+            "centroid_class_margin": 0.454978354978355,
+            "centroid_negative_candidate_distance": 0.46075036075036074,
+            "teacher_confidence": 0.5372294372294373
+          }
+        },
+        {
+          "bin": 3,
+          "n": 122,
+          "correct": 57,
+          "errors": 65,
+          "confidence_min": 0.42444220185279846,
+          "confidence_max": 0.49171552062034607,
+          "scores": {
+            "centroid_class_margin": 0.463697705802969,
+            "centroid_negative_candidate_distance": 0.4493927125506073,
+            "teacher_confidence": 0.5187584345479083
+          }
+        },
+        {
+          "bin": 4,
+          "n": 122,
+          "correct": 60,
+          "errors": 62,
+          "confidence_min": 0.4920675456523895,
+          "confidence_max": 0.5614057779312134,
+          "scores": {
+            "centroid_class_margin": 0.5380376344086022,
+            "centroid_negative_candidate_distance": 0.5111559139784946,
+            "teacher_confidence": 0.5471774193548387
+          }
+        },
+        {
+          "bin": 5,
+          "n": 122,
+          "correct": 75,
+          "errors": 47,
+          "confidence_min": 0.5614526271820068,
+          "confidence_max": 0.636255145072937,
+          "scores": {
+            "centroid_class_margin": 0.516595744680851,
+            "centroid_negative_candidate_distance": 0.44765957446808513,
+            "teacher_confidence": 0.4828368794326241
+          }
+        },
+        {
+          "bin": 6,
+          "n": 122,
+          "correct": 73,
+          "errors": 49,
+          "confidence_min": 0.636255145072937,
+          "confidence_max": 0.7068995237350464,
+          "scores": {
+            "centroid_class_margin": 0.49874196253844005,
+            "centroid_negative_candidate_distance": 0.50125803746156,
+            "teacher_confidence": 0.6169974839250769
+          }
+        },
+        {
+          "bin": 7,
+          "n": 121,
+          "correct": 80,
+          "errors": 41,
+          "confidence_min": 0.7076544165611267,
+          "confidence_max": 0.7713559865951538,
+          "scores": {
+            "centroid_class_margin": 0.48003048780487806,
+            "centroid_negative_candidate_distance": 0.4684451219512195,
+            "teacher_confidence": 0.4684451219512195
+          }
+        },
+        {
+          "bin": 8,
+          "n": 121,
+          "correct": 88,
+          "errors": 33,
+          "confidence_min": 0.7715234160423279,
+          "confidence_max": 0.8339421153068542,
+          "scores": {
+            "centroid_class_margin": 0.5828168044077136,
+            "centroid_negative_candidate_distance": 0.5228994490358126,
+            "teacher_confidence": 0.5198002754820936
+          }
+        },
+        {
+          "bin": 9,
+          "n": 121,
+          "correct": 95,
+          "errors": 26,
+          "confidence_min": 0.8339877128601074,
+          "confidence_max": 0.8785607814788818,
+          "scores": {
+            "centroid_class_margin": 0.494331983805668,
+            "centroid_negative_candidate_distance": 0.42874493927125507,
+            "teacher_confidence": 0.44817813765182185
+          }
+        },
+        {
+          "bin": 10,
+          "n": 121,
+          "correct": 105,
+          "errors": 16,
+          "confidence_min": 0.8788907527923584,
+          "confidence_max": 0.9154688715934753,
+          "scores": {
+            "centroid_class_margin": 0.5747023809523809,
+            "centroid_negative_candidate_distance": 0.4318452380952381,
+            "teacher_confidence": 0.48720238095238094
+          }
+        },
+        {
+          "bin": 11,
+          "n": 121,
+          "correct": 115,
+          "errors": 6,
+          "confidence_min": 0.9155069589614868,
+          "confidence_max": 0.9445350170135498,
+          "scores": {
+            "centroid_class_margin": 0.6057971014492753,
+            "centroid_negative_candidate_distance": 0.5144927536231884,
+            "teacher_confidence": 0.691304347826087
+          }
+        },
+        {
+          "bin": 12,
+          "n": 121,
+          "correct": 118,
+          "errors": 3,
+          "confidence_min": 0.9446210265159607,
+          "confidence_max": 0.9653200507164001,
+          "scores": {
+            "centroid_class_margin": 0.1553672316384181,
+            "centroid_negative_candidate_distance": 0.5847457627118644,
+            "teacher_confidence": 0.6892655367231638
+          }
+        },
+        {
+          "bin": 13,
+          "n": 121,
+          "correct": 115,
+          "errors": 6,
+          "confidence_min": 0.965547502040863,
+          "confidence_max": 0.9792963862419128,
+          "scores": {
+            "centroid_class_margin": 0.6304347826086957,
+            "centroid_negative_candidate_distance": 0.6115942028985507,
+            "teacher_confidence": 0.3507246376811594
+          }
+        },
+        {
+          "bin": 14,
+          "n": 121,
+          "correct": 117,
+          "errors": 4,
+          "confidence_min": 0.9793041944503784,
+          "confidence_max": 0.9874017834663391,
+          "scores": {
+            "centroid_class_margin": 0.5267094017094017,
+            "centroid_negative_candidate_distance": 0.41773504273504275,
+            "teacher_confidence": 0.46474358974358976
+          }
+        },
+        {
+          "bin": 15,
+          "n": 121,
+          "correct": 121,
+          "errors": 0,
+          "confidence_min": 0.9876476526260376,
+          "confidence_max": 0.992355227470398,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 16,
+          "n": 121,
+          "correct": 119,
+          "errors": 2,
+          "confidence_min": 0.9923818707466125,
+          "confidence_max": 0.996161699295044,
+          "scores": {
+            "centroid_class_margin": 0.8067226890756303,
+            "centroid_negative_candidate_distance": 0.3697478991596639,
+            "teacher_confidence": 0.5210084033613446
+          }
+        },
+        {
+          "bin": 17,
+          "n": 121,
+          "correct": 121,
+          "errors": 0,
+          "confidence_min": 0.9961718916893005,
+          "confidence_max": 0.9981694221496582,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 18,
+          "n": 121,
+          "correct": 121,
+          "errors": 0,
+          "confidence_min": 0.9981842637062073,
+          "confidence_max": 0.9993057250976562,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 19,
+          "n": 121,
+          "correct": 121,
+          "errors": 0,
+          "confidence_min": 0.9993293285369873,
+          "confidence_max": 0.9999927282333374,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        }
+      ],
+      "conflict": {
+        "all": {
+          "n": 2427,
+          "errors": 617,
+          "flagged": 916,
+          "flagged_errors": 392,
+          "flagged_correct": 524,
+          "error_prevalence": 0.2542233209723939,
+          "error_precision": 0.4279475982532751,
+          "error_recall": 0.6353322528363047,
+          "correct_rejection_rate": 0.28950276243093925
+        },
+        "confidence_ge_0.9": {
+          "n": 1149,
+          "errors": 30,
+          "flagged": 163,
+          "flagged_errors": 8,
+          "flagged_correct": 155,
+          "error_prevalence": 0.02610966057441253,
+          "error_precision": 0.049079754601226995,
+          "error_recall": 0.26666666666666666,
+          "correct_rejection_rate": 0.1385165326184093
+        },
+        "highest_confidence_quartile": {
+          "n": 606,
+          "errors": 2,
+          "flagged": 37,
+          "flagged_errors": 0,
+          "flagged_correct": 37,
+          "error_prevalence": 0.0033003300330033004,
+          "error_precision": 0.0,
+          "error_recall": 0.0,
+          "correct_rejection_rate": 0.061258278145695365
+        },
+        "source_disagreement": {
+          "n": 709,
+          "errors": 379,
+          "flagged": 439,
+          "flagged_errors": 259,
+          "flagged_correct": 180,
+          "error_prevalence": 0.5345557122708039,
+          "error_precision": 0.5899772209567198,
+          "error_recall": 0.683377308707124,
+          "correct_rejection_rate": 0.5454545454545454
+        }
+      },
+      "true_class_nearer_than_uniform_wrong_class_fraction": 0.9406288627935723,
+      "static_aggregation_references": {
+        "uniform_source_logits": {
+          "accuracy": 0.7239390193654718,
+          "rescued_combined_errors": 39,
+          "spoiled_combined_correct": 92
+        },
+        "base_pooled_only": {
+          "accuracy": 0.7523691800576844,
+          "rescued_combined_errors": 52,
+          "spoiled_combined_correct": 36
+        },
+        "base_pooled_uniform_source": {
+          "accuracy": 0.7482488669138855,
+          "rescued_combined_errors": 27,
+          "spoiled_combined_correct": 21
+        },
+        "combined": {
+          "accuracy": 0.7457766790276061,
+          "rescued_combined_errors": 0,
+          "spoiled_combined_correct": 0
+        },
+        "max_confidence_source_or_combined": {
+          "accuracy": 0.7255871446229913,
+          "rescued_combined_errors": 38,
+          "spoiled_combined_correct": 87
+        }
+      }
+    },
+    "full_clipart": {
+      "conditional_pair_support": 153100,
+      "conditional_auroc": {
+        "centroid_class_margin": 0.47298824297844544,
+        "centroid_negative_candidate_distance": 0.4662867406923579,
+        "teacher_confidence": 0.5287230568256042
+      },
+      "confidence_bins": [
+        {
+          "bin": 0,
+          "n": 219,
+          "correct": 22,
+          "errors": 197,
+          "confidence_min": 0.06565011292695999,
+          "confidence_max": 0.17017726600170135,
+          "scores": {
+            "centroid_class_margin": 0.45892939547761885,
+            "centroid_negative_candidate_distance": 0.5048454083987078,
+            "teacher_confidence": 0.6312874942316566
+          }
+        },
+        {
+          "bin": 1,
+          "n": 219,
+          "correct": 35,
+          "errors": 184,
+          "confidence_min": 0.17026355862617493,
+          "confidence_max": 0.2157735675573349,
+          "scores": {
+            "centroid_class_margin": 0.5017080745341614,
+            "centroid_negative_candidate_distance": 0.45822981366459625,
+            "teacher_confidence": 0.4922360248447205
+          }
+        },
+        {
+          "bin": 2,
+          "n": 219,
+          "correct": 38,
+          "errors": 181,
+          "confidence_min": 0.21595144271850586,
+          "confidence_max": 0.25984466075897217,
+          "scores": {
+            "centroid_class_margin": 0.4544925850537947,
+            "centroid_negative_candidate_distance": 0.46917708636231464,
+            "teacher_confidence": 0.48473393428322187
+          }
+        },
+        {
+          "bin": 3,
+          "n": 219,
+          "correct": 46,
+          "errors": 173,
+          "confidence_min": 0.25990772247314453,
+          "confidence_max": 0.3021611273288727,
+          "scores": {
+            "centroid_class_margin": 0.4839155566725308,
+            "centroid_negative_candidate_distance": 0.5319175672279467,
+            "teacher_confidence": 0.5541593365167128
+          }
+        },
+        {
+          "bin": 4,
+          "n": 219,
+          "correct": 73,
+          "errors": 146,
+          "confidence_min": 0.3022301495075226,
+          "confidence_max": 0.3466782867908478,
+          "scores": {
+            "centroid_class_margin": 0.4732595233627322,
+            "centroid_negative_candidate_distance": 0.492587727528617,
+            "teacher_confidence": 0.6274160255207356
+          }
+        },
+        {
+          "bin": 5,
+          "n": 218,
+          "correct": 68,
+          "errors": 150,
+          "confidence_min": 0.34699204564094543,
+          "confidence_max": 0.3877826929092407,
+          "scores": {
+            "centroid_class_margin": 0.4303921568627451,
+            "centroid_negative_candidate_distance": 0.43519607843137254,
+            "teacher_confidence": 0.4837254901960784
+          }
+        },
+        {
+          "bin": 6,
+          "n": 218,
+          "correct": 77,
+          "errors": 141,
+          "confidence_min": 0.38791516423225403,
+          "confidence_max": 0.4321836531162262,
+          "scores": {
+            "centroid_class_margin": 0.5831260937643916,
+            "centroid_negative_candidate_distance": 0.4801510546191397,
+            "teacher_confidence": 0.5232568849590126
+          }
+        },
+        {
+          "bin": 7,
+          "n": 218,
+          "correct": 85,
+          "errors": 133,
+          "confidence_min": 0.4323461055755615,
+          "confidence_max": 0.4774754047393799,
+          "scores": {
+            "centroid_class_margin": 0.44847412649270235,
+            "centroid_negative_candidate_distance": 0.4727111897390535,
+            "teacher_confidence": 0.5802742149491376
+          }
+        },
+        {
+          "bin": 8,
+          "n": 218,
+          "correct": 87,
+          "errors": 131,
+          "confidence_min": 0.47776779532432556,
+          "confidence_max": 0.5286483764648438,
+          "scores": {
+            "centroid_class_margin": 0.4765289111169606,
+            "centroid_negative_candidate_distance": 0.49907870492234796,
+            "teacher_confidence": 0.5132929718346934
+          }
+        },
+        {
+          "bin": 9,
+          "n": 218,
+          "correct": 100,
+          "errors": 118,
+          "confidence_min": 0.5287936329841614,
+          "confidence_max": 0.5842529535293579,
+          "scores": {
+            "centroid_class_margin": 0.4660169491525424,
+            "centroid_negative_candidate_distance": 0.4356779661016949,
+            "teacher_confidence": 0.47271186440677965
+          }
+        },
+        {
+          "bin": 10,
+          "n": 218,
+          "correct": 116,
+          "errors": 102,
+          "confidence_min": 0.5843991041183472,
+          "confidence_max": 0.6489068269729614,
+          "scores": {
+            "centroid_class_margin": 0.3450388776200135,
+            "centroid_negative_candidate_distance": 0.3518002028397566,
+            "teacher_confidence": 0.5074797160243407
+          }
+        },
+        {
+          "bin": 11,
+          "n": 218,
+          "correct": 133,
+          "errors": 85,
+          "confidence_min": 0.6498451828956604,
+          "confidence_max": 0.7106780409812927,
+          "scores": {
+            "centroid_class_margin": 0.475718708536046,
+            "centroid_negative_candidate_distance": 0.4509509066784609,
+            "teacher_confidence": 0.4939407341884122
+          }
+        },
+        {
+          "bin": 12,
+          "n": 218,
+          "correct": 133,
+          "errors": 85,
+          "confidence_min": 0.7107679843902588,
+          "confidence_max": 0.7775458097457886,
+          "scores": {
+            "centroid_class_margin": 0.4655904467049978,
+            "centroid_negative_candidate_distance": 0.5248562582927908,
+            "teacher_confidence": 0.5523662096417514
+          }
+        },
+        {
+          "bin": 13,
+          "n": 218,
+          "correct": 163,
+          "errors": 55,
+          "confidence_min": 0.7781760096549988,
+          "confidence_max": 0.842699408531189,
+          "scores": {
+            "centroid_class_margin": 0.47757947573898496,
+            "centroid_negative_candidate_distance": 0.43909648633575016,
+            "teacher_confidence": 0.5265476854433909
+          }
+        },
+        {
+          "bin": 14,
+          "n": 218,
+          "correct": 185,
+          "errors": 33,
+          "confidence_min": 0.842699408531189,
+          "confidence_max": 0.8912613391876221,
+          "scores": {
+            "centroid_class_margin": 0.4891072891072891,
+            "centroid_negative_candidate_distance": 0.5002457002457003,
+            "teacher_confidence": 0.4506142506142506
+          }
+        },
+        {
+          "bin": 15,
+          "n": 218,
+          "correct": 197,
+          "errors": 21,
+          "confidence_min": 0.8915913105010986,
+          "confidence_max": 0.9394824504852295,
+          "scores": {
+            "centroid_class_margin": 0.5569253081943437,
+            "centroid_negative_candidate_distance": 0.5068890500362582,
+            "teacher_confidence": 0.5540246555474981
+          }
+        },
+        {
+          "bin": 16,
+          "n": 218,
+          "correct": 198,
+          "errors": 20,
+          "confidence_min": 0.9395885467529297,
+          "confidence_max": 0.9688387513160706,
+          "scores": {
+            "centroid_class_margin": 0.4667929292929293,
+            "centroid_negative_candidate_distance": 0.42512626262626263,
+            "teacher_confidence": 0.5948232323232323
+          }
+        },
+        {
+          "bin": 17,
+          "n": 218,
+          "correct": 202,
+          "errors": 16,
+          "confidence_min": 0.9688831567764282,
+          "confidence_max": 0.9866271615028381,
+          "scores": {
+            "centroid_class_margin": 0.6236076732673267,
+            "centroid_negative_candidate_distance": 0.5215037128712872,
+            "teacher_confidence": 0.578434405940594
+          }
+        },
+        {
+          "bin": 18,
+          "n": 218,
+          "correct": 216,
+          "errors": 2,
+          "confidence_min": 0.986742377281189,
+          "confidence_max": 0.996131181716919,
+          "scores": {
+            "centroid_class_margin": 0.6782407407407407,
+            "centroid_negative_candidate_distance": 0.14814814814814814,
+            "teacher_confidence": 0.4305555555555556
+          }
+        },
+        {
+          "bin": 19,
+          "n": 218,
+          "correct": 218,
+          "errors": 0,
+          "confidence_min": 0.9961634874343872,
+          "confidence_max": 0.999998927116394,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        }
+      ],
+      "conflict": {
+        "all": {
+          "n": 4365,
+          "errors": 1973,
+          "flagged": 2640,
+          "flagged_errors": 1453,
+          "flagged_correct": 1187,
+          "error_prevalence": 0.4520045819014891,
+          "error_precision": 0.5503787878787879,
+          "error_recall": 0.7364419665484034,
+          "correct_rejection_rate": 0.4962374581939799
+        },
+        "confidence_ge_0.9": {
+          "n": 1066,
+          "errors": 56,
+          "flagged": 247,
+          "flagged_errors": 15,
+          "flagged_correct": 232,
+          "error_prevalence": 0.0525328330206379,
+          "error_precision": 0.06072874493927125,
+          "error_recall": 0.26785714285714285,
+          "correct_rejection_rate": 0.2297029702970297
+        },
+        "highest_confidence_quartile": {
+          "n": 1091,
+          "errors": 59,
+          "flagged": 258,
+          "flagged_errors": 17,
+          "flagged_correct": 241,
+          "error_prevalence": 0.054078826764436295,
+          "error_precision": 0.06589147286821706,
+          "error_recall": 0.288135593220339,
+          "correct_rejection_rate": 0.23352713178294573
+        },
+        "source_disagreement": {
+          "n": 1887,
+          "errors": 1287,
+          "flagged": 1403,
+          "flagged_errors": 976,
+          "flagged_correct": 427,
+          "error_prevalence": 0.6820349761526232,
+          "error_precision": 0.6956521739130435,
+          "error_recall": 0.7583527583527584,
+          "correct_rejection_rate": 0.7116666666666667
+        }
+      },
+      "true_class_nearer_than_uniform_wrong_class_fraction": 0.849223224513173,
+      "static_aggregation_references": {
+        "uniform_source_logits": {
+          "accuracy": 0.5358533791523482,
+          "rescued_combined_errors": 142,
+          "spoiled_combined_correct": 195
+        },
+        "base_pooled_only": {
+          "accuracy": 0.554639175257732,
+          "rescued_combined_errors": 127,
+          "spoiled_combined_correct": 98
+        },
+        "base_pooled_uniform_source": {
+          "accuracy": 0.5544100801832761,
+          "rescued_combined_errors": 91,
+          "spoiled_combined_correct": 63
+        },
+        "combined": {
+          "accuracy": 0.5479954180985109,
+          "rescued_combined_errors": 0,
+          "spoiled_combined_correct": 0
+        },
+        "max_confidence_source_or_combined": {
+          "accuracy": 0.5429553264604811,
+          "rescued_combined_errors": 154,
+          "spoiled_combined_correct": 176
+        }
+      }
+    },
+    "full_product": {
+      "conditional_pair_support": 85305,
+      "conditional_auroc": {
+        "centroid_class_margin": 0.5707988980716253,
+        "centroid_negative_candidate_distance": 0.4680733837406951,
+        "teacher_confidence": 0.5438133755348455
+      },
+      "confidence_bins": [
+        {
+          "bin": 0,
+          "n": 222,
+          "correct": 65,
+          "errors": 157,
+          "confidence_min": 0.11041764914989471,
+          "confidence_max": 0.3971312344074249,
+          "scores": {
+            "centroid_class_margin": 0.6165605095541401,
+            "centroid_negative_candidate_distance": 0.6044096031357178,
+            "teacher_confidence": 0.532484076433121
+          }
+        },
+        {
+          "bin": 1,
+          "n": 222,
+          "correct": 101,
+          "errors": 121,
+          "confidence_min": 0.39727893471717834,
+          "confidence_max": 0.5118446946144104,
+          "scores": {
+            "centroid_class_margin": 0.562351689714426,
+            "centroid_negative_candidate_distance": 0.549177645037231,
+            "teacher_confidence": 0.5707798052532526
+          }
+        },
+        {
+          "bin": 2,
+          "n": 222,
+          "correct": 128,
+          "errors": 94,
+          "confidence_min": 0.5119640827178955,
+          "confidence_max": 0.5990787744522095,
+          "scores": {
+            "centroid_class_margin": 0.557845744680851,
+            "centroid_negative_candidate_distance": 0.4985871010638298,
+            "teacher_confidence": 0.5039893617021277
+          }
+        },
+        {
+          "bin": 3,
+          "n": 222,
+          "correct": 152,
+          "errors": 70,
+          "confidence_min": 0.5990787744522095,
+          "confidence_max": 0.6871383190155029,
+          "scores": {
+            "centroid_class_margin": 0.6083646616541354,
+            "centroid_negative_candidate_distance": 0.45770676691729323,
+            "teacher_confidence": 0.5440789473684211
+          }
+        },
+        {
+          "bin": 4,
+          "n": 222,
+          "correct": 154,
+          "errors": 68,
+          "confidence_min": 0.6872848272323608,
+          "confidence_max": 0.7680743932723999,
+          "scores": {
+            "centroid_class_margin": 0.5704736440030558,
+            "centroid_negative_candidate_distance": 0.38388082505729565,
+            "teacher_confidence": 0.5767761650114591
+          }
+        },
+        {
+          "bin": 5,
+          "n": 222,
+          "correct": 171,
+          "errors": 51,
+          "confidence_min": 0.7686430811882019,
+          "confidence_max": 0.8324231505393982,
+          "scores": {
+            "centroid_class_margin": 0.5486182777204449,
+            "centroid_negative_candidate_distance": 0.4187019837174636,
+            "teacher_confidence": 0.6295722967549593
+          }
+        },
+        {
+          "bin": 6,
+          "n": 222,
+          "correct": 194,
+          "errors": 28,
+          "confidence_min": 0.8324916362762451,
+          "confidence_max": 0.8802985548973083,
+          "scores": {
+            "centroid_class_margin": 0.4955817378497791,
+            "centroid_negative_candidate_distance": 0.3230854197349043,
+            "teacher_confidence": 0.5300073637702504
+          }
+        },
+        {
+          "bin": 7,
+          "n": 222,
+          "correct": 198,
+          "errors": 24,
+          "confidence_min": 0.8810001015663147,
+          "confidence_max": 0.9196212887763977,
+          "scores": {
+            "centroid_class_margin": 0.5717592592592593,
+            "centroid_negative_candidate_distance": 0.4292929292929293,
+            "teacher_confidence": 0.5364057239057239
+          }
+        },
+        {
+          "bin": 8,
+          "n": 222,
+          "correct": 200,
+          "errors": 22,
+          "confidence_min": 0.91972416639328,
+          "confidence_max": 0.9437214732170105,
+          "scores": {
+            "centroid_class_margin": 0.5893181818181819,
+            "centroid_negative_candidate_distance": 0.5390909090909091,
+            "teacher_confidence": 0.35954545454545456
+          }
+        },
+        {
+          "bin": 9,
+          "n": 222,
+          "correct": 211,
+          "errors": 11,
+          "confidence_min": 0.9437716007232666,
+          "confidence_max": 0.9645721316337585,
+          "scores": {
+            "centroid_class_margin": 0.6070659198621284,
+            "centroid_negative_candidate_distance": 0.4153382162860836,
+            "teacher_confidence": 0.5165876777251185
+          }
+        },
+        {
+          "bin": 10,
+          "n": 222,
+          "correct": 214,
+          "errors": 8,
+          "confidence_min": 0.9647658467292786,
+          "confidence_max": 0.9762468338012695,
+          "scores": {
+            "centroid_class_margin": 0.6988901869158879,
+            "centroid_negative_candidate_distance": 0.37529205607476634,
+            "teacher_confidence": 0.615946261682243
+          }
+        },
+        {
+          "bin": 11,
+          "n": 222,
+          "correct": 218,
+          "errors": 4,
+          "confidence_min": 0.9762488007545471,
+          "confidence_max": 0.9834924340248108,
+          "scores": {
+            "centroid_class_margin": 0.5625,
+            "centroid_negative_candidate_distance": 0.20126146788990826,
+            "teacher_confidence": 0.6129587155963303
+          }
+        },
+        {
+          "bin": 12,
+          "n": 222,
+          "correct": 217,
+          "errors": 5,
+          "confidence_min": 0.983519971370697,
+          "confidence_max": 0.9888827204704285,
+          "scores": {
+            "centroid_class_margin": 0.3271889400921659,
+            "centroid_negative_candidate_distance": 0.3032258064516129,
+            "teacher_confidence": 0.42764976958525347
+          }
+        },
+        {
+          "bin": 13,
+          "n": 222,
+          "correct": 220,
+          "errors": 2,
+          "confidence_min": 0.9888883233070374,
+          "confidence_max": 0.9929976463317871,
+          "scores": {
+            "centroid_class_margin": 0.29772727272727273,
+            "centroid_negative_candidate_distance": 0.525,
+            "teacher_confidence": 0.7613636363636364
+          }
+        },
+        {
+          "bin": 14,
+          "n": 222,
+          "correct": 222,
+          "errors": 0,
+          "confidence_min": 0.9929991960525513,
+          "confidence_max": 0.9954947233200073,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 15,
+          "n": 222,
+          "correct": 222,
+          "errors": 0,
+          "confidence_min": 0.9955124258995056,
+          "confidence_max": 0.9972479939460754,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 16,
+          "n": 222,
+          "correct": 222,
+          "errors": 0,
+          "confidence_min": 0.9972484707832336,
+          "confidence_max": 0.9983311295509338,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 17,
+          "n": 222,
+          "correct": 222,
+          "errors": 0,
+          "confidence_min": 0.9983349442481995,
+          "confidence_max": 0.9992080330848694,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 18,
+          "n": 222,
+          "correct": 222,
+          "errors": 0,
+          "confidence_min": 0.9992104768753052,
+          "confidence_max": 0.999626636505127,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 19,
+          "n": 221,
+          "correct": 221,
+          "errors": 0,
+          "confidence_min": 0.9996273517608643,
+          "confidence_max": 0.9999991655349731,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        }
+      ],
+      "conflict": {
+        "all": {
+          "n": 4439,
+          "errors": 665,
+          "flagged": 1177,
+          "flagged_errors": 413,
+          "flagged_correct": 764,
+          "error_prevalence": 0.14980851543140347,
+          "error_precision": 0.35089209855564996,
+          "error_recall": 0.6210526315789474,
+          "correct_rejection_rate": 0.20243773184949657
+        },
+        "confidence_ge_0.9": {
+          "n": 2787,
+          "errors": 66,
+          "flagged": 311,
+          "flagged_errors": 14,
+          "flagged_correct": 297,
+          "error_prevalence": 0.023681377825618945,
+          "error_precision": 0.04501607717041801,
+          "error_recall": 0.21212121212121213,
+          "correct_rejection_rate": 0.10915104740904079
+        },
+        "highest_confidence_quartile": {
+          "n": 1109,
+          "errors": 0,
+          "flagged": 36,
+          "flagged_errors": 0,
+          "flagged_correct": 36,
+          "error_prevalence": 0.0,
+          "error_precision": 0.0,
+          "error_recall": null,
+          "correct_rejection_rate": 0.032461677186654644
+        },
+        "source_disagreement": {
+          "n": 942,
+          "errors": 358,
+          "flagged": 504,
+          "flagged_errors": 244,
+          "flagged_correct": 260,
+          "error_prevalence": 0.38004246284501064,
+          "error_precision": 0.48412698412698413,
+          "error_recall": 0.6815642458100558,
+          "correct_rejection_rate": 0.4452054794520548
+        }
+      },
+      "true_class_nearer_than_uniform_wrong_class_fraction": 0.9753780412255012,
+      "static_aggregation_references": {
+        "uniform_source_logits": {
+          "accuracy": 0.8276638882631223,
+          "rescued_combined_errors": 59,
+          "spoiled_combined_correct": 159
+        },
+        "base_pooled_only": {
+          "accuracy": 0.8501914845685965,
+          "rescued_combined_errors": 63,
+          "spoiled_combined_correct": 63
+        },
+        "base_pooled_uniform_source": {
+          "accuracy": 0.8495156566794323,
+          "rescued_combined_errors": 39,
+          "spoiled_combined_correct": 42
+        },
+        "combined": {
+          "accuracy": 0.8501914845685965,
+          "rescued_combined_errors": 0,
+          "spoiled_combined_correct": 0
+        },
+        "max_confidence_source_or_combined": {
+          "accuracy": 0.8258616805586844,
+          "rescued_combined_errors": 56,
+          "spoiled_combined_correct": 164
+        }
+      }
+    },
+    "full_real_world": {
+      "conditional_pair_support": 82178,
+      "conditional_auroc": {
+        "centroid_class_margin": 0.5430589695538952,
+        "centroid_negative_candidate_distance": 0.5137445545036384,
+        "teacher_confidence": 0.5601194967022805
+      },
+      "confidence_bins": [
+        {
+          "bin": 0,
+          "n": 218,
+          "correct": 76,
+          "errors": 142,
+          "confidence_min": 0.10573874413967133,
+          "confidence_max": 0.4134818911552429,
+          "scores": {
+            "centroid_class_margin": 0.5675037064492217,
+            "centroid_negative_candidate_distance": 0.5187638991845812,
+            "teacher_confidence": 0.546840252038547
+          }
+        },
+        {
+          "bin": 1,
+          "n": 218,
+          "correct": 82,
+          "errors": 136,
+          "confidence_min": 0.41427671909332275,
+          "confidence_max": 0.5145142078399658,
+          "scores": {
+            "centroid_class_margin": 0.6393472022955524,
+            "centroid_negative_candidate_distance": 0.5659074605451937,
+            "teacher_confidence": 0.5607065997130559
+          }
+        },
+        {
+          "bin": 2,
+          "n": 218,
+          "correct": 120,
+          "errors": 98,
+          "confidence_min": 0.5148729085922241,
+          "confidence_max": 0.6065692901611328,
+          "scores": {
+            "centroid_class_margin": 0.5759778911564626,
+            "centroid_negative_candidate_distance": 0.542219387755102,
+            "teacher_confidence": 0.5524234693877551
+          }
+        },
+        {
+          "bin": 3,
+          "n": 218,
+          "correct": 146,
+          "errors": 72,
+          "confidence_min": 0.6067796349525452,
+          "confidence_max": 0.6900770664215088,
+          "scores": {
+            "centroid_class_margin": 0.4922945205479452,
+            "centroid_negative_candidate_distance": 0.4517694063926941,
+            "teacher_confidence": 0.591324200913242
+          }
+        },
+        {
+          "bin": 4,
+          "n": 218,
+          "correct": 152,
+          "errors": 66,
+          "confidence_min": 0.6902353167533875,
+          "confidence_max": 0.7689773440361023,
+          "scores": {
+            "centroid_class_margin": 0.5187400318979266,
+            "centroid_negative_candidate_distance": 0.546451355661882,
+            "teacher_confidence": 0.5367822966507177
+          }
+        },
+        {
+          "bin": 5,
+          "n": 218,
+          "correct": 178,
+          "errors": 40,
+          "confidence_min": 0.7704876065254211,
+          "confidence_max": 0.8339125514030457,
+          "scores": {
+            "centroid_class_margin": 0.5478932584269663,
+            "centroid_negative_candidate_distance": 0.47148876404494383,
+            "teacher_confidence": 0.5825842696629213
+          }
+        },
+        {
+          "bin": 6,
+          "n": 218,
+          "correct": 190,
+          "errors": 28,
+          "confidence_min": 0.8344801068305969,
+          "confidence_max": 0.8838896751403809,
+          "scores": {
+            "centroid_class_margin": 0.5521616541353384,
+            "centroid_negative_candidate_distance": 0.47020676691729324,
+            "teacher_confidence": 0.5081766917293233
+          }
+        },
+        {
+          "bin": 7,
+          "n": 218,
+          "correct": 191,
+          "errors": 27,
+          "confidence_min": 0.8841941356658936,
+          "confidence_max": 0.9184362292289734,
+          "scores": {
+            "centroid_class_margin": 0.4840023269342641,
+            "centroid_negative_candidate_distance": 0.5035873569904984,
+            "teacher_confidence": 0.5189063408958697
+          }
+        },
+        {
+          "bin": 8,
+          "n": 218,
+          "correct": 200,
+          "errors": 18,
+          "confidence_min": 0.9184672832489014,
+          "confidence_max": 0.9457752108573914,
+          "scores": {
+            "centroid_class_margin": 0.40708333333333335,
+            "centroid_negative_candidate_distance": 0.5579166666666666,
+            "teacher_confidence": 0.6068055555555556
+          }
+        },
+        {
+          "bin": 9,
+          "n": 218,
+          "correct": 205,
+          "errors": 13,
+          "confidence_min": 0.9458548426628113,
+          "confidence_max": 0.9643344879150391,
+          "scores": {
+            "centroid_class_margin": 0.425891181988743,
+            "centroid_negative_candidate_distance": 0.4682926829268293,
+            "teacher_confidence": 0.6105065666041276
+          }
+        },
+        {
+          "bin": 10,
+          "n": 218,
+          "correct": 212,
+          "errors": 6,
+          "confidence_min": 0.9645288586616516,
+          "confidence_max": 0.9765486717224121,
+          "scores": {
+            "centroid_class_margin": 0.4540094339622642,
+            "centroid_negative_candidate_distance": 0.35102201257861637,
+            "teacher_confidence": 0.512185534591195
+          }
+        },
+        {
+          "bin": 11,
+          "n": 218,
+          "correct": 214,
+          "errors": 4,
+          "confidence_min": 0.9766092896461487,
+          "confidence_max": 0.9853196144104004,
+          "scores": {
+            "centroid_class_margin": 0.5338785046728972,
+            "centroid_negative_candidate_distance": 0.32242990654205606,
+            "teacher_confidence": 0.8364485981308412
+          }
+        },
+        {
+          "bin": 12,
+          "n": 218,
+          "correct": 215,
+          "errors": 3,
+          "confidence_min": 0.9853398203849792,
+          "confidence_max": 0.9909808039665222,
+          "scores": {
+            "centroid_class_margin": 0.6604651162790698,
+            "centroid_negative_candidate_distance": 0.5658914728682171,
+            "teacher_confidence": 0.5875968992248062
+          }
+        },
+        {
+          "bin": 13,
+          "n": 218,
+          "correct": 217,
+          "errors": 1,
+          "confidence_min": 0.991020143032074,
+          "confidence_max": 0.994752049446106,
+          "scores": {
+            "centroid_class_margin": 0.7235023041474654,
+            "centroid_negative_candidate_distance": 0.5806451612903226,
+            "teacher_confidence": 0.847926267281106
+          }
+        },
+        {
+          "bin": 14,
+          "n": 218,
+          "correct": 215,
+          "errors": 3,
+          "confidence_min": 0.9947565793991089,
+          "confidence_max": 0.9967001080513,
+          "scores": {
+            "centroid_class_margin": 0.5697674418604651,
+            "centroid_negative_candidate_distance": 0.8193798449612403,
+            "teacher_confidence": 0.5356589147286822
+          }
+        },
+        {
+          "bin": 15,
+          "n": 218,
+          "correct": 218,
+          "errors": 0,
+          "confidence_min": 0.996701180934906,
+          "confidence_max": 0.9980968832969666,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 16,
+          "n": 218,
+          "correct": 217,
+          "errors": 1,
+          "confidence_min": 0.9980972409248352,
+          "confidence_max": 0.9989426732063293,
+          "scores": {
+            "centroid_class_margin": 0.4400921658986175,
+            "centroid_negative_candidate_distance": 0.3387096774193548,
+            "teacher_confidence": 0.6013824884792627
+          }
+        },
+        {
+          "bin": 17,
+          "n": 217,
+          "correct": 217,
+          "errors": 0,
+          "confidence_min": 0.9989457726478577,
+          "confidence_max": 0.9994146823883057,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 18,
+          "n": 217,
+          "correct": 216,
+          "errors": 1,
+          "confidence_min": 0.9994171857833862,
+          "confidence_max": 0.9997990727424622,
+          "scores": {
+            "centroid_class_margin": 0.9490740740740741,
+            "centroid_negative_candidate_distance": 0.8055555555555556,
+            "teacher_confidence": 0.14814814814814814
+          }
+        },
+        {
+          "bin": 19,
+          "n": 217,
+          "correct": 217,
+          "errors": 0,
+          "confidence_min": 0.9998013377189636,
+          "confidence_max": 0.9999998807907104,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        }
+      ],
+      "conflict": {
+        "all": {
+          "n": 4357,
+          "errors": 659,
+          "flagged": 1101,
+          "flagged_errors": 381,
+          "flagged_correct": 720,
+          "error_prevalence": 0.15125086068395685,
+          "error_precision": 0.3460490463215259,
+          "error_recall": 0.5781487101669196,
+          "correct_rejection_rate": 0.19469983775013522
+        },
+        "confidence_ge_0.9": {
+          "n": 2741,
+          "errors": 67,
+          "flagged": 292,
+          "flagged_errors": 11,
+          "flagged_correct": 281,
+          "error_prevalence": 0.024443633710324698,
+          "error_precision": 0.03767123287671233,
+          "error_recall": 0.16417910447761194,
+          "correct_rejection_rate": 0.10508601346297682
+        },
+        "highest_confidence_quartile": {
+          "n": 1089,
+          "errors": 2,
+          "flagged": 28,
+          "flagged_errors": 0,
+          "flagged_correct": 28,
+          "error_prevalence": 0.0018365472910927456,
+          "error_precision": 0.0,
+          "error_recall": 0.0,
+          "correct_rejection_rate": 0.025758969641214352
+        },
+        "source_disagreement": {
+          "n": 812,
+          "errors": 363,
+          "flagged": 461,
+          "flagged_errors": 253,
+          "flagged_correct": 208,
+          "error_prevalence": 0.44704433497536944,
+          "error_precision": 0.5488069414316703,
+          "error_recall": 0.696969696969697,
+          "correct_rejection_rate": 0.46325167037861914
+        }
+      },
+      "true_class_nearer_than_uniform_wrong_class_fraction": 0.9819435678218958,
+      "static_aggregation_references": {
+        "uniform_source_logits": {
+          "accuracy": 0.8377323846683498,
+          "rescued_combined_errors": 71,
+          "spoiled_combined_correct": 119
+        },
+        "base_pooled_only": {
+          "accuracy": 0.8542575166398898,
+          "rescued_combined_errors": 87,
+          "spoiled_combined_correct": 63
+        },
+        "base_pooled_uniform_source": {
+          "accuracy": 0.8512738122561395,
+          "rescued_combined_errors": 62,
+          "spoiled_combined_correct": 51
+        },
+        "combined": {
+          "accuracy": 0.8487491393160431,
+          "rescued_combined_errors": 0,
+          "spoiled_combined_correct": 0
+        },
+        "max_confidence_source_or_combined": {
+          "accuracy": 0.8404865733302731,
+          "rescued_combined_errors": 76,
+          "spoiled_combined_correct": 112
+        }
+      }
+    },
+    "replay_art": {
+      "conditional_pair_support": 36291,
+      "conditional_auroc": {
+        "centroid_class_margin": 0.5121655506874982,
+        "centroid_negative_candidate_distance": 0.4745804744978094,
+        "teacher_confidence": 0.5161610316607423
+      },
+      "confidence_bins": [
+        {
+          "bin": 0,
+          "n": 122,
+          "correct": 21,
+          "errors": 101,
+          "confidence_min": 0.09169524163007736,
+          "confidence_max": 0.28001266717910767,
+          "scores": {
+            "centroid_class_margin": 0.4856199905704856,
+            "centroid_negative_candidate_distance": 0.487034417727487,
+            "teacher_confidence": 0.4545025931164545
+          }
+        },
+        {
+          "bin": 1,
+          "n": 122,
+          "correct": 45,
+          "errors": 77,
+          "confidence_min": 0.2805788815021515,
+          "confidence_max": 0.3478430211544037,
+          "scores": {
+            "centroid_class_margin": 0.5578643578643578,
+            "centroid_negative_candidate_distance": 0.4790764790764791,
+            "teacher_confidence": 0.5497835497835498
+          }
+        },
+        {
+          "bin": 2,
+          "n": 122,
+          "correct": 43,
+          "errors": 79,
+          "confidence_min": 0.3479386270046234,
+          "confidence_max": 0.4244741201400757,
+          "scores": {
+            "centroid_class_margin": 0.43612010597586104,
+            "centroid_negative_candidate_distance": 0.47321165734471593,
+            "teacher_confidence": 0.5194289078598764
+          }
+        },
+        {
+          "bin": 3,
+          "n": 122,
+          "correct": 57,
+          "errors": 65,
+          "confidence_min": 0.42453375458717346,
+          "confidence_max": 0.49177607893943787,
+          "scores": {
+            "centroid_class_margin": 0.4661268556005398,
+            "centroid_negative_candidate_distance": 0.4377867746288799,
+            "teacher_confidence": 0.5028340080971659
+          }
+        },
+        {
+          "bin": 4,
+          "n": 122,
+          "correct": 60,
+          "errors": 62,
+          "confidence_min": 0.4928321838378906,
+          "confidence_max": 0.5600089430809021,
+          "scores": {
+            "centroid_class_margin": 0.5116935483870968,
+            "centroid_negative_candidate_distance": 0.5189516129032258,
+            "teacher_confidence": 0.540725806451613
+          }
+        },
+        {
+          "bin": 5,
+          "n": 122,
+          "correct": 75,
+          "errors": 47,
+          "confidence_min": 0.5614655613899231,
+          "confidence_max": 0.6364654302597046,
+          "scores": {
+            "centroid_class_margin": 0.5336170212765957,
+            "centroid_negative_candidate_distance": 0.4269503546099291,
+            "teacher_confidence": 0.45191489361702125
+          }
+        },
+        {
+          "bin": 6,
+          "n": 122,
+          "correct": 74,
+          "errors": 48,
+          "confidence_min": 0.6365806460380554,
+          "confidence_max": 0.7050489187240601,
+          "scores": {
+            "centroid_class_margin": 0.4935247747747748,
+            "centroid_negative_candidate_distance": 0.48592342342342343,
+            "teacher_confidence": 0.6052927927927928
+          }
+        },
+        {
+          "bin": 7,
+          "n": 121,
+          "correct": 81,
+          "errors": 40,
+          "confidence_min": 0.7057911157608032,
+          "confidence_max": 0.7706533670425415,
+          "scores": {
+            "centroid_class_margin": 0.4853395061728395,
+            "centroid_negative_candidate_distance": 0.48657407407407405,
+            "teacher_confidence": 0.48780864197530865
+          }
+        },
+        {
+          "bin": 8,
+          "n": 121,
+          "correct": 87,
+          "errors": 34,
+          "confidence_min": 0.7715581655502319,
+          "confidence_max": 0.8321825265884399,
+          "scores": {
+            "centroid_class_margin": 0.5911088573360379,
+            "centroid_negative_candidate_distance": 0.5278904665314401,
+            "teacher_confidence": 0.5174104124408384
+          }
+        },
+        {
+          "bin": 9,
+          "n": 121,
+          "correct": 96,
+          "errors": 25,
+          "confidence_min": 0.8330375552177429,
+          "confidence_max": 0.8784497380256653,
+          "scores": {
+            "centroid_class_margin": 0.5054166666666666,
+            "centroid_negative_candidate_distance": 0.4195833333333333,
+            "teacher_confidence": 0.4691666666666667
+          }
+        },
+        {
+          "bin": 10,
+          "n": 121,
+          "correct": 104,
+          "errors": 17,
+          "confidence_min": 0.8787194490432739,
+          "confidence_max": 0.9153828620910645,
+          "scores": {
+            "centroid_class_margin": 0.5692873303167421,
+            "centroid_negative_candidate_distance": 0.40808823529411764,
+            "teacher_confidence": 0.5342194570135747
+          }
+        },
+        {
+          "bin": 11,
+          "n": 121,
+          "correct": 115,
+          "errors": 6,
+          "confidence_min": 0.9154558777809143,
+          "confidence_max": 0.9445981979370117,
+          "scores": {
+            "centroid_class_margin": 0.5898550724637681,
+            "centroid_negative_candidate_distance": 0.508695652173913,
+            "teacher_confidence": 0.6695652173913044
+          }
+        },
+        {
+          "bin": 12,
+          "n": 121,
+          "correct": 118,
+          "errors": 3,
+          "confidence_min": 0.9448546767234802,
+          "confidence_max": 0.9656107425689697,
+          "scores": {
+            "centroid_class_margin": 0.1440677966101695,
+            "centroid_negative_candidate_distance": 0.5988700564971752,
+            "teacher_confidence": 0.7033898305084746
+          }
+        },
+        {
+          "bin": 13,
+          "n": 121,
+          "correct": 115,
+          "errors": 6,
+          "confidence_min": 0.9657341241836548,
+          "confidence_max": 0.9791243672370911,
+          "scores": {
+            "centroid_class_margin": 0.6463768115942029,
+            "centroid_negative_candidate_distance": 0.6217391304347826,
+            "teacher_confidence": 0.372463768115942
+          }
+        },
+        {
+          "bin": 14,
+          "n": 121,
+          "correct": 117,
+          "errors": 4,
+          "confidence_min": 0.9792706966400146,
+          "confidence_max": 0.9877015948295593,
+          "scores": {
+            "centroid_class_margin": 0.5288461538461539,
+            "centroid_negative_candidate_distance": 0.41346153846153844,
+            "teacher_confidence": 0.4732905982905983
+          }
+        },
+        {
+          "bin": 15,
+          "n": 121,
+          "correct": 121,
+          "errors": 0,
+          "confidence_min": 0.9877036809921265,
+          "confidence_max": 0.9923674464225769,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 16,
+          "n": 121,
+          "correct": 119,
+          "errors": 2,
+          "confidence_min": 0.9923824667930603,
+          "confidence_max": 0.9961368441581726,
+          "scores": {
+            "centroid_class_margin": 0.7815126050420168,
+            "centroid_negative_candidate_distance": 0.36554621848739494,
+            "teacher_confidence": 0.46218487394957986
+          }
+        },
+        {
+          "bin": 17,
+          "n": 121,
+          "correct": 121,
+          "errors": 0,
+          "confidence_min": 0.9961764812469482,
+          "confidence_max": 0.998166561126709,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 18,
+          "n": 121,
+          "correct": 121,
+          "errors": 0,
+          "confidence_min": 0.9981826543807983,
+          "confidence_max": 0.9993128776550293,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 19,
+          "n": 121,
+          "correct": 121,
+          "errors": 0,
+          "confidence_min": 0.9993249177932739,
+          "confidence_max": 0.9999927282333374,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        }
+      ],
+      "conflict": {
+        "all": {
+          "n": 2427,
+          "errors": 616,
+          "flagged": 915,
+          "flagged_errors": 385,
+          "flagged_correct": 530,
+          "error_prevalence": 0.253811289658014,
+          "error_precision": 0.4207650273224044,
+          "error_recall": 0.625,
+          "correct_rejection_rate": 0.29265599116510216
+        },
+        "confidence_ge_0.9": {
+          "n": 1148,
+          "errors": 29,
+          "flagged": 158,
+          "flagged_errors": 8,
+          "flagged_correct": 150,
+          "error_prevalence": 0.025261324041811847,
+          "error_precision": 0.05063291139240506,
+          "error_recall": 0.27586206896551724,
+          "correct_rejection_rate": 0.13404825737265416
+        },
+        "highest_confidence_quartile": {
+          "n": 606,
+          "errors": 2,
+          "flagged": 33,
+          "flagged_errors": 0,
+          "flagged_correct": 33,
+          "error_prevalence": 0.0033003300330033004,
+          "error_precision": 0.0,
+          "error_recall": 0.0,
+          "correct_rejection_rate": 0.054635761589403975
+        },
+        "source_disagreement": {
+          "n": 709,
+          "errors": 378,
+          "flagged": 433,
+          "flagged_errors": 250,
+          "flagged_correct": 183,
+          "error_prevalence": 0.5331452750352609,
+          "error_precision": 0.5773672055427251,
+          "error_recall": 0.6613756613756614,
+          "correct_rejection_rate": 0.552870090634441
+        }
+      },
+      "true_class_nearer_than_uniform_wrong_class_fraction": 0.9407704985578904,
+      "static_aggregation_references": {
+        "uniform_source_logits": {
+          "accuracy": 0.7239390193654718,
+          "rescued_combined_errors": 38,
+          "spoiled_combined_correct": 92
+        },
+        "base_pooled_only": {
+          "accuracy": 0.7523691800576844,
+          "rescued_combined_errors": 52,
+          "spoiled_combined_correct": 37
+        },
+        "base_pooled_uniform_source": {
+          "accuracy": 0.7482488669138855,
+          "rescued_combined_errors": 26,
+          "spoiled_combined_correct": 21
+        },
+        "combined": {
+          "accuracy": 0.746188710341986,
+          "rescued_combined_errors": 0,
+          "spoiled_combined_correct": 0
+        },
+        "max_confidence_source_or_combined": {
+          "accuracy": 0.7255871446229913,
+          "rescued_combined_errors": 37,
+          "spoiled_combined_correct": 87
+        }
+      }
+    },
+    "replay_clipart": {
+      "conditional_pair_support": 153096,
+      "conditional_auroc": {
+        "centroid_class_margin": 0.4734741600041804,
+        "centroid_negative_candidate_distance": 0.46638710351674767,
+        "teacher_confidence": 0.52197314103569
+      },
+      "confidence_bins": [
+        {
+          "bin": 0,
+          "n": 219,
+          "correct": 22,
+          "errors": 197,
+          "confidence_min": 0.06563689559698105,
+          "confidence_max": 0.16943421959877014,
+          "scores": {
+            "centroid_class_margin": 0.46931241347485003,
+            "centroid_negative_candidate_distance": 0.5069220119981541,
+            "teacher_confidence": 0.6349792339640056
+          }
+        },
+        {
+          "bin": 1,
+          "n": 219,
+          "correct": 34,
+          "errors": 185,
+          "confidence_min": 0.16987256705760956,
+          "confidence_max": 0.21564114093780518,
+          "scores": {
+            "centroid_class_margin": 0.4965023847376789,
+            "centroid_negative_candidate_distance": 0.4659777424483307,
+            "teacher_confidence": 0.47281399046104927
+          }
+        },
+        {
+          "bin": 2,
+          "n": 219,
+          "correct": 38,
+          "errors": 181,
+          "confidence_min": 0.21637040376663208,
+          "confidence_max": 0.260338693857193,
+          "scores": {
+            "centroid_class_margin": 0.45405641174760103,
+            "centroid_negative_candidate_distance": 0.4576911892992149,
+            "teacher_confidence": 0.4463506833381797
+          }
+        },
+        {
+          "bin": 3,
+          "n": 219,
+          "correct": 48,
+          "errors": 171,
+          "confidence_min": 0.26038894057273865,
+          "confidence_max": 0.30281496047973633,
+          "scores": {
+            "centroid_class_margin": 0.508406432748538,
+            "centroid_negative_candidate_distance": 0.5473927875243665,
+            "teacher_confidence": 0.5810185185185185
+          }
+        },
+        {
+          "bin": 4,
+          "n": 219,
+          "correct": 69,
+          "errors": 150,
+          "confidence_min": 0.30294811725616455,
+          "confidence_max": 0.3464859426021576,
+          "scores": {
+            "centroid_class_margin": 0.4554589371980676,
+            "centroid_negative_candidate_distance": 0.4667632850241546,
+            "teacher_confidence": 0.6572946859903381
+          }
+        },
+        {
+          "bin": 5,
+          "n": 218,
+          "correct": 70,
+          "errors": 148,
+          "confidence_min": 0.34664300084114075,
+          "confidence_max": 0.3871840834617615,
+          "scores": {
+            "centroid_class_margin": 0.4632239382239382,
+            "centroid_negative_candidate_distance": 0.46274131274131275,
+            "teacher_confidence": 0.48754826254826256
+          }
+        },
+        {
+          "bin": 6,
+          "n": 218,
+          "correct": 72,
+          "errors": 146,
+          "confidence_min": 0.3872165381908417,
+          "confidence_max": 0.4314921498298645,
+          "scores": {
+            "centroid_class_margin": 0.5804794520547946,
+            "centroid_negative_candidate_distance": 0.4632800608828006,
+            "teacher_confidence": 0.4768835616438356
+          }
+        },
+        {
+          "bin": 7,
+          "n": 218,
+          "correct": 90,
+          "errors": 128,
+          "confidence_min": 0.43168213963508606,
+          "confidence_max": 0.47812649607658386,
+          "scores": {
+            "centroid_class_margin": 0.4249131944444444,
+            "centroid_negative_candidate_distance": 0.4651909722222222,
+            "teacher_confidence": 0.49661458333333336
+          }
+        },
+        {
+          "bin": 8,
+          "n": 218,
+          "correct": 95,
+          "errors": 123,
+          "confidence_min": 0.47830796241760254,
+          "confidence_max": 0.5279058218002319,
+          "scores": {
+            "centroid_class_margin": 0.4854086435601198,
+            "centroid_negative_candidate_distance": 0.5086007702182285,
+            "teacher_confidence": 0.5278562259306804
+          }
+        },
+        {
+          "bin": 9,
+          "n": 218,
+          "correct": 96,
+          "errors": 122,
+          "confidence_min": 0.5279697179794312,
+          "confidence_max": 0.5817920565605164,
+          "scores": {
+            "centroid_class_margin": 0.4853142076502732,
+            "centroid_negative_candidate_distance": 0.430754781420765,
+            "teacher_confidence": 0.5127219945355191
+          }
+        },
+        {
+          "bin": 10,
+          "n": 218,
+          "correct": 116,
+          "errors": 102,
+          "confidence_min": 0.5823337435722351,
+          "confidence_max": 0.649330735206604,
+          "scores": {
+            "centroid_class_margin": 0.3227265043948614,
+            "centroid_negative_candidate_distance": 0.3624492900608519,
+            "teacher_confidence": 0.5417934415145369
+          }
+        },
+        {
+          "bin": 11,
+          "n": 218,
+          "correct": 129,
+          "errors": 89,
+          "confidence_min": 0.6494758725166321,
+          "confidence_max": 0.7102359533309937,
+          "scores": {
+            "centroid_class_margin": 0.48602038149986937,
+            "centroid_negative_candidate_distance": 0.46311296925354933,
+            "teacher_confidence": 0.490462503266266
+          }
+        },
+        {
+          "bin": 12,
+          "n": 218,
+          "correct": 134,
+          "errors": 84,
+          "confidence_min": 0.7106919884681702,
+          "confidence_max": 0.7780189514160156,
+          "scores": {
+            "centroid_class_margin": 0.45828891257995735,
+            "centroid_negative_candidate_distance": 0.5032427149964463,
+            "teacher_confidence": 0.5179904051172708
+          }
+        },
+        {
+          "bin": 13,
+          "n": 218,
+          "correct": 163,
+          "errors": 55,
+          "confidence_min": 0.77812659740448,
+          "confidence_max": 0.8423057198524475,
+          "scores": {
+            "centroid_class_margin": 0.47110987172336866,
+            "centroid_negative_candidate_distance": 0.4479085331846068,
+            "teacher_confidence": 0.49866146123814836
+          }
+        },
+        {
+          "bin": 14,
+          "n": 218,
+          "correct": 186,
+          "errors": 32,
+          "confidence_min": 0.8423402309417725,
+          "confidence_max": 0.8909822702407837,
+          "scores": {
+            "centroid_class_margin": 0.49185147849462363,
+            "centroid_negative_candidate_distance": 0.5041162634408602,
+            "teacher_confidence": 0.4350638440860215
+          }
+        },
+        {
+          "bin": 15,
+          "n": 218,
+          "correct": 197,
+          "errors": 21,
+          "confidence_min": 0.8910403251647949,
+          "confidence_max": 0.9400782585144043,
+          "scores": {
+            "centroid_class_margin": 0.5503988397389412,
+            "centroid_negative_candidate_distance": 0.5025380710659898,
+            "teacher_confidence": 0.5813391346386271
+          }
+        },
+        {
+          "bin": 16,
+          "n": 218,
+          "correct": 198,
+          "errors": 20,
+          "confidence_min": 0.9403036832809448,
+          "confidence_max": 0.9686604142189026,
+          "scores": {
+            "centroid_class_margin": 0.4869949494949495,
+            "centroid_negative_candidate_distance": 0.4236111111111111,
+            "teacher_confidence": 0.5789141414141414
+          }
+        },
+        {
+          "bin": 17,
+          "n": 218,
+          "correct": 202,
+          "errors": 16,
+          "confidence_min": 0.96866375207901,
+          "confidence_max": 0.9866639375686646,
+          "scores": {
+            "centroid_class_margin": 0.6081373762376238,
+            "centroid_negative_candidate_distance": 0.5193378712871287,
+            "teacher_confidence": 0.5484220297029703
+          }
+        },
+        {
+          "bin": 18,
+          "n": 218,
+          "correct": 216,
+          "errors": 2,
+          "confidence_min": 0.986831545829773,
+          "confidence_max": 0.9961890578269958,
+          "scores": {
+            "centroid_class_margin": 0.6689814814814815,
+            "centroid_negative_candidate_distance": 0.16203703703703703,
+            "teacher_confidence": 0.42592592592592593
+          }
+        },
+        {
+          "bin": 19,
+          "n": 218,
+          "correct": 218,
+          "errors": 0,
+          "confidence_min": 0.9961943626403809,
+          "confidence_max": 0.999998927116394,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        }
+      ],
+      "conflict": {
+        "all": {
+          "n": 4365,
+          "errors": 1972,
+          "flagged": 2643,
+          "flagged_errors": 1452,
+          "flagged_correct": 1191,
+          "error_prevalence": 0.4517754868270332,
+          "error_precision": 0.5493757094211124,
+          "error_recall": 0.7363083164300203,
+          "correct_rejection_rate": 0.49770162975344756
+        },
+        "confidence_ge_0.9": {
+          "n": 1063,
+          "errors": 55,
+          "flagged": 248,
+          "flagged_errors": 14,
+          "flagged_correct": 234,
+          "error_prevalence": 0.05174035747883349,
+          "error_precision": 0.056451612903225805,
+          "error_recall": 0.2545454545454545,
+          "correct_rejection_rate": 0.23214285714285715
+        },
+        "highest_confidence_quartile": {
+          "n": 1091,
+          "errors": 59,
+          "flagged": 260,
+          "flagged_errors": 17,
+          "flagged_correct": 243,
+          "error_prevalence": 0.054078826764436295,
+          "error_precision": 0.06538461538461539,
+          "error_recall": 0.288135593220339,
+          "correct_rejection_rate": 0.23546511627906977
+        },
+        "source_disagreement": {
+          "n": 1887,
+          "errors": 1284,
+          "flagged": 1409,
+          "flagged_errors": 973,
+          "flagged_correct": 436,
+          "error_prevalence": 0.6804451510333863,
+          "error_precision": 0.6905606813342796,
+          "error_recall": 0.7577881619937694,
+          "correct_rejection_rate": 0.7230514096185738
+        }
+      },
+      "true_class_nearer_than_uniform_wrong_class_fraction": 0.848160080183276,
+      "static_aggregation_references": {
+        "uniform_source_logits": {
+          "accuracy": 0.5358533791523482,
+          "rescued_combined_errors": 142,
+          "spoiled_combined_correct": 196
+        },
+        "base_pooled_only": {
+          "accuracy": 0.554639175257732,
+          "rescued_combined_errors": 128,
+          "spoiled_combined_correct": 100
+        },
+        "base_pooled_uniform_source": {
+          "accuracy": 0.5544100801832761,
+          "rescued_combined_errors": 92,
+          "spoiled_combined_correct": 65
+        },
+        "combined": {
+          "accuracy": 0.5482245131729668,
+          "rescued_combined_errors": 0,
+          "spoiled_combined_correct": 0
+        },
+        "max_confidence_source_or_combined": {
+          "accuracy": 0.5429553264604811,
+          "rescued_combined_errors": 155,
+          "spoiled_combined_correct": 178
+        }
+      }
+    },
+    "replay_product": {
+      "conditional_pair_support": 85177,
+      "conditional_auroc": {
+        "centroid_class_margin": 0.5586836822146823,
+        "centroid_negative_candidate_distance": 0.46422156215879873,
+        "teacher_confidence": 0.5235333482043275
+      },
+      "confidence_bins": [
+        {
+          "bin": 0,
+          "n": 222,
+          "correct": 67,
+          "errors": 155,
+          "confidence_min": 0.11004764586687088,
+          "confidence_max": 0.39913251996040344,
+          "scores": {
+            "centroid_class_margin": 0.6072219547424169,
+            "centroid_negative_candidate_distance": 0.5895040924410208,
+            "teacher_confidence": 0.5391429947038998
+          }
+        },
+        {
+          "bin": 1,
+          "n": 222,
+          "correct": 97,
+          "errors": 125,
+          "confidence_min": 0.4000616669654846,
+          "confidence_max": 0.5081145167350769,
+          "scores": {
+            "centroid_class_margin": 0.5612783505154639,
+            "centroid_negative_candidate_distance": 0.5516288659793814,
+            "teacher_confidence": 0.5397525773195876
+          }
+        },
+        {
+          "bin": 2,
+          "n": 222,
+          "correct": 130,
+          "errors": 92,
+          "confidence_min": 0.5088533163070679,
+          "confidence_max": 0.5977452397346497,
+          "scores": {
+            "centroid_class_margin": 0.5481605351170569,
+            "centroid_negative_candidate_distance": 0.4668896321070234,
+            "teacher_confidence": 0.4979933110367893
+          }
+        },
+        {
+          "bin": 3,
+          "n": 222,
+          "correct": 151,
+          "errors": 71,
+          "confidence_min": 0.5986397862434387,
+          "confidence_max": 0.6876412034034729,
+          "scores": {
+            "centroid_class_margin": 0.5869788266019961,
+            "centroid_negative_candidate_distance": 0.4672138793023039,
+            "teacher_confidence": 0.5381960638000186
+          }
+        },
+        {
+          "bin": 4,
+          "n": 222,
+          "correct": 153,
+          "errors": 69,
+          "confidence_min": 0.6883659362792969,
+          "confidence_max": 0.7683466076850891,
+          "scores": {
+            "centroid_class_margin": 0.5537558018376433,
+            "centroid_negative_candidate_distance": 0.39537747466136214,
+            "teacher_confidence": 0.5398313914937956
+          }
+        },
+        {
+          "bin": 5,
+          "n": 222,
+          "correct": 172,
+          "errors": 50,
+          "confidence_min": 0.7683529853820801,
+          "confidence_max": 0.8336933851242065,
+          "scores": {
+            "centroid_class_margin": 0.508313953488372,
+            "centroid_negative_candidate_distance": 0.406453488372093,
+            "teacher_confidence": 0.5920348837209303
+          }
+        },
+        {
+          "bin": 6,
+          "n": 222,
+          "correct": 194,
+          "errors": 28,
+          "confidence_min": 0.8338528275489807,
+          "confidence_max": 0.8806824684143066,
+          "scores": {
+            "centroid_class_margin": 0.5219072164948454,
+            "centroid_negative_candidate_distance": 0.33707658321060385,
+            "teacher_confidence": 0.4810382916053019
+          }
+        },
+        {
+          "bin": 7,
+          "n": 222,
+          "correct": 199,
+          "errors": 23,
+          "confidence_min": 0.8811386227607727,
+          "confidence_max": 0.9189496636390686,
+          "scores": {
+            "centroid_class_margin": 0.5534192702643653,
+            "centroid_negative_candidate_distance": 0.42451387371640814,
+            "teacher_confidence": 0.5114703954555385
+          }
+        },
+        {
+          "bin": 8,
+          "n": 222,
+          "correct": 200,
+          "errors": 22,
+          "confidence_min": 0.9190883040428162,
+          "confidence_max": 0.9437180757522583,
+          "scores": {
+            "centroid_class_margin": 0.58,
+            "centroid_negative_candidate_distance": 0.5338636363636363,
+            "teacher_confidence": 0.36727272727272725
+          }
+        },
+        {
+          "bin": 9,
+          "n": 222,
+          "correct": 211,
+          "errors": 11,
+          "confidence_min": 0.9437963366508484,
+          "confidence_max": 0.9642646908760071,
+          "scores": {
+            "centroid_class_margin": 0.6036191296854804,
+            "centroid_negative_candidate_distance": 0.4222317966393796,
+            "teacher_confidence": 0.5260663507109005
+          }
+        },
+        {
+          "bin": 10,
+          "n": 222,
+          "correct": 213,
+          "errors": 9,
+          "confidence_min": 0.9642703533172607,
+          "confidence_max": 0.9760472774505615,
+          "scores": {
+            "centroid_class_margin": 0.6549295774647887,
+            "centroid_negative_candidate_distance": 0.33098591549295775,
+            "teacher_confidence": 0.5344287949921753
+          }
+        },
+        {
+          "bin": 11,
+          "n": 222,
+          "correct": 219,
+          "errors": 3,
+          "confidence_min": 0.9760693311691284,
+          "confidence_max": 0.9836185574531555,
+          "scores": {
+            "centroid_class_margin": 0.5578386605783866,
+            "centroid_negative_candidate_distance": 0.24429223744292236,
+            "teacher_confidence": 0.5
+          }
+        },
+        {
+          "bin": 12,
+          "n": 222,
+          "correct": 217,
+          "errors": 5,
+          "confidence_min": 0.9836233854293823,
+          "confidence_max": 0.9889079928398132,
+          "scores": {
+            "centroid_class_margin": 0.3087557603686636,
+            "centroid_negative_candidate_distance": 0.31244239631336407,
+            "teacher_confidence": 0.4129032258064516
+          }
+        },
+        {
+          "bin": 13,
+          "n": 222,
+          "correct": 220,
+          "errors": 2,
+          "confidence_min": 0.9889119863510132,
+          "confidence_max": 0.9930427074432373,
+          "scores": {
+            "centroid_class_margin": 0.29772727272727273,
+            "centroid_negative_candidate_distance": 0.525,
+            "teacher_confidence": 0.775
+          }
+        },
+        {
+          "bin": 14,
+          "n": 222,
+          "correct": 222,
+          "errors": 0,
+          "confidence_min": 0.993054211139679,
+          "confidence_max": 0.995498538017273,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 15,
+          "n": 222,
+          "correct": 222,
+          "errors": 0,
+          "confidence_min": 0.9955227375030518,
+          "confidence_max": 0.9972692131996155,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 16,
+          "n": 222,
+          "correct": 222,
+          "errors": 0,
+          "confidence_min": 0.9972737431526184,
+          "confidence_max": 0.9983510971069336,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 17,
+          "n": 222,
+          "correct": 222,
+          "errors": 0,
+          "confidence_min": 0.9983526468276978,
+          "confidence_max": 0.9992116689682007,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 18,
+          "n": 222,
+          "correct": 222,
+          "errors": 0,
+          "confidence_min": 0.9992116689682007,
+          "confidence_max": 0.9996285438537598,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 19,
+          "n": 221,
+          "correct": 221,
+          "errors": 0,
+          "confidence_min": 0.9996316432952881,
+          "confidence_max": 0.9999991655349731,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        }
+      ],
+      "conflict": {
+        "all": {
+          "n": 4439,
+          "errors": 665,
+          "flagged": 1161,
+          "flagged_errors": 406,
+          "flagged_correct": 755,
+          "error_prevalence": 0.14980851543140347,
+          "error_precision": 0.3496985357450474,
+          "error_recall": 0.6105263157894737,
+          "correct_rejection_rate": 0.20005299417064124
+        },
+        "confidence_ge_0.9": {
+          "n": 2788,
+          "errors": 65,
+          "flagged": 295,
+          "flagged_errors": 10,
+          "flagged_correct": 285,
+          "error_prevalence": 0.023314203730272598,
+          "error_precision": 0.03389830508474576,
+          "error_recall": 0.15384615384615385,
+          "correct_rejection_rate": 0.1046639735585751
+        },
+        "highest_confidence_quartile": {
+          "n": 1109,
+          "errors": 0,
+          "flagged": 36,
+          "flagged_errors": 0,
+          "flagged_correct": 36,
+          "error_prevalence": 0.0,
+          "error_precision": 0.0,
+          "error_recall": null,
+          "correct_rejection_rate": 0.032461677186654644
+        },
+        "source_disagreement": {
+          "n": 942,
+          "errors": 358,
+          "flagged": 504,
+          "flagged_errors": 242,
+          "flagged_correct": 262,
+          "error_prevalence": 0.38004246284501064,
+          "error_precision": 0.4801587301587302,
+          "error_recall": 0.6759776536312849,
+          "correct_rejection_rate": 0.4486301369863014
+        }
+      },
+      "true_class_nearer_than_uniform_wrong_class_fraction": 0.975786353908538,
+      "static_aggregation_references": {
+        "uniform_source_logits": {
+          "accuracy": 0.8276638882631223,
+          "rescued_combined_errors": 60,
+          "spoiled_combined_correct": 160
+        },
+        "base_pooled_only": {
+          "accuracy": 0.8501914845685965,
+          "rescued_combined_errors": 61,
+          "spoiled_combined_correct": 61
+        },
+        "base_pooled_uniform_source": {
+          "accuracy": 0.8495156566794323,
+          "rescued_combined_errors": 38,
+          "spoiled_combined_correct": 41
+        },
+        "combined": {
+          "accuracy": 0.8501914845685965,
+          "rescued_combined_errors": 0,
+          "spoiled_combined_correct": 0
+        },
+        "max_confidence_source_or_combined": {
+          "accuracy": 0.8254111286325749,
+          "rescued_combined_errors": 57,
+          "spoiled_combined_correct": 167
+        }
+      }
+    },
+    "replay_real_world": {
+      "conditional_pair_support": 82267,
+      "conditional_auroc": {
+        "centroid_class_margin": 0.5480630143313844,
+        "centroid_negative_candidate_distance": 0.515899449353933,
+        "teacher_confidence": 0.5645216186320152
+      },
+      "confidence_bins": [
+        {
+          "bin": 0,
+          "n": 218,
+          "correct": 74,
+          "errors": 144,
+          "confidence_min": 0.10640142112970352,
+          "confidence_max": 0.41236719489097595,
+          "scores": {
+            "centroid_class_margin": 0.5855386636636637,
+            "centroid_negative_candidate_distance": 0.5229448198198198,
+            "teacher_confidence": 0.5116835585585585
+          }
+        },
+        {
+          "bin": 1,
+          "n": 218,
+          "correct": 87,
+          "errors": 131,
+          "confidence_min": 0.4126850962638855,
+          "confidence_max": 0.516406774520874,
+          "scores": {
+            "centroid_class_margin": 0.6519259454242344,
+            "centroid_negative_candidate_distance": 0.5804158989207686,
+            "teacher_confidence": 0.5457576555233834
+          }
+        },
+        {
+          "bin": 2,
+          "n": 218,
+          "correct": 118,
+          "errors": 100,
+          "confidence_min": 0.5167565941810608,
+          "confidence_max": 0.6078780293464661,
+          "scores": {
+            "centroid_class_margin": 0.5647881355932204,
+            "centroid_negative_candidate_distance": 0.5456355932203389,
+            "teacher_confidence": 0.5442796610169491
+          }
+        },
+        {
+          "bin": 3,
+          "n": 218,
+          "correct": 146,
+          "errors": 72,
+          "confidence_min": 0.6082999110221863,
+          "confidence_max": 0.6910992860794067,
+          "scores": {
+            "centroid_class_margin": 0.5007610350076104,
+            "centroid_negative_candidate_distance": 0.4515791476407915,
+            "teacher_confidence": 0.5850456621004566
+          }
+        },
+        {
+          "bin": 4,
+          "n": 218,
+          "correct": 155,
+          "errors": 63,
+          "confidence_min": 0.6911122798919678,
+          "confidence_max": 0.7674298286437988,
+          "scores": {
+            "centroid_class_margin": 0.49933435739887355,
+            "centroid_negative_candidate_distance": 0.5431643625192012,
+            "teacher_confidence": 0.5461341525857655
+          }
+        },
+        {
+          "bin": 5,
+          "n": 218,
+          "correct": 178,
+          "errors": 40,
+          "confidence_min": 0.7674424648284912,
+          "confidence_max": 0.8340328931808472,
+          "scores": {
+            "centroid_class_margin": 0.5789325842696629,
+            "centroid_negative_candidate_distance": 0.4651685393258427,
+            "teacher_confidence": 0.6169943820224719
+          }
+        },
+        {
+          "bin": 6,
+          "n": 218,
+          "correct": 190,
+          "errors": 28,
+          "confidence_min": 0.8340489268302917,
+          "confidence_max": 0.8830535411834717,
+          "scores": {
+            "centroid_class_margin": 0.5268796992481203,
+            "centroid_negative_candidate_distance": 0.45300751879699247,
+            "teacher_confidence": 0.5212406015037594
+          }
+        },
+        {
+          "bin": 7,
+          "n": 218,
+          "correct": 192,
+          "errors": 26,
+          "confidence_min": 0.8832699060440063,
+          "confidence_max": 0.9188945889472961,
+          "scores": {
+            "centroid_class_margin": 0.47706330128205127,
+            "centroid_negative_candidate_distance": 0.5369591346153846,
+            "teacher_confidence": 0.5972556089743589
+          }
+        },
+        {
+          "bin": 8,
+          "n": 218,
+          "correct": 199,
+          "errors": 19,
+          "confidence_min": 0.9189134240150452,
+          "confidence_max": 0.9461160898208618,
+          "scores": {
+            "centroid_class_margin": 0.43229304416820946,
+            "centroid_negative_candidate_distance": 0.5034382438508331,
+            "teacher_confidence": 0.658952658026977
+          }
+        },
+        {
+          "bin": 9,
+          "n": 218,
+          "correct": 204,
+          "errors": 14,
+          "confidence_min": 0.9461733102798462,
+          "confidence_max": 0.9646826386451721,
+          "scores": {
+            "centroid_class_margin": 0.48179271708683474,
+            "centroid_negative_candidate_distance": 0.5105042016806722,
+            "teacher_confidence": 0.6551120448179272
+          }
+        },
+        {
+          "bin": 10,
+          "n": 218,
+          "correct": 212,
+          "errors": 6,
+          "confidence_min": 0.9647887945175171,
+          "confidence_max": 0.9765581488609314,
+          "scores": {
+            "centroid_class_margin": 0.4414308176100629,
+            "centroid_negative_candidate_distance": 0.3455188679245283,
+            "teacher_confidence": 0.49488993710691825
+          }
+        },
+        {
+          "bin": 11,
+          "n": 218,
+          "correct": 214,
+          "errors": 4,
+          "confidence_min": 0.9766005277633667,
+          "confidence_max": 0.9851970672607422,
+          "scores": {
+            "centroid_class_margin": 0.552570093457944,
+            "centroid_negative_candidate_distance": 0.338785046728972,
+            "teacher_confidence": 0.8364485981308412
+          }
+        },
+        {
+          "bin": 12,
+          "n": 218,
+          "correct": 215,
+          "errors": 3,
+          "confidence_min": 0.9852449297904968,
+          "confidence_max": 0.991077184677124,
+          "scores": {
+            "centroid_class_margin": 0.6589147286821705,
+            "centroid_negative_candidate_distance": 0.5705426356589147,
+            "teacher_confidence": 0.5782945736434109
+          }
+        },
+        {
+          "bin": 13,
+          "n": 218,
+          "correct": 217,
+          "errors": 1,
+          "confidence_min": 0.9910857081413269,
+          "confidence_max": 0.9947564601898193,
+          "scores": {
+            "centroid_class_margin": 0.7649769585253456,
+            "centroid_negative_candidate_distance": 0.5944700460829493,
+            "teacher_confidence": 0.728110599078341
+          }
+        },
+        {
+          "bin": 14,
+          "n": 218,
+          "correct": 215,
+          "errors": 3,
+          "confidence_min": 0.994772732257843,
+          "confidence_max": 0.9967052340507507,
+          "scores": {
+            "centroid_class_margin": 0.5790697674418605,
+            "centroid_negative_candidate_distance": 0.8224806201550388,
+            "teacher_confidence": 0.49844961240310076
+          }
+        },
+        {
+          "bin": 15,
+          "n": 218,
+          "correct": 218,
+          "errors": 0,
+          "confidence_min": 0.996708869934082,
+          "confidence_max": 0.9981032609939575,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 16,
+          "n": 218,
+          "correct": 217,
+          "errors": 1,
+          "confidence_min": 0.9981042146682739,
+          "confidence_max": 0.9989363551139832,
+          "scores": {
+            "centroid_class_margin": 0.4539170506912442,
+            "centroid_negative_candidate_distance": 0.31105990783410137,
+            "teacher_confidence": 0.5829493087557603
+          }
+        },
+        {
+          "bin": 17,
+          "n": 217,
+          "correct": 217,
+          "errors": 0,
+          "confidence_min": 0.998943030834198,
+          "confidence_max": 0.9994297623634338,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        },
+        {
+          "bin": 18,
+          "n": 217,
+          "correct": 216,
+          "errors": 1,
+          "confidence_min": 0.9994322657585144,
+          "confidence_max": 0.9997988343238831,
+          "scores": {
+            "centroid_class_margin": 0.9212962962962963,
+            "centroid_negative_candidate_distance": 0.8148148148148148,
+            "teacher_confidence": 0.13425925925925927
+          }
+        },
+        {
+          "bin": 19,
+          "n": 217,
+          "correct": 217,
+          "errors": 0,
+          "confidence_min": 0.9998012185096741,
+          "confidence_max": 0.9999998807907104,
+          "scores": {
+            "centroid_class_margin": null,
+            "centroid_negative_candidate_distance": null,
+            "teacher_confidence": null
+          }
+        }
+      ],
+      "conflict": {
+        "all": {
+          "n": 4357,
+          "errors": 656,
+          "flagged": 1111,
+          "flagged_errors": 384,
+          "flagged_correct": 727,
+          "error_prevalence": 0.15056231351847602,
+          "error_precision": 0.34563456345634563,
+          "error_recall": 0.5853658536585366,
+          "correct_rejection_rate": 0.19643339637935692
+        },
+        "confidence_ge_0.9": {
+          "n": 2739,
+          "errors": 66,
+          "flagged": 287,
+          "flagged_errors": 11,
+          "flagged_correct": 276,
+          "error_prevalence": 0.024096385542168676,
+          "error_precision": 0.03832752613240418,
+          "error_recall": 0.16666666666666666,
+          "correct_rejection_rate": 0.10325476992143659
+        },
+        "highest_confidence_quartile": {
+          "n": 1089,
+          "errors": 2,
+          "flagged": 25,
+          "flagged_errors": 0,
+          "flagged_correct": 25,
+          "error_prevalence": 0.0018365472910927456,
+          "error_precision": 0.0,
+          "error_recall": 0.0,
+          "correct_rejection_rate": 0.022999080036798528
+        },
+        "source_disagreement": {
+          "n": 812,
+          "errors": 362,
+          "flagged": 462,
+          "flagged_errors": 252,
+          "flagged_correct": 210,
+          "error_prevalence": 0.4458128078817734,
+          "error_precision": 0.5454545454545454,
+          "error_recall": 0.6961325966850829,
+          "correct_rejection_rate": 0.4666666666666667
+        }
+      },
+      "true_class_nearer_than_uniform_wrong_class_fraction": 0.9821336355290338,
+      "static_aggregation_references": {
+        "uniform_source_logits": {
+          "accuracy": 0.8377323846683498,
+          "rescued_combined_errors": 68,
+          "spoiled_combined_correct": 119
+        },
+        "base_pooled_only": {
+          "accuracy": 0.8542575166398898,
+          "rescued_combined_errors": 86,
+          "spoiled_combined_correct": 65
+        },
+        "base_pooled_uniform_source": {
+          "accuracy": 0.8512738122561395,
+          "rescued_combined_errors": 60,
+          "spoiled_combined_correct": 52
+        },
+        "combined": {
+          "accuracy": 0.849437686481524,
+          "rescued_combined_errors": 0,
+          "spoiled_combined_correct": 0
+        },
+        "max_confidence_source_or_combined": {
+          "accuracy": 0.8407160890521,
+          "rescued_combined_errors": 74,
+          "spoiled_combined_correct": 112
+        }
+      }
+    }
+  }
+}

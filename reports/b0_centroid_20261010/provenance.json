@@ -1,0 +1,20 @@
+{
+  "training_updates": 0,
+  "b0_checkpoints_unchanged": {
+    "art": true,
+    "clipart": true,
+    "product": true,
+    "real_world": true
+  },
+  "runtime_sha256": {
+    "prepare_b0_centroids.py": "077cb5348f3ce1124d8677af355ddbf87494d94439b67cb13feb6ea1b5ad5fff",
+    "analyze_b0_centroids.py": "7a3a7e7e6735160076a880508f16ff00f0694cdb33832de17fe9b8e1e0dca72b",
+    "supplement_b0_centroids.py": "b85bb840e3f933d255fca24c5e24f7fee934dfe3dd2a1c9ce6e4579571fca1f5"
+  },
+  "exits": {
+    "prepare.exit": "2026-10-10T09:52:53+08:00 exit_code=0",
+    "analysis.exit": "2026-10-10T09:56:42+08:00 exit_code=0"
+  },
+  "raw_outputs": "/home/tangxunchi/workspace/Style-SPL/runs/b0_centroid_20261010/analysis",
+  "prepared_state": "/home/tangxunchi/workspace/Style-SPL/runs/b0_centroid_20261010/prepared/b0_static_state.pt"
+}

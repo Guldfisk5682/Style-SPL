@@ -1,0 +1,72 @@
+{
+  "training_updates": 0,
+  "target_labels_accessed": false,
+  "tasks": {
+    "art": {
+      "source_manifest_matches_training": true,
+      "source_manifest_sha256": "a30dcb533cb71cbcc2ca4696ab8237d40085d19fb896f652dfd610e9c8c30826",
+      "coverage_checks_matched": 100,
+      "source_samples_per_domain": [
+        10000.0,
+        10000.0,
+        10000.0
+      ],
+      "sampled_indices_sha256": "b26aa7e9fe2c16ccbd8dd12cc25b4d5102dee66b434b633c2a23d3d3fa4f1d01",
+      "source_texts_match_prior_export_exactly": true,
+      "checkpoint_sha256": "1b74e9e57a95d8bb1fb35530b043fb77fc8c734c3d35576c4d2e10fc057dbc53",
+      "recovery_limit": "Original checkpoint omitted centroids; sampling order is replayed and all saved coverage checks match, but no original centroid tensor exists for bitwise verification. Cached image encoding batch=64 versus training batch=30 may introduce small numerical differences.",
+      "full_vs_replay_centroid_max_abs": 0.013018190860748291
+    },
+    "clipart": {
+      "source_manifest_matches_training": true,
+      "source_manifest_sha256": "c4c186cf7fde85e931f93843b214f09a69f3a47c4ca416b97e4fed34b966bcd2",
+      "coverage_checks_matched": 100,
+      "source_samples_per_domain": [
+        10000.0,
+        10000.0,
+        10000.0
+      ],
+      "sampled_indices_sha256": "c3da03e858b26c4b142cff8ca7c409090eac58110c228f1a38417c55c988dc4f",
+      "source_texts_match_prior_export_exactly": true,
+      "checkpoint_sha256": "f5d5fe001332276ebbe3f9954e29a65ebbdd862d65aaeb0dfa1980263b6280d2",
+      "recovery_limit": "Original checkpoint omitted centroids; sampling order is replayed and all saved coverage checks match, but no original centroid tensor exists for bitwise verification. Cached image encoding batch=64 versus training batch=30 may introduce small numerical differences.",
+      "full_vs_replay_centroid_max_abs": 0.031684406101703644
+    },
+    "product": {
+      "source_manifest_matches_training": true,
+      "source_manifest_sha256": "a4236038214d100739a4d03b571e191208d1ec258782fa5e12935a97f3056565",
+      "coverage_checks_matched": 100,
+      "source_samples_per_domain": [
+        10000.0,
+        10000.0,
+        10000.0
+      ],
+      "sampled_indices_sha256": "da7420a07926abcc630b7df246cf7a9c1b9a67abff1fd36a26f5ce728f876321",
+      "source_texts_match_prior_export_exactly": true,
+      "checkpoint_sha256": "7e1696d9c964eea4b882c40459a01b9fb96807e24464945539f9020d35c6dd93",
+      "recovery_limit": "Original checkpoint omitted centroids; sampling order is replayed and all saved coverage checks match, but no original centroid tensor exists for bitwise verification. Cached image encoding batch=64 versus training batch=30 may introduce small numerical differences.",
+      "full_vs_replay_centroid_max_abs": 0.035009268671274185
+    },
+    "real_world": {
+      "source_manifest_matches_training": true,
+      "source_manifest_sha256": "c7699ab3b25257b28667ca384b6fa381218342c98301eb00a98482b3b17055c3",
+      "coverage_checks_matched": 100,
+      "source_samples_per_domain": [
+        10000.0,
+        10000.0,
+        10000.0
+      ],
+      "sampled_indices_sha256": "346a7b739f19c0677f7ddeedcaa9de78baa511c9e501fb84f6b32cb6a75b4827",
+      "source_texts_match_prior_export_exactly": true,
+      "checkpoint_sha256": "d363c43ff958d03d43163503a546d9d343c72b61c241a308a82212aecc70e78c",
+      "recovery_limit": "Original checkpoint omitted centroids; sampling order is replayed and all saved coverage checks match, but no original centroid tensor exists for bitwise verification. Cached image encoding batch=64 versus training batch=30 may introduce small numerical differences.",
+      "full_vs_replay_centroid_max_abs": 0.026306509971618652
+    }
+  },
+  "author_runtime_sha256": {
+    "main.py": "2347317aa1efdd5bed7f17789209b5253844b4297329ba6419c8d26358431d9d",
+    "samplers.py": "6ec7848e6ae16df19b0bea3a7ead224c5639af16a58bae93893ce7f95f055343",
+    "dataset.py": "78e2001a6084512e6dba2c458fce6f0214230ae4b3ab795d99415b77baaf4833"
+  },
+  "preparation_code_sha256": "077cb5348f3ce1124d8677af355ddbf87494d94439b67cb13feb6ea1b5ad5fff"
+}
