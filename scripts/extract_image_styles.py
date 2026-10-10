@@ -12,6 +12,7 @@ from torch.utils.data import DataLoader
 from clip_custom import clip
 from model import PromptGenerator, Custom_Clip
 from style import RN50StyleExtractor, UnlabelledImages, preprocess_identity
+from runtime import fix_random_seed
 
 
 def sha(path):
@@ -27,6 +28,9 @@ def main():
     p.add_argument("--targets", nargs="+", required=True)
     p.add_argument("--export_b0", action="store_true")
     args = p.parse_args()
+    # Match the saved bank/embedding runtime (notably cuDNN disabled), rather
+    # than silently accepting a numerically different convolution backend.
+    fix_random_seed(1)
     torch.set_num_threads(4)
     model, preprocess = clip.load("RN50", device="cuda")
     model.float().eval().requires_grad_(False)

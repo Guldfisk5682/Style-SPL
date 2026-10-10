@@ -1,0 +1,29 @@
+{
+  "training_updates": 0,
+  "input_states_unchanged": {
+    "/home/tangxunchi/workspace/Domain_Adaptation/runs/crpl_spl_protocol_checked_20261009_seed1/outputs/data_root=/home/tangxunchi/workspace/Domain_Adaptation/runs/crpl_spl_protocol_checked_20261009_seed1/data_parent/OfficeHome/backbone=RN50/dataset=OfficeHome/seed=1/batch_size=30/num_workers=4/pin_memory=True/threshold=0.4/M1=16/M2=16/training_mode=multi-source/prompt_iteration=1000/prompt_learning_rate=0.005/ot_t_weight=0.5/t_weight=0.5/w_scale=10/evaluation_step=200/output_dir=/home/tangxunchi/workspace/Domain_Adaptation/runs/crpl_spl_protocol_checked_20261009_seed1/outputs/OT_clustering=0/enhanced_pseudo_label=1/entropy_tradeoff=0.0/device=cuda/art/last.pth": true,
+    "/home/tangxunchi/workspace/Domain_Adaptation/runs/crpl_spl_protocol_checked_20261009_seed1/outputs/data_root=/home/tangxunchi/workspace/Domain_Adaptation/runs/crpl_spl_protocol_checked_20261009_seed1/data_parent/OfficeHome/backbone=RN50/dataset=OfficeHome/seed=1/batch_size=30/num_workers=4/pin_memory=True/threshold=0.4/M1=16/M2=16/training_mode=multi-source/prompt_iteration=1000/prompt_learning_rate=0.005/ot_t_weight=0.5/t_weight=0.5/w_scale=10/evaluation_step=200/output_dir=/home/tangxunchi/workspace/Domain_Adaptation/runs/crpl_spl_protocol_checked_20261009_seed1/outputs/OT_clustering=0/enhanced_pseudo_label=1/entropy_tradeoff=0.0/device=cuda/clipart/last.pth": true,
+    "/home/tangxunchi/workspace/Domain_Adaptation/runs/crpl_spl_protocol_checked_20261009_seed1/outputs/data_root=/home/tangxunchi/workspace/Domain_Adaptation/runs/crpl_spl_protocol_checked_20261009_seed1/data_parent/OfficeHome/backbone=RN50/dataset=OfficeHome/seed=1/batch_size=30/num_workers=4/pin_memory=True/threshold=0.4/M1=16/M2=16/training_mode=multi-source/prompt_iteration=1000/prompt_learning_rate=0.005/ot_t_weight=0.5/t_weight=0.5/w_scale=10/evaluation_step=200/output_dir=/home/tangxunchi/workspace/Domain_Adaptation/runs/crpl_spl_protocol_checked_20261009_seed1/outputs/OT_clustering=0/enhanced_pseudo_label=1/entropy_tradeoff=0.0/device=cuda/product/last.pth": true,
+    "/home/tangxunchi/workspace/Domain_Adaptation/runs/crpl_spl_protocol_checked_20261009_seed1/outputs/data_root=/home/tangxunchi/workspace/Domain_Adaptation/runs/crpl_spl_protocol_checked_20261009_seed1/data_parent/OfficeHome/backbone=RN50/dataset=OfficeHome/seed=1/batch_size=30/num_workers=4/pin_memory=True/threshold=0.4/M1=16/M2=16/training_mode=multi-source/prompt_iteration=1000/prompt_learning_rate=0.005/ot_t_weight=0.5/t_weight=0.5/w_scale=10/evaluation_step=200/output_dir=/home/tangxunchi/workspace/Domain_Adaptation/runs/crpl_spl_protocol_checked_20261009_seed1/outputs/OT_clustering=0/enhanced_pseudo_label=1/entropy_tradeoff=0.0/device=cuda/real_world/last.pth": true,
+    "/home/tangxunchi/workspace/Style-SPL/runs/descriptor_20261010_seed1/r4_real/art/mechanism/step1000.pt": true,
+    "/home/tangxunchi/workspace/Style-SPL/runs/descriptor_20261010_seed1/r4_real/clipart/mechanism/step1000.pt": true,
+    "/home/tangxunchi/workspace/Style-SPL/runs/descriptor_20261010_seed1/r4_real/product/mechanism/step1000.pt": true,
+    "/home/tangxunchi/workspace/Style-SPL/runs/descriptor_20261010_seed1/r4_real/real_world/mechanism/step1000.pt": true,
+    "/home/tangxunchi/workspace/Style-SPL/runs/descriptor_20261010_seed1/r4_random/art/mechanism/step1000.pt": true,
+    "/home/tangxunchi/workspace/Style-SPL/runs/descriptor_20261010_seed1/r4_random/clipart/mechanism/step1000.pt": true,
+    "/home/tangxunchi/workspace/Style-SPL/runs/descriptor_20261010_seed1/r4_random/product/mechanism/step1000.pt": true,
+    "/home/tangxunchi/workspace/Style-SPL/runs/descriptor_20261010_seed1/r4_random/real_world/mechanism/step1000.pt": true
+  },
+  "server_output": "/home/tangxunchi/workspace/Style-SPL/runs/style_reliability_20261010/analysis_complete",
+  "style_cache": "/home/tangxunchi/workspace/Style-SPL/runs/style_reliability_20261010/styles",
+  "runtime_sha256": {
+    "scripts/extract_image_styles.py": "627ad85064062aeec1f98b203247114131f80d23cb9773b22012b8ec293231ac",
+    "scripts/analyze_style_reliability.py": "50c94e20ff8d76475bf4ed4850fd27842e0e33bedf8c265b37b3d03014260413"
+  },
+  "queue_exits": {
+    "extract1.exit": "2026-10-10T09:22:03+08:00 exit_code=0",
+    "extract0.exit": "2026-10-10T09:21:37+08:00 exit_code=0",
+    "analysis_complete.exit": "2026-10-10T09:25:48+08:00 exit_code=0",
+    "analysis.exit": "2026-10-10T09:23:09+08:00 exit_code=0"
+  }
+}
